@@ -1,0 +1,5 @@
+export const APACHE_STATE_TYPE = {
+  STOPPED: 'STOPPED',
+  RUNNING: 'RUNNING',
+  STARTED: 'STARTED'
+}
