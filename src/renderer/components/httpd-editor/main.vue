@@ -11,7 +11,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import VhostsComponent from './TheHttpdEditorPage/vhosts'
+  import VhostsComponent from './vhosts'
 
   export default {
     components: {VhostsComponent},

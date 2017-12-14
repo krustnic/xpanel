@@ -1,6 +1,5 @@
 <template>
     <div>
-        <div>VHOSTS {{config.length}}</div>
         <div>
             <div v-for="(directive, index) in config" :key="index">
                 <template v-if="directive.type === 'scope'">

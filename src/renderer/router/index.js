@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import HttpdEditor from '@/components/httpd-editor/main'
+
 Vue.use(Router)
 
 export default new Router({
@@ -24,7 +26,7 @@ export default new Router({
     {
       path: '/httpd-editor',
       name: 'httpd-editor',
-      component: require('@/components/TheHttpdEditorPage').default
+      component: HttpdEditor
     },
     {
       path: '*',
