@@ -28,6 +28,8 @@
   }
 </script>
 
-<style>
-  /* CSS */
+<style lang="scss">
+  body {
+    background-color: $body-color;
+  }
 </style>
