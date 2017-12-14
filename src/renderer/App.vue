@@ -31,5 +31,12 @@
 <style lang="scss">
   body {
     background-color: $body-color;
+    color: $main-text-color;
+    font-family: $main-font-family;
+    font-size: 14px;
+  }
+
+  input {
+    font-family: $main-font-family
   }
 </style>

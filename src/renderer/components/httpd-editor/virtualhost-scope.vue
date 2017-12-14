@@ -1,14 +1,9 @@
 <template>
-    <div style="background-color: #ffc100;color:white;">
-        <div>{{ scope.name }}</div>
-        <div>
-            <input :value="area" disabled type="text">
-        </div>
-        <div>
-            <input :value="serverName" disabled type="text">
-        </div>
-        <div>
-            <input :value="documentRoot" disabled type="text">
+    <div class="virtualhost-scope">
+        <div class="virtualhost-scope__scope">{{ scope.name }} <span>{{ area }}</span></div>
+        <div class="virtualhost-scope__directives">
+            <div class="virtualhost-scope__server-name">{{ serverName }}</div>
+            <div class="virtualhost-scope__document-root">{{ documentRoot }}</div>
         </div>
     </div>
 </template>
@@ -49,5 +44,31 @@
 </script>
 
 <style lang="scss">
+    .virtualhost-scope {
+        background-color: $main-bg-color;
+        border: 1px solid $main-border-color;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
 
+    .virtualhost-scope:hover {
+        background-color: lighten($main-bg-color, 7%);
+        cursor: pointer;
+    }
+
+    .virtualhost-scope__directives {
+        margin-left: 10px;
+    }
+
+    .virtualhost-scope__scope {
+        color: $color-blue;
+    }
+
+    .virtualhost-scope__server-name {
+        color: $color-green;
+    }
+
+    .virtualhost-scope__document-root {
+        color: $color-green;
+    }
 </style>
