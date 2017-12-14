@@ -1,5 +1,5 @@
 <template>
-    <div class="virtualhost-scope">
+    <div @click="selectView" class="virtualhost-scope">
         <div class="virtualhost-scope__scope">{{ scope.name }} <span>{{ area }}</span></div>
         <div class="virtualhost-scope__directives">
             <div class="virtualhost-scope__server-name">{{ serverName }}</div>
@@ -38,6 +38,11 @@
       },
       documentRoot () {
         return this.directives['DocumentRoot'] || ''
+      }
+    },
+    methods: {
+      selectView () {
+        this.$emit('on-select-view', this.scope)
       }
     }
   }

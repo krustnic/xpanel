@@ -4,7 +4,9 @@
             <div v-for="(directive, index) in config" :key="index">
                 <template v-if="directive.type === 'scope'">
                     <template v-if="directive.name.toLowerCase() === 'virtualhost'">
-                        <virtual-host-scope :scope="directive"></virtual-host-scope>
+                        <virtual-host-scope @on-select-view="selectView"
+                                            :scope="directive"
+                        ></virtual-host-scope>
                     </template>
                     <default-scope v-else :scope="directive"></default-scope>
                 </template>
@@ -34,6 +36,11 @@
       },
       data () {
         return {}
+      },
+      methods: {
+        selectView (view) {
+          this.$store.commit('Files/PUSH_VIEW', { view })
+        }
       }
     }
 </script>

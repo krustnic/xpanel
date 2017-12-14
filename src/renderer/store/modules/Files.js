@@ -3,20 +3,53 @@ import {HttpdLoader} from '../../utils/file-loaders'
 
 const state = {
   // state
+  currentView: null,
+  views: [],
   currentFile: null,
   openedFiles: {}
 }
 
 const mutations = {
   SET_CURRENT_HTTPD_CONFIG (state, { path, config }) {
+    const wrappedConfig = {
+      body: config
+    }
     state.currentFile = path
-    Vue.set(state.openedFiles, path, config)
+    state.views = [wrappedConfig]
+    state.currentView = wrappedConfig
+    Vue.set(state.openedFiles, path, wrappedConfig)
+  },
+  SET_CURRENT_VIEW (state, {view}) {
+    if (state.currentView === view) return
+    state.currentView = view
+
+    const newViewsHistory = []
+    for (let i in state.views) {
+      newViewsHistory.push(view)
+      if (state.views[i] === view) break
+    }
+
+    state.views = newViewsHistory
+  },
+  PUSH_VIEW (state, { view }) {
+    state.views.push(view)
+    state.currentView = view
+  },
+  SET_VIEW_HISTORY (state, { history }) {
+    state.views = history
   }
 }
 
 const getters = {
   getCurrentFileConfig: state => {
     return state.openedFiles[state.currentFile]
+  },
+  currentViewList: state => {
+    if (!state.currentView) return []
+    return state.currentView.body
+  },
+  views: state => {
+    return state.views
   }
 }
 

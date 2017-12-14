@@ -4,17 +4,19 @@
         <button @click="view">Print</button>
 
         <hr>
-
-        <vhosts-component :config="getCurrentFileConfig"></vhosts-component>
+        <breadcrumbs :views="views" @on-select-view="selectView"></breadcrumbs>
+        <hr>
+        <vhosts-component :config="currentViewList"></vhosts-component>
     </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
   import VhostsComponent from './vhosts'
+  import Breadcrumbs from './breadcrumbs'
 
   export default {
-    components: {VhostsComponent},
+    components: {VhostsComponent, Breadcrumbs},
     data () {
       return {}
     },
@@ -27,12 +29,17 @@
         })
       },
       view () {
-        console.log('Config', this.getCurrentFileConfig)
+        console.log('Config', this.currentViewList)
+      },
+      selectView (view) {
+        this.$store.commit('Files/SET_CURRENT_VIEW', { view })
       }
     },
     computed: {
       ...mapGetters('Files', [
-        'getCurrentFileConfig'
+        'getCurrentFileConfig',
+        'currentViewList',
+        'views'
       ])
     }
   }
