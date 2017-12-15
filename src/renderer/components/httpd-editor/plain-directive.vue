@@ -1,8 +1,10 @@
 <template>
     <div>
-        {{ directive.name }}
-        <div>
-            <input :value="properties" disabled type="text">
+        <div class="plain-directive">
+            <div class="plain-directive__name">{{ directive.name }}</div>
+            <div class="plain-directive__value">
+                <input class="plain-directive__value__input" :value="properties" disabled type="text">
+            </div>
         </div>
     </div>
 </template>
@@ -30,6 +32,17 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+    .plain-directive__value {
+        margin-top: 5px;
+    }
 
+    .plain-directive__value__input {
+        width: 100%;
+        padding: 5px;
+        background-color: #262a33;
+        border: 1px solid #181a1f;
+        color: #d7dae0;
+        box-sizing: border-box;
+    }
 </style>

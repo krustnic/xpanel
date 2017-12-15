@@ -4,6 +4,8 @@
         <button @click="view">Print</button>
 
         <hr>
+        <app-breadcrumbs :items="views"></app-breadcrumbs>
+        <hr>
         <breadcrumbs :views="views" @on-select-view="selectCurrentView"></breadcrumbs>
         <hr>
         <vhosts-component :config="currentViewList"></vhosts-component>
@@ -14,9 +16,10 @@
   import { mapGetters } from 'vuex'
   import VhostsComponent from './vhosts'
   import Breadcrumbs from './breadcrumbs'
+  import AppBreadcrumbs from '@/components/app-breadcrumbs/main'
 
   export default {
-    components: {VhostsComponent, Breadcrumbs},
+    components: {VhostsComponent, Breadcrumbs, AppBreadcrumbs},
     data () {
       return {}
     },
