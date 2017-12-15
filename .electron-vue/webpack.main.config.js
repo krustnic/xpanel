@@ -52,6 +52,10 @@ let mainConfig = {
     new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {
+    alias: {
+      '@': path.join(__dirname, '../src/renderer'),
+      'vue$': 'vue/dist/vue.esm.js'
+    },
     extensions: ['.js', '.json', '.node']
   },
   target: 'electron-main'

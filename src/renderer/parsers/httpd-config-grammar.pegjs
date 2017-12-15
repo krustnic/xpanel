@@ -1,16 +1,25 @@
 // Simple VirtualHost Grammar
 // ==========================
+{
+	const DIRECTIVE_TYPES = {
+    	SCOPED: 'SCOPED',
+        PLAIN: 'PLAIN',
+        BLANK_LINE: 'BLANK_LINE',
+        COMMENT: 'COMMENT',
+        NEW_LINE: 'NEW_LINE'
+    }
+}
 
 Start = blocks:Block* {
 	return blocks.filter(function(block) {
-    	return block.type === 'scope' || block.type === 'directive';
+    	return block.type === DIRECTIVE_TYPES.SCOPED || block.type === DIRECTIVE_TYPES.PLAIN;
     });
 }
 
 Block = EmptyLine / Comment / Scope / Directive
 
 Scope = name:ScopeName area:ScopeArea body:ScopeBody* ScopeEnd {
-	return { type : 'scope', name : name, area : area, body : body }
+	return { type : DIRECTIVE_TYPES.SCOPED, name : name, area : area, body : body }
 }
 ScopeName = Multispaces '<' name:[a-z/]i+ ' ' { return name.join('') }
 ScopeArea = area:TScopeArea* '>' EmptyLine { return area.join('')}
@@ -18,7 +27,7 @@ ScopeBody = Block
 ScopeEnd = Multispaces '</' TDirectiveName* '>' EmptyLine*
 
 Directive = Multispaces directiveName:DirectiveName Multispaces directiveParameters:DirectiveParams EmptyLine {
-    return { type : 'directive', name : directiveName, parameters : directiveParameters }
+    return { type : DIRECTIVE_TYPES.PLAIN, name : directiveName, parameters : directiveParameters }
 }
 
 DirectiveName = directiveName:TDirectiveName+ {	return directiveName.join('') }
@@ -40,8 +49,8 @@ DirectiveParameter 'Directive Parameter' = directiveParameter:TDirectiveParamete
 TScopeArea = $(!['>'] .)
 TDirectiveName = [a-z]i
 TDirectiveParameter = $(![' \n'] .)
-Comment = Multispaces '#' AnyChar* NewLine { return { type : 'comment' } }
+Comment = Multispaces '#' AnyChar* NewLine { return { type : DIRECTIVE_TYPES.COMMENT } }
 AnyChar = !NewLine .
 Multispaces 'Multispaces' = [ \t]*
-NewLine 'NewLine' = [\n\r] { return { type : 'blank_line' } }
-EmptyLine 'EmptyLine' = Multispaces NewLine { return { type : 'empty_line' } }
+NewLine 'NewLine' = [\n\r] { return { type : DIRECTIVE_TYPES.NEW_LINE } }
+EmptyLine 'EmptyLine' = Multispaces NewLine { return { type : DIRECTIVE_TYPES.BLANK_LINE } }

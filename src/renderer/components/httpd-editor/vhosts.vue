@@ -1,31 +1,34 @@
 <template>
     <div>
         <div>
-            <div v-for="(directive, index) in config" :key="index">
-                <template v-if="directive.type === 'scope'">
-                    <template v-if="directive.name.toLowerCase() === 'virtualhost'">
-                        <virtual-host-scope @on-select-view="selectView"
-                                            :scope="directive"
-                        ></virtual-host-scope>
+            <div v-for="(directive, index) in filteredConfig" :key="index">
+                <directive :directive="directive" @on-select-view="selectView">
+                    <template v-if="directive.type === DIRECTIVE_TYPES.SCOPED">
+                        <scoped-directive :scope="directive">
+                            <virtual-host-teaser v-if="directive.name.toLowerCase() === 'virtualhost'"
+                                                 :scope="directive"
+                            ></virtual-host-teaser>
+                        </scoped-directive>
                     </template>
-                    <default-scope v-else :scope="directive"></default-scope>
-                </template>
 
-                <template v-if="directive.type === 'directive'">
-                    <default-directive :directive="directive"></default-directive>
-                </template>
+                    <template v-if="directive.type === DIRECTIVE_TYPES.PLAIN">
+                        <plain-directive :directive="directive"></plain-directive>
+                    </template>
+                </directive>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import DefaultDirective from './default-directive'
-    import DefaultScope from './default-scope'
-    import VirtualHostScope from './virtualhost-scope'
+    import PlainDirective from './plain-directive'
+    import ScopedDirective from './scoped-directive'
+    import VirtualHostTeaser from './virtual-host-teaser'
+    import Directive from './directive'
+    import {DIRECTIVE_TYPES} from '@/utils/types'
 
     export default {
-      components: {DefaultDirective, DefaultScope, VirtualHostScope},
+      components: {PlainDirective, ScopedDirective, VirtualHostTeaser, Directive},
       props: {
         config: {
           type: Array,
@@ -35,10 +38,21 @@
         }
       },
       data () {
-        return {}
+        return {DIRECTIVE_TYPES}
+      },
+      computed: {
+        filteredConfig () {
+          return this.config.filter(item => {
+            return [
+              DIRECTIVE_TYPES.SCOPED,
+              DIRECTIVE_TYPES.PLAIN
+            ].indexOf(item.type) !== -1
+          })
+        }
       },
       methods: {
         selectView (view) {
+          if (view.type !== DIRECTIVE_TYPES.SCOPED) return
           this.$store.commit('Files/PUSH_VIEW', { view })
         }
       }

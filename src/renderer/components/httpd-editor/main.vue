@@ -4,7 +4,7 @@
         <button @click="view">Print</button>
 
         <hr>
-        <breadcrumbs :views="views" @on-select-view="selectView"></breadcrumbs>
+        <breadcrumbs :views="views" @on-select-view="selectCurrentView"></breadcrumbs>
         <hr>
         <vhosts-component :config="currentViewList"></vhosts-component>
     </div>
@@ -31,7 +31,7 @@
       view () {
         console.log('Config', this.currentViewList)
       },
-      selectView (view) {
+      selectCurrentView (view) {
         this.$store.commit('Files/SET_CURRENT_VIEW', { view })
       }
     },

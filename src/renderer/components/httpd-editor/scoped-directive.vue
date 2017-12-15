@@ -1,8 +1,8 @@
 <template>
-    <div style="background-color: #04afff;color:white;">
-        <div>{{ scope.name }}</div>
-        <div>
-            <input :value="area" disabled type="text">
+    <div>
+        <div class="default-scope__scope">{{ scope.name }} <span>{{ area }}</span></div>
+        <div class="default-scope__directives">
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -28,6 +28,8 @@
   }
 </script>
 
-<style>
-
+<style lang="scss">
+    .default-scope__scope {
+        color: $color-blue;
+    }
 </style>
