@@ -25,7 +25,7 @@ const mutations = {
 
     const newViewsHistory = []
     for (let i in state.views) {
-      newViewsHistory.push(view)
+      newViewsHistory.push(state.views[i])
       if (state.views[i] === view) break
     }
 

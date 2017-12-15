@@ -4,9 +4,7 @@
         <button @click="view">Print</button>
 
         <hr>
-        <app-breadcrumbs :items="views"></app-breadcrumbs>
-        <hr>
-        <breadcrumbs :views="views" @on-select-view="selectCurrentView"></breadcrumbs>
+        <app-breadcrumbs :items="views" @on-select="selectCurrentView"></app-breadcrumbs>
         <hr>
         <vhosts-component :config="currentViewList"></vhosts-component>
     </div>
@@ -15,16 +13,16 @@
 <script>
   import { mapGetters } from 'vuex'
   import VhostsComponent from './vhosts'
-  import Breadcrumbs from './breadcrumbs'
   import AppBreadcrumbs from '@/components/app-breadcrumbs/main'
 
   export default {
-    components: {VhostsComponent, Breadcrumbs, AppBreadcrumbs},
+    components: {VhostsComponent, AppBreadcrumbs},
     data () {
       return {}
     },
     methods: {
       open () {
+        // this.$store.dispatch('Files/loadHttpdFile', 'C:\\xampp\\apache\\conf\\extra\\httpd-xampp.conf').then(config => {
         this.$store.dispatch('Files/loadHttpdFile', 'C:\\xampp\\apache\\conf\\extra\\httpd-vhosts.conf').then(config => {
           console.log(config)
         }).catch(error => {

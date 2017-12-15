@@ -41,7 +41,7 @@
         width: 100%;
         padding: 5px;
         background-color: #262a33;
-        border: 1px solid #181a1f;
+        border: 1px solid #545454;
         color: #d7dae0;
         box-sizing: border-box;
     }

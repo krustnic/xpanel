@@ -39,4 +39,8 @@
   input {
     font-family: $main-font-family
   }
+
+  hr {
+    border-color: #3e3e3e;
+  }
 </style>
