@@ -3,21 +3,21 @@
         <div>
             <div v-if="scope.name">
                 <directive :directive="scope" @on-select-view="selectView">
-                    <plain-directive :directive="scope"></plain-directive>
+                    <directive-plain :directive="scope"></directive-plain>
                 </directive>
             </div>
             <div v-for="(directive, index) in filteredDirectives" :key="index">
                 <directive :directive="directive" @on-select-view="selectView">
                     <template v-if="directive.type === DIRECTIVE_TYPES.SCOPED">
-                        <scoped-directive :scope="directive">
+                        <directive-scoped :directive="directive">
                             <virtual-host-teaser v-if="directive.name.toLowerCase() === 'virtualhost'"
-                                                 :scope="directive"
+                                                 :directive="directive"
                             ></virtual-host-teaser>
-                        </scoped-directive>
+                        </directive-scoped>
                     </template>
 
                     <template v-if="directive.type === DIRECTIVE_TYPES.PLAIN">
-                        <plain-directive :directive="directive"></plain-directive>
+                        <directive-plain :directive="directive"></directive-plain>
                     </template>
                 </directive>
             </div>
@@ -26,14 +26,14 @@
 </template>
 
 <script>
-    import PlainDirective from './plain-directive'
-    import ScopedDirective from './scoped-directive'
+    import DirectivePlain from './directive-plain'
+    import DirectiveScoped from './directive-scoped'
     import VirtualHostTeaser from './virtual-host-teaser'
     import Directive from './directive'
     import {DIRECTIVE_TYPES} from '@/utils/types'
 
     export default {
-      components: {PlainDirective, ScopedDirective, VirtualHostTeaser, Directive},
+      components: {DirectivePlain, DirectiveScoped, VirtualHostTeaser, Directive},
       props: {
         config: {
           type: Object,
@@ -61,13 +61,9 @@
       },
       methods: {
         selectView (view) {
-          if (view.type !== DIRECTIVE_TYPES.SCOPED) return
+          if (view.type !== DIRECTIVE_TYPES.SCOPED || view === this.config) return
           this.$store.commit('Files/PUSH_VIEW', { view })
         }
       }
     }
 </script>
-
-<style>
-
-</style>

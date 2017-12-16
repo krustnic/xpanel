@@ -19,7 +19,18 @@ Start = blocks:Block* {
 Block = EmptyLine / Comment / Scope / Directive
 
 Scope = name:ScopeName area:ScopeArea body:ScopeBody* ScopeEnd {
-	return { type : DIRECTIVE_TYPES.SCOPED, name : name, area : area, body : body, location : location() }
+	return {
+    	type : DIRECTIVE_TYPES.SCOPED,
+        name : name,
+        parameters : [
+        	{
+            	value : area,
+                location : location()
+            }
+        ],
+        body : body,
+        location : location()
+    }
 }
 ScopeName = Multispaces '<' name:[a-z/]i+ ' ' { return name.join('') }
 ScopeArea = area:TScopeArea* '>' EmptyLine { return area.join('')}

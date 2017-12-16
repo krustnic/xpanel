@@ -56,5 +56,14 @@ describe('httpd configuration parser', () => {
         expect(item.location).toBeDefined()
       })
     })
+
+    it('every directive has "parameters" property as Array', () => {
+      const parsedConfig = parser.parse(content)
+
+      iterateAll(parsedConfig, (item) => {
+        expect(item.parameters).toBeDefined()
+        expect(item.parameters).toBeInstanceOf(Array)
+      })
+    })
   })
 })

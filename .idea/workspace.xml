@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a78a0b4d-6d7b-4362-b692-3752759b9326" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-scoped.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/plain-directive.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-plain.vue" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/scoped-directive.vue" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue" />
       <change beforePath="$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs" afterPath="$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/modules/Files.js" afterPath="$PROJECT_DIR$/src/renderer/store/modules/Files.js" />
       <change beforePath="$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js" afterPath="$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +25,8 @@
       <file leaf-file-name="directive.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
+            <state relative-caret-position="501">
+              <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -31,20 +35,62 @@
       <file leaf-file-name="vhosts.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+            <state relative-caret-position="518">
+              <caret line="68" column="9" lean-forward="false" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
               <folding>
-                <element signature="e#1166#1212#0" expanded="true" />
+                <element signature="e#1174#1220#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plain-directive.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/plain-directive.vue">
+      <file leaf-file-name="main.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+            <state relative-caret-position="204">
+              <caret line="24" column="123" lean-forward="true" selection-start-line="24" selection-start-column="123" selection-end-line="24" selection-end-column="123" />
+              <folding>
+                <element signature="e#337#370#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directive-plain.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-plain.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/app-breadcrumbs/main.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="virtual-host-teaser.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directive-mixin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -53,75 +99,31 @@
       <file leaf-file-name="httpd-conf-parser.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="55" column="43" lean-forward="false" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+            <state relative-caret-position="467">
+              <caret line="64" column="30" lean-forward="false" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1513412932910" expanded="true" signature="1578:1585" ph="{...}" />
+                <marker date="1513413306507" expanded="true" signature="1578:1585" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue">
+      <file leaf-file-name="directive-scoped.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-scoped.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-              <folding>
-                <element signature="e#337#370#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpd-config-grammar.pegjs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="httpd-config-grammar.pegjs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="55" column="92" lean-forward="false" selection-start-line="55" selection-start-column="92" selection-end-line="55" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LandingPage.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SystemInformation.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage/SystemInformation.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Files.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/store/modules/Files.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="43" column="26" lean-forward="false" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="1051">
+              <caret line="66" column="92" lean-forward="false" selection-start-line="66" selection-start-column="92" selection-end-line="66" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -176,24 +178,27 @@
         <option value="$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/renderer/sass/globals.scss" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtualhost-scope.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtualhost-teaser.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.electron-vue/webpack.main.config.js" />
         <option value="$PROJECT_DIR$/src/renderer/utils/types.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/default-scope.vue" />
         <option value="$PROJECT_DIR$/src/renderer/App.vue" />
         <option value="$PROJECT_DIR$/src/renderer/components/app-breadcrumbs/main.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/plain-directive.vue" />
         <option value="$PROJECT_DIR$/src/renderer/store/modules/Settings.js" />
         <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue" />
         <option value="$PROJECT_DIR$/src/renderer/store/modules/Files.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue" />
-        <option value="$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js" />
         <option value="$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs" />
+        <option value="$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/plain-directive.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/scoped-directive.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-plain.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-scoped.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue" />
       </list>
     </option>
   </component>
@@ -489,7 +494,7 @@
       <workItem from="1512824820252" duration="25829000" />
       <workItem from="1512996404970" duration="1832000" />
       <workItem from="1513318205916" duration="12244000" />
-      <workItem from="1513351794693" duration="14626000" />
+      <workItem from="1513351794693" duration="16706000" />
     </task>
     <task id="LOCAL-00001" summary="structure refactoring">
       <created>1513237320399</created>
@@ -540,11 +545,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513367533717</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="every directive should have 'location' property">
+      <created>1513413073565</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1513413073565</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78363000" />
+    <option name="totallyTimeSpent" value="80443000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -557,7 +569,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2521322" sideWeight="0.41368586" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30411255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30411255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -578,6 +590,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="structure refactoring" />
     <MESSAGE value="setup global sass" />
     <MESSAGE value="remove .idea from git" />
@@ -585,7 +599,8 @@
     <MESSAGE value="directive types refactoring + parser tests" />
     <MESSAGE value="breadcrumbs" />
     <MESSAGE value="new breadcrumbs" />
-    <option name="LAST_COMMIT_MESSAGE" value="new breadcrumbs" />
+    <MESSAGE value="every directive should have 'location' property" />
+    <option name="LAST_COMMIT_MESSAGE" value="every directive should have 'location' property" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -748,7 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js" />
     <entry file="file://$PROJECT_DIR$/src/renderer/store/modules/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -799,8 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue" />
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/scoped-directive.vue" />
     <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/breadcrumbs.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -813,14 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/app-breadcrumbs/main.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -857,16 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#337#370#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/store/modules/Files.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -877,48 +871,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue">
+    <entry file="file://$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-          <folding>
-            <element signature="e#1166#1212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/plain-directive.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        <state relative-caret-position="1051">
+          <caret line="66" column="92" lean-forward="false" selection-start-line="66" selection-start-column="92" selection-end-line="66" selection-end-column="92" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="55" column="43" lean-forward="false" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+        <state relative-caret-position="467">
+          <caret line="64" column="30" lean-forward="false" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1513412932910" expanded="true" signature="1578:1585" ph="{...}" />
+            <marker date="1513413306507" expanded="true" signature="1578:1585" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs">
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="55" column="92" lean-forward="false" selection-start-line="55" selection-start-column="92" selection-end-line="55" selection-end-column="92" />
+        <state relative-caret-position="187">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/app-breadcrumbs/main.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-plain.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-scoped.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="68" column="9" lean-forward="false" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+          <folding>
+            <element signature="e#1174#1220#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="123" lean-forward="true" selection-start-line="24" selection-start-column="123" selection-end-line="24" selection-end-column="123" />
+          <folding>
+            <element signature="e#337#370#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

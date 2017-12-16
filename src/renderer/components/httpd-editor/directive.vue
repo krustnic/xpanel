@@ -25,16 +25,16 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .directive {
         background-color: $main-bg-color;
         border: 1px solid $main-border-color;
         padding: 5px;
         margin-bottom: 5px;
-    }
 
-    .directive:hover {
-        background-color: lighten($main-bg-color, 7%);
-        cursor: pointer;
+        &:hover {
+            background-color: lighten($main-bg-color, 7%);
+            cursor: pointer;
+        }
     }
 </style>

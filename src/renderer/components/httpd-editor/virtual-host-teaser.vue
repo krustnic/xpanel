@@ -1,7 +1,7 @@
 <template>
-    <div class="virtualhost-teaser">
-        <div class="virtualhost-teaser__server-name">{{ serverName }}</div>
-        <div class="virtualhost-teaser__document-root">{{ documentRoot }}</div>
+    <div class="virtual-host-teaser">
+        <div class="server-name">{{ serverName }}</div>
+        <div class="document-root">{{ documentRoot }}</div>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
 
   export default {
     props: {
-      scope: {
+      directive: {
         type: Object,
         default () {
           return {}
@@ -24,7 +24,7 @@
       // Return only PLAIN directives from scope
       directives () {
         const directives = {}
-        this.scope.body.forEach(item => {
+        this.directive.body.forEach(item => {
           if (item.type !== DIRECTIVE_TYPES.PLAIN || item.parameters.length === 0) return true
           directives[item.name] = item.parameters[0].value
         })
@@ -40,16 +40,16 @@
   }
 </script>
 
-<style lang="scss">
-    .virtualhost-teaser {
+<style lang="scss" scoped>
+    .virtual-host-teaser {
         margin-left: 10px;
-    }
 
-    .virtualhost-teaser__server-name {
-        color: $color-green;
-    }
+        .server-name {
+            color: $color-green;
+        }
 
-    .virtualhost-teaser__document-root {
-        color: $color-green;
+        .document-root {
+            color: $color-green;
+        }
     }
 </style>
