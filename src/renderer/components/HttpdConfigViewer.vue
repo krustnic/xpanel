@@ -2,33 +2,33 @@
     <div>
         <div>
             <div v-if="scope">
-                <directive-base :directive="scope"
+                <directive :directive="scope"
                                 :name="scope.name"
                                 :value="getDirectivePropertiesString(scope)"
                                 :type="DIRECTIVE_TYPES.FAKE_SCOPE_PARAMETER"
                                 :postfix="''"
                                 @on-click="selectView"
-                ></directive-base>
+                ></directive>
             </div>
             <div v-for="({directive, name, value, type, postfix}, index) in formattedDirectives" :key="index">
-                <directive-base :directive="directive"
+                <directive :directive="directive"
                                 :name="name"
                                 :value="value"
                                 :type="type"
                                 :postfix="postfix"
                                 @on-click="selectView"
-                ></directive-base>
+                ></directive>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import DirectiveBase from './directive-base'
+    import Directive from '@/components/HttpdConfigViewer/Directive'
     import {DIRECTIVE_TYPES} from '@/utils/types'
 
     export default {
-      components: {DirectiveBase},
+      components: {Directive},
       props: {
         config: {
           type: Object,

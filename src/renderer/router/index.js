@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HttpdEditor from '@/components/httpd-editor/main'
+import VhostsPage from '@/components/VhostsPage'
 
 Vue.use(Router)
 
@@ -24,9 +24,9 @@ export default new Router({
       component: require('@/components/TheApachePage').default
     },
     {
-      path: '/httpd-editor',
-      name: 'httpd-editor',
-      component: HttpdEditor
+      path: '/vhosts-page',
+      name: 'vhosts-page',
+      component: VhostsPage
     },
     {
       path: '*',

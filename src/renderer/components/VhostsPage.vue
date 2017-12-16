@@ -4,19 +4,19 @@
         <button @click="view">Print</button>
 
         <hr>
-        <app-breadcrumbs :items="views" @on-select="selectCurrentView"></app-breadcrumbs>
+        <breadcrumbs :items="views" @on-select="selectCurrentView"></breadcrumbs>
         <hr>
-        <config-viewer :config="currentView"></config-viewer>
+        <httpd-config-viewer :config="currentView"></httpd-config-viewer>
     </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import ConfigViewer from './config-viewer'
-  import AppBreadcrumbs from '@/components/app-breadcrumbs/main'
+  import HttpdConfigViewer from '@/components/HttpdConfigViewer'
+  import Breadcrumbs from '@/components/Breadcrumbs'
 
   export default {
-    components: {ConfigViewer, AppBreadcrumbs},
+    components: {HttpdConfigViewer, Breadcrumbs},
     data () {
       return {}
     },

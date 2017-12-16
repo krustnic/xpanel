@@ -3,7 +3,7 @@
     <div>
       <router-link to="/apache">Apache</router-link>
       <router-link to="/hosts">Hosts</router-link>
-      <router-link to="/httpd-editor">Editor</router-link>
+      <router-link to="/vhosts-page">Editor</router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -29,6 +29,8 @@
 </script>
 
 <style lang="scss">
+  @import '../../node_modules/font-awesome/css/font-awesome.min.css';
+
   body {
     background-color: $body-color;
     color: $main-text-color;
