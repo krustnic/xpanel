@@ -48,5 +48,13 @@ describe('httpd configuration parser', () => {
         }
       })
     })
+
+    it('every directive has "location" property', () => {
+      const parsedConfig = parser.parse(content)
+
+      iterateAll(parsedConfig, (item) => {
+        expect(item.location).toBeDefined()
+      })
+    })
   })
 })

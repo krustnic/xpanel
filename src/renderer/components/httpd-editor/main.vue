@@ -6,7 +6,7 @@
         <hr>
         <app-breadcrumbs :items="views" @on-select="selectCurrentView"></app-breadcrumbs>
         <hr>
-        <vhosts-component :config="currentViewList"></vhosts-component>
+        <vhosts-component :config="currentView"></vhosts-component>
     </div>
 </template>
 
@@ -30,7 +30,7 @@
         })
       },
       view () {
-        console.log('Config', this.currentViewList)
+        console.log('Config', this.currentView)
       },
       selectCurrentView (view) {
         this.$store.commit('Files/SET_CURRENT_VIEW', { view })
@@ -39,7 +39,7 @@
     computed: {
       ...mapGetters('Files', [
         'getCurrentFileConfig',
-        'currentViewList',
+        'currentView',
         'views'
       ])
     }

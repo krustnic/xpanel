@@ -44,9 +44,9 @@ const getters = {
   getCurrentFileConfig: state => {
     return state.openedFiles[state.currentFile]
   },
-  currentViewList: state => {
-    if (!state.currentView) return []
-    return state.currentView.body
+  currentView: state => {
+    if (!state.currentView) return {}
+    return state.currentView
   },
   views: state => {
     return state.views

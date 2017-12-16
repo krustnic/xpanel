@@ -1,7 +1,12 @@
 <template>
     <div>
         <div>
-            <div v-for="(directive, index) in filteredConfig" :key="index">
+            <div v-if="scope.name">
+                <directive :directive="scope" @on-select-view="selectView">
+                    <plain-directive :directive="scope"></plain-directive>
+                </directive>
+            </div>
+            <div v-for="(directive, index) in filteredDirectives" :key="index">
                 <directive :directive="directive" @on-select-view="selectView">
                     <template v-if="directive.type === DIRECTIVE_TYPES.SCOPED">
                         <scoped-directive :scope="directive">
@@ -31,9 +36,9 @@
       components: {PlainDirective, ScopedDirective, VirtualHostTeaser, Directive},
       props: {
         config: {
-          type: Array,
+          type: Object,
           default () {
-            return []
+            return {}
           }
         }
       },
@@ -41,8 +46,12 @@
         return {DIRECTIVE_TYPES}
       },
       computed: {
-        filteredConfig () {
-          return this.config.filter(item => {
+        scope () {
+          return this.config
+        },
+        filteredDirectives () {
+          if (!this.config.body) return []
+          return this.config.body.filter(item => {
             return [
               DIRECTIVE_TYPES.SCOPED,
               DIRECTIVE_TYPES.PLAIN
