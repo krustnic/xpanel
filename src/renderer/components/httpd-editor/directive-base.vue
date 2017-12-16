@@ -74,6 +74,7 @@
             border: 1px solid #545454;
             color: #d7dae0;
             box-sizing: border-box;
+            cursor: pointer;
         }
     }
 </style>

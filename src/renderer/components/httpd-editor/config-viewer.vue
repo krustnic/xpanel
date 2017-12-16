@@ -1,48 +1,34 @@
 <template>
     <div>
         <div>
-            <div v-if="scope.name">
-                <directive :directive="scope" @on-select-view="selectView">
-                    <directive-plain :directive="scope"></directive-plain>
-                </directive>
+            <div v-if="scope">
+                <directive-base :directive="scope"
+                                :name="scope.name"
+                                :value="getDirectivePropertiesString(scope)"
+                                :type="DIRECTIVE_TYPES.FAKE_SCOPE_PARAMETER"
+                                :postfix="''"
+                                @on-click="selectView"
+                ></directive-base>
             </div>
-            <div v-for="({directive, name, value, type}, index) in formattedDirectives" :key="index">
+            <div v-for="({directive, name, value, type, postfix}, index) in formattedDirectives" :key="index">
                 <directive-base :directive="directive"
                                 :name="name"
                                 :value="value"
                                 :type="type"
+                                :postfix="postfix"
                                 @on-click="selectView"
                 ></directive-base>
             </div>
-            <!--<div v-for="(directive, index) in filteredDirectives" :key="index">                -->
-                <!--<directive :directive="directive" @on-select-view="selectView">-->
-                    <!--<template v-if="directive.type === DIRECTIVE_TYPES.SCOPED">-->
-                        <!--<directive-scoped :directive="directive">-->
-                            <!--<virtual-host-teaser v-if="directive.name.toLowerCase() === 'virtualhost'"-->
-                                                 <!--:directive="directive"-->
-                            <!--&gt;</virtual-host-teaser>-->
-                        <!--</directive-scoped>-->
-                    <!--</template>-->
-
-                    <!--<template v-if="directive.type === DIRECTIVE_TYPES.PLAIN">-->
-                        <!--<directive-plain :directive="directive"></directive-plain>-->
-                    <!--</template>-->
-                <!--</directive>-->
-            <!--</div>-->
         </div>
     </div>
 </template>
 
 <script>
     import DirectiveBase from './directive-base'
-    import DirectivePlain from './directive-plain'
-    import DirectiveScoped from './directive-scoped'
-    import VirtualHostTeaser from './virtual-host-teaser'
-    import Directive from './directive'
     import {DIRECTIVE_TYPES} from '@/utils/types'
 
     export default {
-      components: {DirectiveBase, DirectivePlain, DirectiveScoped, VirtualHostTeaser, Directive},
+      components: {DirectiveBase},
       props: {
         config: {
           type: Object,
@@ -56,7 +42,7 @@
       },
       computed: {
         scope () {
-          return this.config
+          return this.config.type && this.config.type !== DIRECTIVE_TYPES.ROOT ? this.config : null
         },
         filteredDirectives () {
           if (!this.config.body) return []
@@ -68,31 +54,47 @@
           })
         },
         formattedDirectives () {
-          const dires = this.filteredDirectives.map(directive => {
-            if (directive.type === DIRECTIVE_TYPES.SCOPED) {
-              return {
-                directive,
-                name: directive.name,
-                value: directive.parameters[0].value,
-                type: directive.type
-              }
-            } else {
-              return {
-                directive,
-                name: directive.name,
-                value: directive.parameters[0].value,
-                type: directive.type
-              }
-            }
+          return this.filteredDirectives.map(directive => {
+            return this.formatDirective(directive)
           })
-          console.log(dires)
-          return dires
         }
       },
       methods: {
+        formatDirective (directive) {
+          const format = {
+            directive,
+            name: directive.name,
+            value: this.getDirectivePropertiesString(directive),
+            type: directive.type
+          }
+
+          if (directive.type === DIRECTIVE_TYPES.SCOPED) {
+            if (directive.name.toLowerCase() === 'virtualhost') {
+              Object.assign(format, {
+                value: this.getChildDirectives(directive)['ServerName'],
+                postfix: directive.parameters[0].value
+              })
+            }
+          }
+
+          return format
+        },
         selectView (view) {
           if (view.type !== DIRECTIVE_TYPES.SCOPED || view === this.config) return
           this.$store.commit('Files/PUSH_VIEW', { view })
+        },
+        getChildDirectives (directive) {
+          const directives = {}
+          directive.body.forEach(item => {
+            if (item.type !== DIRECTIVE_TYPES.PLAIN || item.parameters.length === 0) return true
+            directives[item.name] = item.parameters[0].value
+          })
+          return directives
+        },
+        getDirectivePropertiesString (directive) {
+          return directive.parameters.map(param => {
+            return param.value
+          }).join(', ')
         }
       }
     }

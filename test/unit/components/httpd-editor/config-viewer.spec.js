@@ -17,12 +17,32 @@ let wrapper = shallow(ConfigEditor, {
 
 describe('config-editor.vue', () => {
   describe('filteredDirectives', () => {
+    let filterdDirectives = null
+
+    beforeEach(() => {
+      filterdDirectives = wrapper.vm.filteredDirectives
+    })
+
     it('Should return only directives with specific types', () => {
-      const filterdDirectives = wrapper.vm.filteredDirectives
       filterdDirectives.map(directive => {
         expect([
-          DIRECTIVE_TYPES.SCOPED
+          DIRECTIVE_TYPES.SCOPED,
+          DIRECTIVE_TYPES.PLAIN
         ].indexOf(directive.type)).not.toEqual(-1)
+      })
+    })
+  })
+
+  describe('formattedDirectives', () => {
+    it('Should return array of specific objects for all directives', () => {
+      const formattedDirectives = wrapper.vm.formattedDirectives
+      expect(formattedDirectives.length).toEqual(config.body.length)
+      formattedDirectives.map(directive => {
+        expect(directive).toBeInstanceOf(Object)
+        expect(directive.type).toBeDefined()
+        expect(directive.directive).toBeDefined()
+        expect(directive.name).toBeDefined()
+        expect(directive.value).toBeDefined()
       })
     })
   })

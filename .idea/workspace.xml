@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a78a0b4d-6d7b-4362-b692-3752759b9326" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/unit/setup.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs" afterPath="$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/store/modules/Files.js" afterPath="$PROJECT_DIR$/src/renderer/store/modules/Files.js" />
+    <list default="true" id="b171b3c6-fb92-449a-99d3-a16cbb2dfc2e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue" afterPath="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue" />
       <change beforePath="$PROJECT_DIR$/src/renderer/utils/types.js" afterPath="$PROJECT_DIR$/src/renderer/utils/types.js" />
-      <change beforePath="$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js" afterPath="$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
+      <change beforePath="$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js" afterPath="$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,48 +16,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="config-viewer.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="110" lean-forward="false" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
+            <state relative-caret-position="238">
+              <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config-viewer.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue">
+      <file leaf-file-name="virtual-host-teaser.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="70" column="66" lean-forward="false" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
-              <folding>
-                <element signature="e#1694#1738#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="235">
+              <caret line="31" column="8" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="31" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config-viewer.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js">
+      <file leaf-file-name="directive.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="609">
+              <caret line="38" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Files.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/renderer/store/modules/Files.js">
+      <file leaf-file-name="directive-mixin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="17" column="5" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directive-base.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,18 +69,40 @@
       <file leaf-file-name="types.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/utils/types.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="221">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/unit/setup.js">
+      <file leaf-file-name="config-viewer.spec.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+            <state relative-caret-position="416">
+              <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="httpd.conf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/parsers/httpd.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="559" column="11" lean-forward="false" selection-start-line="559" selection-start-column="11" selection-end-line="559" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vhosts.conf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/parsers/vhosts.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -94,8 +111,8 @@
       <file leaf-file-name="httpd-conf-parser.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
-              <caret line="70" column="34" lean-forward="false" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+            <state relative-caret-position="127">
+              <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="45" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -103,182 +120,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpd-config-grammar.pegjs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="70" column="92" lean-forward="false" selection-start-line="70" selection-start-column="92" selection-end-line="70" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/jsdom-global/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding>
-                <element signature="e#331#364#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>@</find>
-      <find>loaders</find>
-      <find>'@</find>
-      <find>alias</find>
-    </findStrings>
-    <dirStrings>
-      <dir>D:\Dropbox\projects\xamppPanel\xpanel\src</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/renderer/components/LandingPage.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/TestHosts.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/tools/config-loader.js" />
-        <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/src/renderer/utils/tasklist.js" />
-        <option value="$PROJECT_DIR$/src/renderer/utils/processes.js" />
-        <option value="$PROJECT_DIR$/src/renderer/store/modules/State.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/x-run-button.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/TheApachePage.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/utils/runners.js" />
-        <option value="$PROJECT_DIR$/src/renderer/utils/grammar.pegjs" />
-        <option value="$PROJECT_DIR$/src/renderer/utils/scope.pegjs" />
-        <option value="$PROJECT_DIR$/src/renderer/parsers/classes/Vhost.js" />
-        <option value="$PROJECT_DIR$/src/renderer/parsers/classes/Directive.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/TheHttpdEditorPage.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/TheHttpdEditorPage/directive.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/TheHttpdEditorPage/default-scope.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/TheHttpdEditorPage/virtualhost-scope.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/TheHttpdEditorPage/vhosts.vue" />
-        <option value="$PROJECT_DIR$/.electron-vue/webpack.web.config.js" />
-        <option value="$PROJECT_DIR$/src/renderer/router/index.js" />
-        <option value="$PROJECT_DIR$/src/renderer/sass/variables.sass" />
-        <option value="$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/renderer/sass/globals.scss" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtualhost-scope.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtualhost-teaser.vue" />
-        <option value="$PROJECT_DIR$/.electron-vue/webpack.main.config.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/default-scope.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/App.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/app-breadcrumbs/main.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/store/modules/Settings.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/plain-directive.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/scoped-directive.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-plain.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-scoped.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/vhosts.vue" />
-        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/main.vue" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js" />
         <option value="$PROJECT_DIR$/src/renderer/utils/types.js" />
-        <option value="$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs" />
-        <option value="$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js" />
-        <option value="$PROJECT_DIR$/src/renderer/store/modules/Files.js" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue" />
+        <option value="$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
-  </component>
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Code style issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Control flow issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Internationalization issues</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-          <State>
-            <id>JavaScript validity issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Naming conventionsJavaScript</id>
-          </State>
-          <State>
-            <id>PHP</id>
-          </State>
-          <State>
-            <id>Probable bugsPHP</id>
-          </State>
-          <State>
-            <id>RegExp</id>
-          </State>
-          <State>
-            <id>SQL</id>
-          </State>
-          <State>
-            <id>XSLT</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>UnterminatedStatementJS</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -432,24 +295,6 @@
       <pane id="Scratches" />
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="D:\Dropbox\projects\xamppPanel\xpanel\node_modules\eslint" />
-    <property name="standardjs.codestyle.accepted" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
-    <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.selected.package.standard" value="" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Dropbox\projects\xamppPanel\xpanel\test\unit" />
-      <recent name="D:\Dropbox\projects\xamppPanel\xpanel\src\renderer\components\httpd-editor" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -462,47 +307,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build">
-    <configuration name="build" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-    </configuration>
-    <configuration name="dev" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-    </configuration>
-    <configuration name="unit" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="unit" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-    </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="npm.build" />
-      <item index="1" class="java.lang.String" itemvalue="npm.dev" />
-      <item index="2" class="java.lang.String" itemvalue="npm.unit" />
-    </list>
-    <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="npm.unit" />
-        <item index="1" class="java.lang.String" itemvalue="npm.dev" />
-        <item index="2" class="java.lang.String" itemvalue="npm.build" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -510,79 +314,10 @@
     <configuration />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="a78a0b4d-6d7b-4362-b692-3752759b9326" name="Default" comment="" />
-      <created>1512824711467</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1512824711467</updated>
-      <workItem from="1512824712882" duration="62000" />
-      <workItem from="1512824820252" duration="25829000" />
-      <workItem from="1512996404970" duration="1832000" />
-      <workItem from="1513318205916" duration="12244000" />
-      <workItem from="1513351794693" duration="16706000" />
-    </task>
-    <task id="LOCAL-00001" summary="structure refactoring">
-      <created>1513237320399</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1513237320399</updated>
-    </task>
-    <task id="LOCAL-00002" summary="setup global sass">
-      <created>1513256179346</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1513256179346</updated>
-    </task>
-    <task id="LOCAL-00003" summary="remove .idea from git">
-      <created>1513256222727</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1513256222727</updated>
-    </task>
-    <task id="LOCAL-00004" summary="basic styles">
-      <created>1513257583234</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1513257583234</updated>
-    </task>
-    <task id="LOCAL-00005" summary="directive types refactoring + parser tests">
-      <created>1513328651917</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1513328651917</updated>
-    </task>
-    <task id="LOCAL-00006" summary="breadcrumbs">
-      <created>1513361880085</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1513361880085</updated>
-    </task>
-    <task id="LOCAL-00007" summary="new breadcrumbs">
-      <created>1513367533717</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1513367533717</updated>
-    </task>
-    <task id="LOCAL-00008" summary="every directive should have 'location' property">
-      <created>1513413073565</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1513413073565</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84564000" />
+    <option name="totallyTimeSpent" value="2369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -621,39 +356,11 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="structure refactoring" />
-    <MESSAGE value="setup global sass" />
-    <MESSAGE value="remove .idea from git" />
-    <MESSAGE value="basic styles" />
-    <MESSAGE value="directive types refactoring + parser tests" />
-    <MESSAGE value="breadcrumbs" />
-    <MESSAGE value="new breadcrumbs" />
-    <MESSAGE value="every directive should have 'location' property" />
-    <option name="LAST_COMMIT_MESSAGE" value="every directive should have 'location' property" />
-  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="1" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/renderer/utils/tasklist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/utils/runners.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -696,14 +403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
           <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/parsers/httpd.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="559" column="11" lean-forward="false" selection-start-line="559" selection-start-column="11" selection-end-line="559" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -844,25 +543,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/app-breadcrumbs/main.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -875,26 +559,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-plain.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="5" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="61" lean-forward="false" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -912,7 +580,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -922,7 +590,7 @@
         <state relative-caret-position="136">
           <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
-            <element signature="e#331#364#0" expanded="true" />
+            <element signature="e#331#364#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -935,34 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="70" column="66" lean-forward="false" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
-          <folding>
-            <element signature="e#1694#1738#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/utils/types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/parsers/httpd-config-grammar.pegjs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -971,23 +611,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/store/modules/Files.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/parsers/httpd.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="559" column="11" lean-forward="false" selection-start-line="559" selection-start-column="11" selection-end-line="559" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/parsers/vhosts.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="38" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-mixin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/virtual-host-teaser.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="31" column="8" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="31" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/parsers/httpd-conf-parser.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="70" column="34" lean-forward="false" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+        <state relative-caret-position="127">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="45" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/store/modules/Files.js">
+    <entry file="file://$PROJECT_DIR$/test/unit/components/httpd-editor/config-viewer.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        <state relative-caret-position="416">
+          <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/utils/types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/config-viewer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderer/components/httpd-editor/directive-base.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
