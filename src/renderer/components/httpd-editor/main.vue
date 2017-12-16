@@ -6,17 +6,17 @@
         <hr>
         <app-breadcrumbs :items="views" @on-select="selectCurrentView"></app-breadcrumbs>
         <hr>
-        <vhosts-component :config="currentView"></vhosts-component>
+        <config-viewer :config="currentView"></config-viewer>
     </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import VhostsComponent from './vhosts'
+  import ConfigViewer from './config-viewer'
   import AppBreadcrumbs from '@/components/app-breadcrumbs/main'
 
   export default {
-    components: {VhostsComponent, AppBreadcrumbs},
+    components: {ConfigViewer, AppBreadcrumbs},
     data () {
       return {}
     },

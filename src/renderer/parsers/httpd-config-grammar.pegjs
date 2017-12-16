@@ -2,6 +2,7 @@
 // ==========================
 {
 	const DIRECTIVE_TYPES = {
+    	ROOT: 'ROOT',
     	SCOPED: 'SCOPED',
         PLAIN: 'PLAIN',
         BLANK_LINE: 'BLANK_LINE',
@@ -11,9 +12,12 @@
 }
 
 Start = blocks:Block* {
-	return blocks.filter(function(block) {
-    	return block.type === DIRECTIVE_TYPES.SCOPED || block.type === DIRECTIVE_TYPES.PLAIN;
-    });
+	return {
+    	type: DIRECTIVE_TYPES.ROOT,
+        body: blocks.filter(function(block) {
+            return block.type === DIRECTIVE_TYPES.SCOPED || block.type === DIRECTIVE_TYPES.PLAIN;
+        })
+    }
 }
 
 Block = EmptyLine / Comment / Scope / Directive

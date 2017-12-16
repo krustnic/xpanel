@@ -29,10 +29,18 @@ describe('httpd configuration parser', () => {
       }).not.toThrow()
     })
 
+    it('first configuration level should have fake type "ROOT" and "body" property', () => {
+      const parsedConfig = parser.parse(content)
+
+      expect(parsedConfig.type).toBeDefined()
+      expect(parsedConfig.type).toEqual(DIRECTIVE_TYPES.ROOT)
+      expect(parsedConfig.body).toBeDefined()
+    })
+
     it('every item has "type" property with allowable value', () => {
       const parsedConfig = parser.parse(content)
 
-      iterateAll(parsedConfig, (item) => {
+      iterateAll(parsedConfig.body, (item) => {
         expect(item.type).not.toBeUndefined()
         expect(DIRECTIVE_TYPES).toHaveProperty(item.type)
       })
@@ -41,7 +49,7 @@ describe('httpd configuration parser', () => {
     it('every scoped directive has "body" property of "Array" type', () => {
       const parsedConfig = parser.parse(content)
 
-      iterateAll(parsedConfig, (item) => {
+      iterateAll(parsedConfig.body, (item) => {
         if (item.type === DIRECTIVE_TYPES.SCOPED) {
           expect(item.body).toBeDefined()
           expect(item.body).toBeInstanceOf(Array)
@@ -52,7 +60,7 @@ describe('httpd configuration parser', () => {
     it('every directive has "location" property', () => {
       const parsedConfig = parser.parse(content)
 
-      iterateAll(parsedConfig, (item) => {
+      iterateAll(parsedConfig.body, (item) => {
         expect(item.location).toBeDefined()
       })
     })
@@ -60,7 +68,7 @@ describe('httpd configuration parser', () => {
     it('every directive has "parameters" property as Array', () => {
       const parsedConfig = parser.parse(content)
 
-      iterateAll(parsedConfig, (item) => {
+      iterateAll(parsedConfig.body, (item) => {
         expect(item.parameters).toBeDefined()
         expect(item.parameters).toBeInstanceOf(Array)
       })

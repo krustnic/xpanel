@@ -20,7 +20,7 @@
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
     "test": "npm run unit && npm run e2e",
     "unit-browser": "karma start test/unit-browser/karma.conf.js",
-    "unit": "node node_modules/mocha-webpack/bin/mocha-webpack --webpack-config .electron-vue/webpack.main.config.js test/unit/**/*.spec.js",
+    "unit": "node node_modules/mocha-webpack/bin/mocha-webpack --webpack-config .electron-vue/webpack.renderer.config.js --require test/unit/setup.js test/unit/**/*.spec.js",
     "postinstall": "npm run lint:fix"
   },
   "build": {
@@ -61,11 +61,14 @@
     "axios": "^0.16.1",
     "expect": "^21.2.1",
     "hostile": "^1.3.0",
+    "jsdom": "^11.5.1",
+    "jsdom-global": "^3.0.2",
     "mocha-webpack": "^1.0.1",
     "pegjs": "^0.10.0",
     "vue": "^2.3.3",
     "vue-electron": "^1.0.6",
     "vue-router": "^2.5.3",
+    "vue-test-utils": "^1.0.0-beta.8",
     "vuex": "^2.3.1"
   },
   "devDependencies": {

@@ -11,13 +11,10 @@ const state = {
 
 const mutations = {
   SET_CURRENT_HTTPD_CONFIG (state, { path, config }) {
-    const wrappedConfig = {
-      body: config
-    }
     state.currentFile = path
-    state.views = [wrappedConfig]
-    state.currentView = wrappedConfig
-    Vue.set(state.openedFiles, path, wrappedConfig)
+    state.views = [config]
+    state.currentView = config
+    Vue.set(state.openedFiles, path, config)
   },
   SET_CURRENT_VIEW (state, {view}) {
     if (state.currentView === view) return
