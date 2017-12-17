@@ -33,12 +33,12 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        border: 1px solid #181a1f;
         background-color: #353b45;
         background-image: linear-gradient(#3a3f4b, #353b45);
-        border-radius: 5px;
+        border-radius: 0px;
         box-sizing: border-box;
         position: relative;
+        margin-bottom: 2px;
 
         &:hover {
             background-image: linear-gradient(#3e4451, #3a3f4b);
