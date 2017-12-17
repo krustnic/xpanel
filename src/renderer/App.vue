@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <div class="content">
-      <navigation-menu></navigation-menu>
+    <div class="container">
+      <div class="menu">
+        <navigation-menu></navigation-menu>
+      </div>
       <div class="views">
         <router-view></router-view>
       </div>
@@ -57,26 +59,13 @@
     border-color: #3e3e3e;
   }
 
-  .content {
-    display: flex;
-    height: 100%;
-  }
-
-  .main-view {
-    width: 50%;
-    border-right: 1px solid #4c4c4c;
-    padding-left: 5px;
-    padding-right: 5px;
-    min-width: 450px;
-  }
-
-  .helper-view {
-    width: 50%;
+  .container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr;
   }
 
   .views {
-    margin-left: 200px;
-    width: 100%;
-    display: flex;
+    height: 100%;
   }
 </style>

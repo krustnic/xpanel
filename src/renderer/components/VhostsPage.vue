@@ -1,6 +1,6 @@
 <template>
-    <div style="display: flex;width:100%;overflow: hidden">
-        <div class="config-editor" style="padding-top: 7px;">
+    <div class="vhost-page">
+        <div class="config-editor">
             <!--<button @click="open">Open Vhosts</button>-->
             <!--<button @click="view">Print</button>-->
             <div style="height: 24px;">
@@ -16,9 +16,9 @@
             <httpd-config-viewer :config="currentView" @on-raw="onRawButton"></httpd-config-viewer>
         </div>
 
-        <div style="width: 100%; height:100%;padding-top: 7px;">
+        <div class="content-editor">
             <div style="height: 100%;width:100%;">
-                <div style="padding-left: 5px; padding-right: 5px; display: flex">
+                <div class="control-panel">
                     <div class="file-path">
                         {{ currentFile }}
                     </div>
@@ -91,12 +91,30 @@
 </script>
 
 <style lang="scss" scoped>
+    .vhost-page {
+        display: grid;
+        grid-template-columns: 450px 1fr;
+        grid-template-rows: 1fr;
+    }
+
     .config-editor {
-        width: 50%;
         border-right: 1px solid #4c4c4c;
+        padding-top: 7px;
         padding-left: 5px;
         padding-right: 5px;
-        min-width: 450px;
+    }
+
+    .content-editor {
+        padding-top: 7px;
+
+        .control-panel {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr;
+
+            padding-left: 5px;
+            padding-right: 5px
+        }
     }
 
     .file-path {
