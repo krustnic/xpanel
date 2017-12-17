@@ -1,16 +1,16 @@
 <template>
     <div @click="onClick" class="directive" :class="typesClasses">
         <div class="name">{{ name }} {{ postfix }}</div>
-        <div class="parameters">
-            <input class="parameters-input" :value="value" disabled type="text">
-        </div>
+        <x-input :value="value" disabled></x-input>
     </div>
 </template>
 
 <script>
   import {DIRECTIVE_TYPES} from '@/utils/types'
+  import XInput from '@/components/XInput'
 
   export default {
+    components: {XInput},
     props: {
       directive: {
         type: Object,
@@ -84,20 +84,6 @@
             position: absolute;
             top: 3px;
             left: 0;
-        }
-
-        .parameters {
-            margin-top: 5px;
-        }
-
-        .parameters-input {
-            width: 100%;
-            padding: 5px;
-            background-color: #262a33;
-            border: 1px solid #3c4049;
-            color: #d7dae0;
-            box-sizing: border-box;
-            cursor: pointer;
         }
     }
     

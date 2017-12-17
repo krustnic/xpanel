@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import VhostsPage from '@/components/VhostsPage'
+import AddVirtualHostPage from '@/components/AddVirtualHostPage'
+import AceTestPage from '@/components/AceTestPage'
 
 Vue.use(Router)
 
@@ -27,6 +29,19 @@ export default new Router({
       path: '/vhosts-page',
       name: 'vhosts-page',
       component: VhostsPage
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: AceTestPage
+    },
+    {
+      path: '/add-virtual-host-page',
+      name: 'add-virtual-host-page',
+      components: {
+        default: VhostsPage,
+        right: AddVirtualHostPage
+      }
     },
     {
       path: '*',

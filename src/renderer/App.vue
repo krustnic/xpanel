@@ -3,12 +3,7 @@
     <div class="content">
       <navigation-menu></navigation-menu>
       <div class="views">
-        <div class="main-view">
-          <router-view></router-view>
-        </div>
-        <div class="helper-view">
-
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -27,9 +22,8 @@
       ])
     },
     created () {
-      console.log('created')
       this.initializeState().then(() => {
-        console.log('init state')
+        // console.log('init state')
       })
     }
   }
@@ -83,5 +77,6 @@
   .views {
     margin-left: 200px;
     width: 100%;
+    display: flex;
   }
 </style>

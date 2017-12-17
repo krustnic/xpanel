@@ -80,6 +80,7 @@
           return format
         },
         selectView (view) {
+          this.$emit('on-raw', view)
           if (view.type !== DIRECTIVE_TYPES.SCOPED || view === this.config) return
           this.$store.commit('Files/PUSH_VIEW', { view })
         },
