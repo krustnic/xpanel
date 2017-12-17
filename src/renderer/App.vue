@@ -62,7 +62,7 @@
   .container {
     display: grid;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 100vh;
   }
 
   .views {

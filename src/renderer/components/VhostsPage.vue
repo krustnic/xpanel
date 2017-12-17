@@ -12,19 +12,21 @@
                 </div>
             </div>
 
-            <hr>
-            <httpd-config-viewer :config="currentView" @on-raw="onRawButton"></httpd-config-viewer>
+            <div style="overflow-y: scroll">
+                <hr>
+                <httpd-config-viewer :config="currentView" @on-raw="onRawButton"></httpd-config-viewer>
+            </div>
         </div>
 
         <div class="content-editor">
-            <div style="height: 100%;width:100%;">
-                <div class="control-panel">
-                    <div class="file-path">
-                        {{ currentFile }}
-                    </div>
-                    <x-button type="success">Save</x-button>
+            <div class="control-panel">
+                <div class="file-path">
+                    {{ currentFile }}
                 </div>
+                <x-button type="success">Save</x-button>
                 <hr>
+            </div>
+            <div>
                 <x-ace :content="currentFileContent" :selection="selection"></x-ace>
             </div>
         </div>
@@ -94,10 +96,14 @@
     .vhost-page {
         display: grid;
         grid-template-columns: 450px 1fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: 100vh;
     }
 
     .config-editor {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+
         border-right: 1px solid #4c4c4c;
         padding-top: 7px;
         padding-left: 5px;
@@ -105,6 +111,10 @@
     }
 
     .content-editor {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+
         padding-top: 7px;
 
         .control-panel {
