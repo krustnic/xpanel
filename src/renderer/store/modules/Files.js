@@ -52,6 +52,9 @@ const getters = {
   currentFileContent: state => {
     return state.currentFileContent
   },
+  currentFile: state => {
+    return state.currentFile
+  },
   views: state => {
     return state.views
   }

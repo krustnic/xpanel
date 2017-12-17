@@ -16,6 +16,10 @@
       content: {
         type: String,
         default: ''
+      },
+      selection: {
+        type: Object,
+        default: null
       }
     },
     data () {
@@ -28,11 +32,21 @@
       this.editor.getSession().setMode('ace/mode/apache_conf')
       this.editor.setTheme('ace/theme/tomorrow_night')
       this.editor.setValue(this.content)
-      this.editor.selection.setSelectionRange(new Range(0, 0, 0, 5))
     },
     watch: {
-      text () {
+      content () {
         this.editor.setValue(this.content)
+      },
+      selection () {
+        if (!this.selection) return
+        this.editor.gotoLine(this.selection.start.line - 1, 0, true)
+        this.editor.selection.setSelectionRange(new Range(
+          this.selection.start.line - 1,
+          this.selection.start.column - 1,
+          this.selection.end.line - 1,
+          this.selection.end.column - 1
+        ))
+        this.editor.focus()
       }
     },
     beforeDestroy () {
