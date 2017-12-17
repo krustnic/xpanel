@@ -37,7 +37,7 @@
     $breadcrumb-arrow-angle: 8px;
     $breadcrumb-bg-color: #353b45;
     $breadcrumb-text-color: #d7dae0;
-    $breadcrumb-last-bg-color: #41b883;
+    $breadcrumb-last-bg-color: $active-color;
     $breadcrumb-last-text-color: #FFFFFF;
 
     .app-breadcrumbs {

@@ -1,8 +1,10 @@
 <template>
-    <div>
-        <button @click="open">Open Vhosts</button>
-        <button @click="view">Print</button>
-
+    <div style="padding-top: 7px;">
+        <!--<button @click="open">Open Vhosts</button>-->
+        <!--<button @click="view">Print</button>-->
+        <div class="file-path">
+            C:\xampp\apache\conf\extra\httpd-vhosts.conf
+        </div>
         <hr>
         <breadcrumbs :items="views" @on-select="selectCurrentView"></breadcrumbs>
         <hr>
@@ -19,6 +21,13 @@
     components: {HttpdConfigViewer, Breadcrumbs},
     data () {
       return {}
+    },
+    created () {
+      this.$store.dispatch('Files/loadHttpdFile', 'C:\\xampp\\apache\\conf\\extra\\httpd-vhosts.conf').then(config => {
+        console.log(config)
+      }).catch(error => {
+        console.log(error)
+      })
     },
     methods: {
       open () {
@@ -45,3 +54,13 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+    .file-path {
+        border: 1px solid #545454;
+        font-size: 12px;
+        padding: 3px;
+        color: gray;
+        overflow: hidden;
+    }
+</style>
