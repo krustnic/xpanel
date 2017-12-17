@@ -9,7 +9,7 @@ export const HttpdLoader = {
       fs.readFile(path, 'utf8', (err, content) => {
         if (err) reject(err)
         try {
-          resolve(httpdParser.parse(content))
+          resolve({content, config: httpdParser.parse(content)})
         } catch (e) {
           reject(e)
         }

@@ -4,6 +4,7 @@ import {HttpdLoader} from '../../utils/file-loaders'
 const state = {
   // state
   currentView: null,
+  currentFileContent: '',
   views: [],
   currentFile: null,
   openedFiles: {}
@@ -15,6 +16,9 @@ const mutations = {
     state.views = [config]
     state.currentView = config
     Vue.set(state.openedFiles, path, config)
+  },
+  SET_CURRENT_HTTPD_CONTENT (state, { content }) {
+    state.currentFileContent = content
   },
   SET_CURRENT_VIEW (state, {view}) {
     if (state.currentView === view) return
@@ -45,6 +49,9 @@ const getters = {
     if (!state.currentView) return {}
     return state.currentView
   },
+  currentFileContent: state => {
+    return state.currentFileContent
+  },
   views: state => {
     return state.views
   }
@@ -53,9 +60,10 @@ const getters = {
 const actions = {
   loadHttpdFile ({ commit }, path) {
     return new Promise((resolve, reject) => {
-      HttpdLoader.load(path).then((config) => {
+      HttpdLoader.load(path).then(({content, config}) => {
         commit('SET_CURRENT_HTTPD_CONFIG', { path, config })
-        resolve(config)
+        commit('SET_CURRENT_HTTPD_CONTENT', { content })
+        resolve({content, config})
       }).catch((error) => {
         reject(error)
       })
