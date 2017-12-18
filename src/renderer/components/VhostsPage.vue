@@ -1,8 +1,6 @@
 <template>
-    <div class="vhost-page">
+    <div class="grid vhost-page">
         <div class="config-editor">
-            <!--<button @click="open">Open Vhosts</button>-->
-            <!--<button @click="view">Print</button>-->
             <div>
                 <div style="height: 24px;">
                     <breadcrumbs style="float: left" :items="views" @on-select="selectCurrentView"></breadcrumbs>
@@ -12,6 +10,9 @@
                         </x-button>
                     </div>
                 </div>
+            </div>
+
+            <div>
                 <hr>
             </div>
 
@@ -26,8 +27,12 @@
                     {{ currentFile }}
                 </div>
                 <x-button type="success">Save</x-button>
+            </div>
+
+            <div>
                 <hr>
             </div>
+
             <div>
                 <x-ace :content="currentFileContent" :selection="selection"></x-ace>
             </div>
@@ -95,7 +100,7 @@
 </script>
 
 <style lang="scss" scoped>
-    .vhost-page {
+    .grid {
         display: grid;
         grid-template-columns: 450px 1fr;
         grid-template-rows: 100vh;
@@ -104,7 +109,7 @@
     .config-editor {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
 
         border-right: 1px solid #4c4c4c;
         padding-top: 7px;
@@ -120,7 +125,7 @@
     .content-editor {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
 
         padding-top: 7px;
 
@@ -139,7 +144,9 @@
         font-size: 12px;
         padding: 3px;
         color: gray;
-        overflow: hidden;
         width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 </style>

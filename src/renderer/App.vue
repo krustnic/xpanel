@@ -65,10 +65,6 @@
     grid-template-rows: 100vh;
   }
 
-  .views {
-    height: 100%;
-  }
-
   /* Scroll customization */
 
   ::-webkit-scrollbar {
