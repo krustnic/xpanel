@@ -1,17 +1,13 @@
 <template>
     <div class="grid content-editor">
-        <div class="control-panel">
-            <div class="file-path">{{ currentFile }}</div>
-            <x-button type="success">Save</x-button>
-        </div>
+        <div class="file-path">{{ currentFile }}</div>
+        <x-button class="controls" type="success">Save</x-button>
 
-        <div>
+        <div class="divider">
             <hr>
         </div>
 
-        <div>
-            <x-ace :content="currentFileContent" :selection="selection"></x-ace>
-        </div>
+        <x-ace class="editor" :content="currentFileContent" :selection="selection"></x-ace>
     </div>
 </template>
 
@@ -45,21 +41,18 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+                "file-path controls"
+                "divider divider"
+                "editor editor"
     }
 
     .content-editor {
         padding: 7px 5px 5px 5px;
 
-        .control-panel {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            grid-template-rows: 1fr;
-
-            padding-left: 5px;
-            padding-right: 5px
-        }
-
         .file-path {
+            grid-area: file-path;
+
             border: 1px solid #545454;
             font-size: 12px;
             padding: 3px;
@@ -69,5 +62,26 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .controls {
+            grid-area: controls;
+        }
+
+        .divider {
+            grid-area: divider;
+        }
+
+        .editor {
+            grid-area: editor;
+        }
+
+        /*.control-panel {*/
+            /*display: grid;*/
+            /*grid-template-columns: 1fr auto;*/
+            /*grid-template-rows: 1fr;*/
+
+            /*padding-left: 5px;*/
+            /*padding-right: 5px*/
+        /*}*/
     }
 </style>

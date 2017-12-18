@@ -1,19 +1,15 @@
 <template>
     <div class="grid config-editor">
-        <div class="navigation">
-            <breadcrumbs :items="views" @on-select="selectCurrentView"></breadcrumbs>
-            <x-button @on-click="addVhost" type="success">
-                <i class="fa fa-plus" aria-hidden="true"></i> VH
-            </x-button>
-        </div>
+        <breadcrumbs class="navigation" :items="views" @on-select="selectCurrentView"></breadcrumbs>
+        <x-button class="controls" @on-click="addVhost" type="success">
+            <i class="fa fa-plus" aria-hidden="true"></i> VH
+        </x-button>
 
-        <div>
+        <div class="divider">
             <hr>
         </div>
 
-        <div class="directives">
-            <httpd-config-viewer :config="currentView" @on-raw="onRaw"></httpd-config-viewer>
-        </div>
+        <httpd-config-viewer class="directives" :config="currentView" @on-raw="onRaw"></httpd-config-viewer>
     </div>
 </template>
 
@@ -58,8 +54,12 @@
 <style lang="scss" scoped>
     .grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr auto;
         grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+            "navigation controls"
+            "divider divider"
+            "directives directives"
     }
 
     .config-editor {
@@ -69,12 +69,20 @@
         padding-right: 5px;
 
         .navigation {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            grid-template-rows: 1fr;
+            grid-area: navigation;
+        }
+
+        .controls {
+            grid-area: controls;
+        }
+
+        .divider {
+            grid-area: divider;
         }
 
         .directives {
+            grid-area: directives;
+
             padding-right: 5px;
             overflow: auto;
         }
