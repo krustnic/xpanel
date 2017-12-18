@@ -1,0 +1,38 @@
+body {
+  background-color: $body-color;
+  color: $main-text-color;
+  font-family: $main-font-family;
+  font-size: 14px;
+  margin: 0;
+}
+
+input {
+  font-family: $main-font-family
+}
+
+hr {
+  border-color: #3e3e3e;
+}
+
+/* Scroll customization */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $scroll-track-color;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten($scroll-track-color, 10%);
+}
+
+::-webkit-scrollbar-track {
+  background: $body-color;
+  border-radius: 0px;
+}
+
+/* end scroll */
