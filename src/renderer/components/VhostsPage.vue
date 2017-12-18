@@ -3,17 +3,19 @@
         <div class="config-editor">
             <!--<button @click="open">Open Vhosts</button>-->
             <!--<button @click="view">Print</button>-->
-            <div style="height: 24px;">
-                <breadcrumbs style="float: left" :items="views" @on-select="selectCurrentView"></breadcrumbs>
-                <div style="float: right">
-                    <x-button @on-click="addVhost" type="success">
-                        <i class="fa fa-plus" aria-hidden="true"></i> VH
-                    </x-button>
+            <div>
+                <div style="height: 24px;">
+                    <breadcrumbs style="float: left" :items="views" @on-select="selectCurrentView"></breadcrumbs>
+                    <div style="float: right">
+                        <x-button @on-click="addVhost" type="success">
+                            <i class="fa fa-plus" aria-hidden="true"></i> VH
+                        </x-button>
+                    </div>
                 </div>
+                <hr>
             </div>
 
-            <div style="overflow-y: scroll">
-                <hr>
+            <div class="directives">
                 <httpd-config-viewer :config="currentView" @on-raw="onRawButton"></httpd-config-viewer>
             </div>
         </div>
@@ -108,6 +110,11 @@
         padding-top: 7px;
         padding-left: 5px;
         padding-right: 5px;
+
+        .directives {
+            padding-right: 5px;
+            overflow: auto;
+        }
     }
 
     .content-editor {

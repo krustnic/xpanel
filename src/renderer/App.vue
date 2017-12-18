@@ -68,4 +68,27 @@
   .views {
     height: 100%;
   }
+
+  /* Scroll customization */
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $scroll-track-color;
+    border-radius: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: lighten($scroll-track-color, 10%);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $body-color;
+    border-radius: 0px;
+  }
+
+  /* end scroll */
 </style>
