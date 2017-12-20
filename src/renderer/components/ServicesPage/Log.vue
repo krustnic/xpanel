@@ -45,6 +45,8 @@
 
         .log-item {
             margin-bottom: 7px;
+            border-bottom: 1px solid #545454;
+            padding-bottom: 4px;
 
             &.error {
                 color: $color-red;
