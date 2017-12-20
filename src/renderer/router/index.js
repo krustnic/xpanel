@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Services from '@/components/ServicesPage'
 import VhostsPage from '@/components/VhostsPage'
 import AddVirtualHostPage from '@/components/AddVirtualHostPage'
 import AceTestPage from '@/components/AceTestPage'
@@ -24,6 +25,11 @@ export default new Router({
       path: '/apache',
       name: 'apache-page',
       component: require('@/components/TheApachePage').default
+    },
+    {
+      path: '/services',
+      name: 'service',
+      component: Services
     },
     {
       path: '/vhosts-page',

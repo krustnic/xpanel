@@ -15,5 +15,27 @@ export const HttpdLoader = {
         }
       })
     })
+  },
+  validate (content) {
+    return new Promise((resolve, reject) => {
+      try {
+        const config = httpdParser.parse(content)
+        resolve(config)
+      } catch (e) {
+        reject(e)
+      }
+    })
+  },
+  save (path, content) {
+    return new Promise((resolve, reject) => {
+      this.validate(content).then(() => {
+        fs.writeFile(path, content, 'utf8', (err) => {
+          if (err) reject(err)
+          resolve()
+        })
+      }).catch(e => {
+        reject(e)
+      })
+    })
   }
 }

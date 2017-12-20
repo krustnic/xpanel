@@ -1,13 +1,13 @@
 <template>
     <div class="grid content-editor">
         <div class="file-path">{{ currentFile }}</div>
-        <x-button class="controls" type="success">Save</x-button>
+        <x-button @click="saveFile" class="controls" type="success" icon="fa-floppy-o" :loading="isSaving">Save</x-button>
 
         <div class="divider">
             <hr>
         </div>
 
-        <x-ace class="editor" :content="currentFileContent" :selection="selection"></x-ace>
+        <x-ace ref="editor" class="editor" :content="currentFileContent" :selection="selection"></x-ace>
     </div>
 </template>
 
@@ -31,7 +31,23 @@
       }
     },
     data () {
-      return {}
+      return {
+        isSaving: false
+      }
+    },
+    methods: {
+      saveFile () {
+        this.isSaving = true
+        const content = this.$refs.editor.getValue()
+        this.$store.dispatch('Files/saveHttpdFile', {
+          path: this.$store.getters['Files/currentFile'],
+          content
+        }).then(() => {
+          this.isSaving = false
+        }).catch(() => {
+          this.isSaving = false
+        })
+      }
     }
   }
 </script>
@@ -48,7 +64,7 @@
     }
 
     .content-editor {
-        padding: 7px 5px 5px 5px;
+        padding: 0px 5px 5px 5px;
 
         .file-path {
             grid-area: file-path;

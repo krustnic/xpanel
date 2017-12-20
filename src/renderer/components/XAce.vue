@@ -32,6 +32,14 @@
       this.editor.getSession().setMode('ace/mode/apache_conf')
       this.editor.setTheme('ace/theme/tomorrow_night')
       this.editor.setValue(this.content)
+      // this.editor.getSession().on('change', () => {
+      //   this.$emit('on-change', this.editor.getSession().getValue())
+      // })
+    },
+    methods: {
+      getValue () {
+        return this.editor.getSession().getValue()
+      }
     },
     watch: {
       content () {

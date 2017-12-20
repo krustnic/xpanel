@@ -71,6 +71,15 @@ const actions = {
         reject(error)
       })
     })
+  },
+  saveHttpdFile ({ commit }, {path, content}) {
+    return new Promise((resolve, reject) => {
+      HttpdLoader.save(path, content).then(() => {
+        resolve()
+      }).catch((error) => {
+        reject(error)
+      })
+    })
   }
 }
 

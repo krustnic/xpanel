@@ -64,8 +64,6 @@
 
     .config-editor {
         border-right: 1px solid #4c4c4c;
-        padding-top: 7px;
-        padding-left: 5px;
         padding-right: 5px;
 
         .navigation {
