@@ -26,6 +26,9 @@
         el.scrollTop = el.scrollHeight
       }
     },
+    mounted () {
+      this.scrollBottom()
+    },
     watch: {
       log () {
         this.$nextTick(() => {
