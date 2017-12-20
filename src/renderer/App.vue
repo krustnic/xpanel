@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <navigation-menu></navigation-menu>
-      <router-view></router-view>
+      <router-view class="content"></router-view>
     </div>
   </div>
 </template>
@@ -35,5 +35,9 @@
     display: grid;
     grid-template-columns: 200px 1fr;
     grid-template-rows: 100vh;
+  }
+
+  .content {
+    padding: 4px;
   }
 </style>
