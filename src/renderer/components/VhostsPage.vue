@@ -14,10 +14,7 @@
     components: {ConfigEditor, ContentEditor},
     data () {
       return {
-        selection: {
-          start: {line: 0, column: 0},
-          end: {line: 0, column: 0}
-        }
+        selection: null
       }
     },
     created () {

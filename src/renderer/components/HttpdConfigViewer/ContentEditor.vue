@@ -1,22 +1,23 @@
 <template>
     <div class="grid content-editor">
-        <div class="file-path">{{ currentFile }}</div>
+        <x-file-path>{{ currentFile }}</x-file-path>
         <x-button @click="saveFile" class="controls" type="success" icon="fa-floppy-o" :loading="isSaving">Save</x-button>
 
         <div class="divider">
             <hr>
         </div>
 
-        <x-ace ref="editor" class="editor" :content="currentFileContent" :selection="selection"></x-ace>
+        <x-ace ref="editor" class="editor" mode="apache_conf" :content="currentFileContent" :selection="selection"></x-ace>
     </div>
 </template>
 
 <script>
+  import XFilePath from '@/components/XFilePath'
   import XButton from '@/components/XButton'
   import XAce from '@/components/XAce'
 
   export default {
-    components: {XButton, XAce},
+    components: {XFilePath, XButton, XAce},
     props: {
       currentFile: {
         type: String,
@@ -66,19 +67,6 @@
     .content-editor {
         padding: 4px 5px 5px 5px;
 
-        .file-path {
-            grid-area: file-path;
-
-            border: 1px solid #545454;
-            font-size: 12px;
-            padding: 3px;
-            color: gray;
-            width: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
         .controls {
             grid-area: controls;
         }
@@ -90,14 +78,5 @@
         .editor {
             grid-area: editor;
         }
-
-        /*.control-panel {*/
-            /*display: grid;*/
-            /*grid-template-columns: 1fr auto;*/
-            /*grid-template-rows: 1fr;*/
-
-            /*padding-left: 5px;*/
-            /*padding-right: 5px*/
-        /*}*/
     }
 </style>

@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Services from '@/components/ServicesPage'
+import ServicesPage from '@/components/ServicesPage'
 import VhostsPage from '@/components/VhostsPage'
-import AddVirtualHostPage from '@/components/AddVirtualHostPage'
 import AceTestPage from '@/components/AceTestPage'
+import HostsPage from '@/components/HostsPage'
 
 Vue.use(Router)
 
@@ -12,24 +12,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'landing-page',
-      component: require('@/components/TestHosts').default
-      // component: require('@/components/LandingPage').default
-    },
-    {
-      path: '/',
-      name: 'hosts-page',
-      component: require('@/components/TestHosts').default
-    },
-    {
-      path: '/apache',
-      name: 'apache-page',
-      component: require('@/components/TheApachePage').default
+      redirect: '/services'
     },
     {
       path: '/services',
       name: 'service',
-      component: Services
+      component: ServicesPage
+    },
+    {
+      path: '/hosts',
+      name: 'hosts',
+      component: HostsPage
     },
     {
       path: '/vhosts-page',
@@ -42,16 +35,8 @@ export default new Router({
       component: AceTestPage
     },
     {
-      path: '/add-virtual-host-page',
-      name: 'add-virtual-host-page',
-      components: {
-        default: VhostsPage,
-        right: AddVirtualHostPage
-      }
-    },
-    {
       path: '*',
-      redirect: '/'
+      redirect: '/services'
     }
   ]
 })

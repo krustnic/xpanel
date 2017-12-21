@@ -1,8 +1,10 @@
 import Vue from 'vue'
-import {HttpdLoader} from '../../utils/file-loaders'
+import {HttpdLoader, HostsLoader} from '../../utils/file-loaders'
 
 const state = {
-  // state
+  // etc/hosts
+  hostsFileContent: '',
+
   currentView: null,
   currentFileContent: '',
   views: [],
@@ -17,9 +19,11 @@ const mutations = {
     state.currentView = config
     Vue.set(state.openedFiles, path, config)
   },
+
   SET_CURRENT_HTTPD_CONTENT (state, { content }) {
     state.currentFileContent = content
   },
+
   SET_CURRENT_VIEW (state, {view}) {
     if (state.currentView === view) return
     state.currentView = view
@@ -32,12 +36,18 @@ const mutations = {
 
     state.views = newViewsHistory
   },
+
   PUSH_VIEW (state, { view }) {
     state.views.push(view)
     state.currentView = view
   },
+
   SET_VIEW_HISTORY (state, { history }) {
     state.views = history
+  },
+
+  SET_HOSTS_FILE_CONTENT (state, { content }) {
+    state.hostsFileContent = content
   }
 }
 
@@ -57,6 +67,9 @@ const getters = {
   },
   views: state => {
     return state.views
+  },
+  hostsFileContent: state => {
+    return state.hostsFileContent
   }
 }
 
@@ -72,9 +85,31 @@ const actions = {
       })
     })
   },
+
   saveHttpdFile ({ commit }, {path, content}) {
     return new Promise((resolve, reject) => {
       HttpdLoader.save(path, content).then(() => {
+        resolve()
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  },
+
+  loadHostsFile ({ commit }, path) {
+    return new Promise((resolve, reject) => {
+      HostsLoader.load(path).then(({content}) => {
+        commit('SET_HOSTS_FILE_CONTENT', {content})
+        resolve({content})
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  },
+
+  saveHostsFile ({ commit }, {path, content}) {
+    return new Promise((resolve, reject) => {
+      HostsLoader.save(path, content).then(() => {
         resolve()
       }).catch((error) => {
         reject(error)

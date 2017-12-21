@@ -1,7 +1,10 @@
 <template>
     <div class="grid hosts-page">
         <div class="controls">
+            <x-file-path>{{ hostsPath }}</x-file-path>
             <x-button icon="fa-save" type="success" @click="save">Save</x-button>
+        </div>
+        <div>
             <hr>
         </div>
         <x-ace ref="editor" class="editor" :content="hostsFileContent"></x-ace>
@@ -10,11 +13,12 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
+  import XFilePath from '@/components/XFilePath'
   import XButton from '@/components/XButton'
   import XAce from '@/components/XAce'
 
   export default {
-    components: {XButton, XAce},
+    components: {XFilePath, XButton, XAce},
     data () {
       return {}
     },
@@ -53,14 +57,16 @@
     .grid {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
     }
 
     .hosts-page {
         padding: 4px;
 
         .controls {
-            text-align: right;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto;
         }
     }
 </style>

@@ -5,7 +5,7 @@
 <script>
   import * as ace from 'brace'
   import 'brace/mode/apache_conf'
-  // import 'brace/theme/merbivore_soft'
+  import 'brace/mode/powershell'
   import 'brace/theme/tomorrow_night'
   import 'brace/theme/tomorrow_night_eighties'
 
@@ -20,6 +20,10 @@
       selection: {
         type: Object,
         default: null
+      },
+      mode: {
+        type: String,
+        default: 'powershell'
       }
     },
     data () {
@@ -29,9 +33,11 @@
     },
     mounted () {
       this.editor = ace.edit('httpd-ace-editor')
-      this.editor.getSession().setMode('ace/mode/apache_conf')
+      this.editor.getSession().setMode(`ace/mode/${this.mode}`)
       this.editor.setTheme('ace/theme/tomorrow_night')
-      this.editor.setValue(this.content)
+      this.setValue(this.content)
+
+      // In case full reactivity:
       // this.editor.getSession().on('change', () => {
       //   this.$emit('on-change', this.editor.getSession().getValue())
       // })
@@ -39,11 +45,14 @@
     methods: {
       getValue () {
         return this.editor.getSession().getValue()
+      },
+      setValue (value) {
+        this.editor.setValue(value, -1)
       }
     },
     watch: {
       content () {
-        this.editor.setValue(this.content)
+        this.setValue(this.content)
       },
       selection () {
         if (!this.selection) return
