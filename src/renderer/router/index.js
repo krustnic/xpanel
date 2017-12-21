@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 import ServicesPage from '@/components/ServicesPage'
 import VhostsPage from '@/components/VhostsPage'
-import AceTestPage from '@/components/AceTestPage'
 import HostsPage from '@/components/HostsPage'
+import SettingsPage from '@/components/SettingsPage'
 
 Vue.use(Router)
 
@@ -25,14 +25,14 @@ export default new Router({
       component: HostsPage
     },
     {
-      path: '/vhosts-page',
-      name: 'vhosts-page',
+      path: '/vhosts',
+      name: 'vhosts',
       component: VhostsPage
     },
     {
-      path: '/test',
-      name: 'test',
-      component: AceTestPage
+      path: '/settings',
+      name: 'settings',
+      component: SettingsPage
     },
     {
       path: '*',
