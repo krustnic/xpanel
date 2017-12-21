@@ -64,7 +64,7 @@
     }
 
     .content-editor {
-        padding: 0px 5px 5px 5px;
+        padding: 4px 5px 5px 5px;
 
         .file-path {
             grid-area: file-path;

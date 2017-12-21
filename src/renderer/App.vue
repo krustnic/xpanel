@@ -38,6 +38,6 @@
   }
 
   .content {
-    padding: 4px;
+
   }
 </style>
