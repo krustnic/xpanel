@@ -1,5 +1,6 @@
 const state = {
   xamppRoot: 'C:\\xampp',
+  hostsPath: 'C:\\Windows\\System32\\drivers\\etc\\hosts',
   httpdVhostsPath: 'apache\\conf\\extra\\httpd-vhosts.conf'
 }
 
@@ -12,6 +13,10 @@ const mutations = {
 const getters = {
   xamppBase: state => (path) => {
     return state.xamppRoot + '\\' + path
+  },
+
+  hostsPath: state => {
+    return state.hostsPath
   }
 }
 
