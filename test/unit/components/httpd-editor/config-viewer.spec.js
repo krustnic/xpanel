@@ -1,6 +1,6 @@
 import { shallow } from 'vue-test-utils'
 import ConfigEditor from '@/components/httpd-editor/config-viewer.vue'
-import {DIRECTIVE_TYPES} from '@/utils/types'
+import {DIRECTIVE_TYPE} from '@/utils/types'
 import peg from 'pegjs'
 import fs from 'fs'
 
@@ -26,8 +26,8 @@ describe('config-editor.vue', () => {
     it('Should return only directives with specific types', () => {
       filterdDirectives.map(directive => {
         expect([
-          DIRECTIVE_TYPES.SCOPED,
-          DIRECTIVE_TYPES.PLAIN
+          DIRECTIVE_TYPE.SCOPED,
+          DIRECTIVE_TYPE.PLAIN
         ].indexOf(directive.type)).not.toEqual(-1)
       })
     })

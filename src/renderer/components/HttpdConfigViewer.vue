@@ -5,7 +5,7 @@
                 <directive :directive="scope"
                                 :name="scope.name"
                                 :value="getDirectivePropertiesString(scope)"
-                                :type="DIRECTIVE_TYPES.FAKE_SCOPE_PARAMETER"
+                                :type="DIRECTIVE_TYPE.FAKE_SCOPE_PARAMETER"
                                 :postfix="''"
                                 @on-click="selectView"
                 ></directive>
@@ -25,7 +25,7 @@
 
 <script>
     import Directive from '@/components/HttpdConfigViewer/Directive'
-    import {DIRECTIVE_TYPES} from '@/utils/types'
+    import {DIRECTIVE_TYPE} from '@/utils/types'
 
     export default {
       components: {Directive},
@@ -38,18 +38,18 @@
         }
       },
       data () {
-        return {DIRECTIVE_TYPES}
+        return {DIRECTIVE_TYPE}
       },
       computed: {
         scope () {
-          return this.config.type && this.config.type !== DIRECTIVE_TYPES.ROOT ? this.config : null
+          return this.config.type && this.config.type !== DIRECTIVE_TYPE.ROOT ? this.config : null
         },
         filteredDirectives () {
           if (!this.config.body) return []
           return this.config.body.filter(item => {
             return [
-              DIRECTIVE_TYPES.SCOPED,
-              DIRECTIVE_TYPES.PLAIN
+              DIRECTIVE_TYPE.SCOPED,
+              DIRECTIVE_TYPE.PLAIN
             ].indexOf(item.type) !== -1
           })
         },
@@ -68,7 +68,7 @@
             type: directive.type
           }
 
-          if (directive.type === DIRECTIVE_TYPES.SCOPED) {
+          if (directive.type === DIRECTIVE_TYPE.SCOPED) {
             if (directive.name.toLowerCase() === 'virtualhost') {
               Object.assign(format, {
                 value: this.getChildDirectives(directive)['ServerName'],
@@ -81,13 +81,13 @@
         },
         selectView (view) {
           this.$emit('on-raw', view)
-          if (view.type !== DIRECTIVE_TYPES.SCOPED || view === this.config) return
+          if (view.type !== DIRECTIVE_TYPE.SCOPED || view === this.config) return
           this.$store.commit('Files/PUSH_VIEW', { view })
         },
         getChildDirectives (directive) {
           const directives = {}
           directive.body.forEach(item => {
-            if (item.type !== DIRECTIVE_TYPES.PLAIN || item.parameters.length === 0) return true
+            if (item.type !== DIRECTIVE_TYPE.PLAIN || item.parameters.length === 0) return true
             directives[item.name] = item.parameters[0].value
           })
           return directives

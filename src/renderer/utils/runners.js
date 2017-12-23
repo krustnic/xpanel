@@ -1,79 +1,56 @@
 import {spawn} from 'child_process'
+import moment from 'moment'
+import {LOG_MESSAGE_TYPE} from '@/utils/types'
 
-export const Runner = (cmdPath, cmdParams) => {
-  this.cmdPath = cmdPath
-  this.cmdParams = cmdParams || []
+export class Log {
+  constructor (type, message, timestamp) {
+    this.type = type
+    this.message = message
+    this.timestamp = timestamp || moment().format('DD.MM.YYYY H:m:s')
+  }
 }
 
-Runner.prototype.onStdout = (callback) => {
-  this.onStdoutCallback = callback
+export class Runner {
+  constructor (cmdPath, cmdParams) {
+    this.cmdPath = cmdPath
+    this.cmdParams = cmdParams || []
+  }
+
+  onLog (callback) {
+    this.onLogCallback = callback
+  }
+
+  onStdout (callback) {
+    this.onStdoutCallback = callback
+  }
+
+  onStderr (callback) {
+    this.onStderrCallback = callback
+  }
+
+  onExit (callback) {
+    this.onExitCallback = callback
+  }
+
+  run () {
+    const process = spawn(this.cmdPath, this.cmdParams, {
+      detached: true
+    })
+
+    process.unref()
+
+    process.stdout.on('data', (data) => {
+      if (this.onStdoutCallback) this.onStdoutCallback(data.toString())
+      if (this.onLogCallback) this.onLogCallback(new Log(LOG_MESSAGE_TYPE.INFO, data.toString()))
+    })
+
+    process.stderr.on('data', (data) => {
+      if (this.onStderrCallback) this.onStderrCallback(data.toString())
+      if (this.onLogCallback) this.onLogCallback(new Log(LOG_MESSAGE_TYPE.ERROR, data.toString()))
+    })
+
+    process.on('exit', (code) => {
+      if (this.onExitCallback) this.onExitCallback(code)
+    })
+  }
 }
-
-Runner.prototype.onStderr = (callback) => {
-  this.onStderrCallback = callback
-}
-
-Runner.prototype.onExit = (callback) => {
-  this.onExitCallback = callback
-}
-
-Runner.prototype.run = () => {
-  const process = spawn(this.cmdPath, this.cmdParams, {
-    detached: true
-  })
-
-  process.unref()
-
-  process.stdout.on('data', (data) => {
-    if (this.onStdoutCallback) this.onStdoutCallback(data.toString())
-  })
-
-  process.stderr.on('data', (data) => {
-    if (this.onStderrCallback) this.onStderrCallback(data.toString())
-  })
-
-  process.on('exit', (code) => {
-    if (this.onExitCallback) this.onStdoutCallback(code)
-  })
-}
-
-// const APACHE_START_SCRIPT = 'apache_start.bat'
-// const APACHE_STOP_SCRIPT = 'apache_stop.bat'
-//
-// const xamppBase = store.getters['Settings/xamppBase']
-//
-// const startProcess = (cmdPath) => {
-//   const process = spawn(cmdPath, [], {
-//     detached: true
-//   })
-//   process.unref()
-//
-//   process.stdout.on('data', (data) => {
-//     console.log('START STDOUT', data.toString())
-//   })
-//
-//   process.stderr.on('data', (data) => {
-//     console.log('START STDERR', data.toString())
-//   })
-//
-//   process.on('exit', (code) => {
-//     console.log(`START Child exited with code ${code}`)
-//   })
-// }
-//
-// const Runner = (startScript, stopScript) => {
-//   this.startScript = startScript
-//   this.stopScript = stopScript
-// }
-//
-// Runner.prototype.start = () => {
-//   console.log('start', this.startScript)
-//   startProcess(this.startScript)
-// }
-//
-// Runner.prototype.stop = () => {
-//   console.log('stop', this.stopScript)
-//   startProcess(this.stopScript)
-// }
-//
-// export const ApacheRunner = new Runner(xamppBase(APACHE_START_SCRIPT), xamppBase(APACHE_STOP_SCRIPT))

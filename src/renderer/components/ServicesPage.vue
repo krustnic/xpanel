@@ -19,7 +19,6 @@
   import {Runner} from '../utils/runners'
   import XButton from '@/components/XButton'
   import Log from './ServicesPage/Log'
-  import moment from 'moment'
 
   export default {
     components: {XButton, Log},
@@ -33,36 +32,25 @@
       this.$store.dispatch('State/updateApacheState')
     },
     methods: {
+      updateApache () {
+        return this.$store.dispatch('State/updateApacheState').then(() => {
+          this.isApacheInProcess = false
+        })
+      },
       start () {
         this.isApacheInProcess = true
         const runner = new Runner(this.xamppBase('apache\\bin\\httpd.exe'), [])
 
-        runner.onStdout((data) => {
-          this.$store.commit('State/PUSH_APACHE_LOG', {
-            type: 'info',
-            message: data,
-            timestamp: moment().format('DD.MM.YYYY H:m:s')
-          })
-        })
-
-        runner.onStderr((data) => {
-          this.$store.commit('State/PUSH_APACHE_LOG', {
-            type: 'error',
-            message: data,
-            timestamp: moment().format('DD.MM.YYYY H:m:s')
-          })
+        runner.onLog(log => {
+          this.$store.commit('State/PUSH_APACHE_LOG', log)
         })
 
         runner.onExit((code) => {
-          this.$store.dispatch('State/updateApacheState').then(() => {
-            this.isApacheInProcess = false
-          })
+          this.updateApache()
         })
 
         setTimeout(() => {
-          this.$store.dispatch('State/updateApacheState').then(() => {
-            this.isApacheInProcess = false
-          })
+          this.updateApache()
         }, 1500)
 
         runner.run()
@@ -71,32 +59,16 @@
         this.isApacheInProcess = true
         const runner = new Runner(this.xamppBase('apache\\bin\\pv'), ['-f', '-k', 'httpd.exe', '-q'])
 
-        runner.onStdout((data) => {
-          this.$store.commit('State/PUSH_APACHE_LOG', {
-            type: 'info',
-            message: data.toString(),
-            timestamp: moment().format('DD.MM.YYYY H:m:s')
-          })
-        })
-
-        runner.onStderr((data) => {
-          this.$store.commit('State/PUSH_APACHE_LOG', {
-            type: 'error',
-            message: data.toString(),
-            timestamp: moment().format('DD.MM.YYYY H:m:s')
-          })
+        runner.onLog(log => {
+          this.$store.commit('State/PUSH_APACHE_LOG', log)
         })
 
         runner.onExit((code) => {
-          this.$store.dispatch('State/updateApacheState').then(() => {
-            this.isApacheInProcess = false
-          })
+          this.updateApache()
         })
 
         setTimeout(() => {
-          this.$store.dispatch('State/updateApacheState').then(() => {
-            this.isApacheInProcess = false
-          })
+          this.updateApache()
         }, 1500)
 
         runner.run()

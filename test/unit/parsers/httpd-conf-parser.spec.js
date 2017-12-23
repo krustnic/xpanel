@@ -1,7 +1,7 @@
 import peg from 'pegjs'
 import fs from 'fs'
 import expect from 'expect'
-import {DIRECTIVE_TYPES} from '@/utils/types'
+import {DIRECTIVE_TYPE} from '@/utils/types'
 
 const validConfigurationFiles = [
   'test/unit/parsers/vhosts.conf',
@@ -16,7 +16,7 @@ const parser = peg.generate(httpdConfigGrammar)
 const iterateAll = (configArray, callback) => {
   configArray.forEach(item => {
     if (callback) callback(item)
-    if (item.type === DIRECTIVE_TYPES.SCOPED) iterateAll(item.body)
+    if (item.type === DIRECTIVE_TYPE.SCOPED) iterateAll(item.body)
   })
 }
 
@@ -33,7 +33,7 @@ describe('httpd configuration parser', () => {
       const parsedConfig = parser.parse(content)
 
       expect(parsedConfig.type).toBeDefined()
-      expect(parsedConfig.type).toEqual(DIRECTIVE_TYPES.ROOT)
+      expect(parsedConfig.type).toEqual(DIRECTIVE_TYPE.ROOT)
       expect(parsedConfig.body).toBeDefined()
     })
 
@@ -42,7 +42,7 @@ describe('httpd configuration parser', () => {
 
       iterateAll(parsedConfig.body, (item) => {
         expect(item.type).not.toBeUndefined()
-        expect(DIRECTIVE_TYPES).toHaveProperty(item.type)
+        expect(DIRECTIVE_TYPE).toHaveProperty(item.type)
       })
     })
 
@@ -50,7 +50,7 @@ describe('httpd configuration parser', () => {
       const parsedConfig = parser.parse(content)
 
       iterateAll(parsedConfig.body, (item) => {
-        if (item.type === DIRECTIVE_TYPES.SCOPED) {
+        if (item.type === DIRECTIVE_TYPE.SCOPED) {
           expect(item.body).toBeDefined()
           expect(item.body).toBeInstanceOf(Array)
         }

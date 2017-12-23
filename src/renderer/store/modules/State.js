@@ -10,6 +10,7 @@ const mutations = {
   SET_APACHE_STATE (state, apacheState) {
     state.apacheState = apacheState
   },
+
   PUSH_APACHE_LOG (state, log) {
     state.apacheLog.push(log)
   }
@@ -19,6 +20,7 @@ const getters = {
   apacheState: state => {
     return state.apacheState
   },
+
   apacheLog: state => {
     return state.apacheLog
   }
@@ -28,6 +30,7 @@ const actions = {
   initializeState ({ commit, dispatch, rootGetters }) {
     return dispatch('updateApacheState')
   },
+
   updateApacheState ({ commit, rootGetters }) {
     const xamppBase = rootGetters['Settings/xamppBase']
 

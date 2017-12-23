@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import {DIRECTIVE_TYPES} from '@/utils/types'
+  import {DIRECTIVE_TYPE} from '@/utils/types'
   import XInput from '@/components/XInput'
 
   export default {
@@ -44,8 +44,8 @@
     computed: {
       typesClasses () {
         return {
-          'directive-scoped': this.type === DIRECTIVE_TYPES.SCOPED,
-          'directive-scope-parameter': this.type === DIRECTIVE_TYPES.FAKE_SCOPE_PARAMETER
+          'directive-scoped': this.type === DIRECTIVE_TYPE.SCOPED,
+          'directive-scope-parameter': this.type === DIRECTIVE_TYPE.FAKE_SCOPE_PARAMETER
         }
       }
     },

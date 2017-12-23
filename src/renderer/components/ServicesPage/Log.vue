@@ -1,12 +1,14 @@
 <template>
     <div ref="log" class="x-log">
-        <div v-for="(line, index) in log" class="log-item" :class="{error : line.type === 'error'}" :key="index">
+        <div v-for="(line, index) in log" class="log-item" :class="{error : line.type === LOG_MESSAGE_TYPE.ERROR}" :key="index">
             {{ line.timestamp }}: {{ line.message }}
         </div>
     </div>
 </template>
 
 <script>
+  import {LOG_MESSAGE_TYPE} from '@/utils/types'
+
   export default {
     props: {
       log: {
@@ -17,7 +19,9 @@
       }
     },
     data () {
-      return {}
+      return {
+        LOG_MESSAGE_TYPE
+      }
     },
     methods: {
       scrollBottom () {
