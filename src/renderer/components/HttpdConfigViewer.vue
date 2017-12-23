@@ -24,8 +24,9 @@
 </template>
 
 <script>
+    import {mapMutations} from 'vuex'
+    import {DIRECTIVE_TYPE, MUTATION_TYPE} from '@/utils/types'
     import Directive from '@/components/HttpdConfigViewer/Directive'
-    import {DIRECTIVE_TYPE} from '@/utils/types'
 
     export default {
       components: {Directive},
@@ -60,6 +61,10 @@
         }
       },
       methods: {
+        ...mapMutations('Files', [
+          MUTATION_TYPE.Files.pushView
+        ]),
+
         formatDirective (directive) {
           const format = {
             directive,
@@ -79,11 +84,13 @@
 
           return format
         },
+
         selectView (view) {
           this.$emit('on-raw', view)
           if (view.type !== DIRECTIVE_TYPE.SCOPED || view === this.config) return
-          this.$store.commit('Files/PUSH_VIEW', { view })
+          this.pushView({ view })
         },
+
         getChildDirectives (directive) {
           const directives = {}
           directive.body.forEach(item => {
@@ -92,6 +99,7 @@
           })
           return directives
         },
+
         getDirectivePropertiesString (directive) {
           return directive.parameters.map(param => {
             return param.value

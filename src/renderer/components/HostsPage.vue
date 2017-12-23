@@ -45,7 +45,7 @@
     },
     computed: {
       ...mapGetters('Files', [
-        'hostsFileContent'
+        GETTER_TYPE.Files.hostsFileContent
       ]),
       ...mapGetters('Settings', [
         GETTER_TYPE.Settings.hostsPath

@@ -12,6 +12,8 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
+  import {ACTION_TYPE} from '@/utils/types'
   import XFilePath from '@/components/XFilePath'
   import XButton from '@/components/XButton'
   import XAce from '@/components/XAce'
@@ -37,10 +39,13 @@
       }
     },
     methods: {
+      ...mapActions('Files', [
+        ACTION_TYPE.Files.saveHttpdFile
+      ]),
       saveFile () {
         this.isSaving = true
         const content = this.$refs.editor.getValue()
-        this.$store.dispatch('Files/saveHttpdFile', {
+        this.saveHttpdFile({
           path: this.$store.getters['Files/currentFile'],
           content
         }).then(() => {

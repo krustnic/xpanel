@@ -14,6 +14,8 @@
 </template>
 
 <script>
+  import {mapMutations} from 'vuex'
+  import {MUTATION_TYPE} from '@/utils/types'
   import HttpdConfigViewer from '@/components/HttpdConfigViewer'
   import Breadcrumbs from '@/components/Breadcrumbs'
   import XButton from '@/components/XButton'
@@ -38,8 +40,11 @@
       return {}
     },
     methods: {
+      ...mapMutations('Files', [
+        MUTATION_TYPE.Files.setCurrentView
+      ]),
       selectCurrentView (view) {
-        this.$store.commit('Files/SET_CURRENT_VIEW', { view })
+        this.setCurrentView({ view })
       },
       addVhost () {
         console.log('add vhost')

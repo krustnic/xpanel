@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import {MUTATION_TYPE, GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
 import {HttpdLoader, HostsLoader} from '../../utils/file-loaders'
 
 const state = {
@@ -13,18 +14,18 @@ const state = {
 }
 
 const mutations = {
-  SET_CURRENT_HTTPD_CONFIG (state, { path, config }) {
+  [MUTATION_TYPE.Files.setCurrentHttpdConfig] (state, { path, config }) {
     state.currentFile = path
     state.views = [config]
     state.currentView = config
     Vue.set(state.openedFiles, path, config)
   },
 
-  SET_CURRENT_HTTPD_CONTENT (state, { content }) {
+  [MUTATION_TYPE.Files.setCurrentHttpdContent] (state, { content }) {
     state.currentFileContent = content
   },
 
-  SET_CURRENT_VIEW (state, {view}) {
+  [MUTATION_TYPE.Files.setCurrentView] (state, {view}) {
     if (state.currentView === view) return
     state.currentView = view
 
@@ -37,48 +38,48 @@ const mutations = {
     state.views = newViewsHistory
   },
 
-  PUSH_VIEW (state, { view }) {
+  [MUTATION_TYPE.Files.pushView] (state, { view }) {
     state.views.push(view)
     state.currentView = view
   },
 
-  SET_VIEW_HISTORY (state, { history }) {
+  [MUTATION_TYPE.Files.setViewHistory] (state, { history }) {
     state.views = history
   },
 
-  SET_HOSTS_FILE_CONTENT (state, { content }) {
+  [MUTATION_TYPE.Files.setHostsFileContent] (state, { content }) {
     state.hostsFileContent = content
   }
 }
 
 const getters = {
-  getCurrentFileConfig: state => {
+  [GETTER_TYPE.Files.getCurrentFileConfig]: state => {
     return state.openedFiles[state.currentFile]
   },
-  currentView: state => {
+  [GETTER_TYPE.Files.currentView]: state => {
     if (!state.currentView) return {}
     return state.currentView
   },
-  currentFileContent: state => {
+  [GETTER_TYPE.Files.currentFileContent]: state => {
     return state.currentFileContent
   },
-  currentFile: state => {
+  [GETTER_TYPE.Files.currentFile]: state => {
     return state.currentFile
   },
-  views: state => {
+  [GETTER_TYPE.Files.views]: state => {
     return state.views
   },
-  hostsFileContent: state => {
+  [GETTER_TYPE.Files.hostsFileContent]: state => {
     return state.hostsFileContent
   }
 }
 
 const actions = {
-  loadHttpdFile ({ commit }, path) {
+  [ACTION_TYPE.Files.loadHttpdFile] ({ commit }, path) {
     return new Promise((resolve, reject) => {
       HttpdLoader.load(path).then(({content, config}) => {
-        commit('SET_CURRENT_HTTPD_CONFIG', { path, config })
-        commit('SET_CURRENT_HTTPD_CONTENT', { content })
+        commit(MUTATION_TYPE.Files.setCurrentHttpdConfig, { path, config })
+        commit(MUTATION_TYPE.Files.setCurrentHttpdContent, { content })
         resolve({content, config})
       }).catch((error) => {
         reject(error)
@@ -86,10 +87,10 @@ const actions = {
     })
   },
 
-  saveHttpdFile ({ commit, dispatch }, {path, content}) {
+  [ACTION_TYPE.Files.saveHttpdFile] ({ commit, dispatch }, {path, content}) {
     return new Promise((resolve, reject) => {
       HttpdLoader.save(path, content).then(() => {
-        dispatch('loadHttpdFile', path).then(() => {
+        dispatch(ACTION_TYPE.Files.loadHttpdFile, path).then(() => {
           resolve()
         }).catch((e) => {
           reject(e)
@@ -100,19 +101,19 @@ const actions = {
     })
   },
 
-  loadHostsFile ({ commit }, path) {
+  [ACTION_TYPE.Files.loadHostsFile] ({ commit }, path) {
     return new Promise((resolve, reject) => {
       HostsLoader.load(path).then(({content}) => {
-        commit('SET_HOSTS_FILE_CONTENT', {content})
+        commit(MUTATION_TYPE.Files.setHostsFileContent, {content})
         resolve({content})
       }).catch((error) => {
-        commit('SET_HOSTS_FILE_CONTENT', {content: ''})
+        commit(MUTATION_TYPE.Files.setHostsFileContent, {content: ''})
         reject(error)
       })
     })
   },
 
-  saveHostsFile ({ commit }, {path, content}) {
+  [ACTION_TYPE.Files.saveHostsFile] ({ commit }, {path, content}) {
     return new Promise((resolve, reject) => {
       HostsLoader.save(path, content).then(() => {
         resolve()

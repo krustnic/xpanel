@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import {GETTER_TYPE} from '@/utils/types'
-  import { mapGetters } from 'vuex'
+  import {GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
+  import { mapGetters, mapActions } from 'vuex'
   import ConfigEditor from './HttpdConfigViewer/ConfigEditor'
   import ContentEditor from './HttpdConfigViewer/ContentEditor'
 
@@ -19,24 +19,27 @@
       }
     },
     created () {
-      this.$store.dispatch('Files/loadHttpdFile', this.xamppVirtualHostsFilePath).then(({content, config}) => {
+      this.loadHttpdFile(this.xamppVirtualHostsFilePath).then(({content, config}) => {
         console.log(config)
       }).catch(error => {
         console.log(error)
       })
     },
     methods: {
+      ...mapActions('Files', [
+        ACTION_TYPE.Files.loadHttpdFile
+      ]),
       onRawButton (view) {
         this.selection = view.location
       }
     },
     computed: {
       ...mapGetters('Files', [
-        'getCurrentFileConfig',
-        'currentView',
-        'currentFileContent',
-        'currentFile',
-        'views'
+        GETTER_TYPE.Files.getCurrentFileConfig,
+        GETTER_TYPE.Files.currentView,
+        GETTER_TYPE.Files.currentFileContent,
+        GETTER_TYPE.Files.currentFile,
+        GETTER_TYPE.Files.views
       ]),
       ...mapGetters('Settings', [
         GETTER_TYPE.Settings.xamppVirtualHostsFilePath
