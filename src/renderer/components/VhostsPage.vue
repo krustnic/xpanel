@@ -18,7 +18,7 @@
       }
     },
     created () {
-      this.$store.dispatch('Files/loadHttpdFile', 'C:\\xampp\\apache\\conf\\extra\\httpd-vhosts.conf').then(({content, config}) => {
+      this.$store.dispatch('Files/loadHttpdFile', this.xamppVirtualHostsFilePath).then(({content, config}) => {
         console.log(config)
       }).catch(error => {
         console.log(error)
@@ -36,6 +36,9 @@
         'currentFileContent',
         'currentFile',
         'views'
+      ]),
+      ...mapGetters('Settings', [
+        'xamppVirtualHostsFilePath'
       ])
     }
   }

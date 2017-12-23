@@ -5,6 +5,12 @@ const state = {
   // etc/hosts
   hostsFileContent: '',
 
+  // vhosts file
+  vhostsScopes: [],
+  vhostsCurrentScope: null,
+  vhostsConfig: null,
+  vhostsContent: '',
+
   currentView: null,
   currentFileContent: '',
   views: [],

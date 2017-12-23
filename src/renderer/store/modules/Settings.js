@@ -1,12 +1,16 @@
 const state = {
   xamppRoot: 'C:\\xampp',
   hostsPath: 'C:\\Windows\\System32\\drivers\\etc\\hosts',
-  httpdVhostsPath: 'apache\\conf\\extra\\httpd-vhosts.conf'
+  virtualHostsRelativePath: 'apache\\conf\\extra\\httpd-vhosts.conf'
 }
 
 const mutations = {
-  SET_XAMPP_ROOT (state, rootPath) {
-    state.xamppRoot = rootPath
+  SET_XAMPP_ROOT (state, path) {
+    state.xamppRoot = path
+  },
+
+  SET_HOSTS_PATH (state, path) {
+    state.hostsPath = path
   }
 }
 
@@ -17,6 +21,14 @@ const getters = {
 
   hostsPath: state => {
     return state.hostsPath
+  },
+
+  xamppRoot: state => {
+    return state.xamppRoot
+  },
+
+  xamppVirtualHostsFilePath: (state, getters) => {
+    return getters.xamppBase(state.virtualHostsRelativePath)
   }
 }
 
