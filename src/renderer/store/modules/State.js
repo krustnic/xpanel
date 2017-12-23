@@ -1,5 +1,5 @@
 import processesUtils from '../../utils/processes'
-import {APACHE_STATE_TYPE, GETTER_TYPE} from '../../utils/types'
+import {APACHE_STATE_TYPE, GETTER_TYPE, MUTATION_TYPE, ACTION_TYPE} from '../../utils/types'
 
 const state = {
   apacheState: APACHE_STATE_TYPE.STOPPED,
@@ -7,32 +7,32 @@ const state = {
 }
 
 const mutations = {
-  SET_APACHE_STATE (state, apacheState) {
+  [MUTATION_TYPE.State.setApacheState] (state, apacheState) {
     state.apacheState = apacheState
   },
 
-  PUSH_APACHE_LOG (state, log) {
+  [MUTATION_TYPE.State.pushApacheLog] (state, log) {
     state.apacheLog.push(log)
   }
 }
 
 const getters = {
-  apacheState: state => {
+  [GETTER_TYPE.State.apacheState]: state => {
     return state.apacheState
   },
 
-  apacheLog: state => {
+  [GETTER_TYPE.State.apacheLog]: state => {
     return state.apacheLog
   }
 }
 
 const actions = {
-  updateApacheState ({ commit, rootGetters }) {
+  [ACTION_TYPE.State.updateApacheState] ({ commit, rootGetters }) {
     const xamppBase = rootGetters[`Settings/${GETTER_TYPE.Settings.xamppBase}`]
 
     return new Promise((resolve, reject) => {
       processesUtils.checkIsApacheStarted(xamppBase('apache\\logs\\httpd.pid')).then(isStarted => {
-        commit('SET_APACHE_STATE', isStarted ? APACHE_STATE_TYPE.STARTED : APACHE_STATE_TYPE.STOPPED)
+        commit(MUTATION_TYPE.State.setApacheState, isStarted ? APACHE_STATE_TYPE.STARTED : APACHE_STATE_TYPE.STOPPED)
         resolve()
       })
     })

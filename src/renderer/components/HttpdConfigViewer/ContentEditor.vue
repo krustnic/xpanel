@@ -46,7 +46,7 @@
         this.isSaving = true
         const content = this.$refs.editor.getValue()
         this.saveHttpdFile({
-          path: this.$store.getters['Files/currentFile'],
+          path: this.currentFile,
           content
         }).then(() => {
           this.isSaving = false

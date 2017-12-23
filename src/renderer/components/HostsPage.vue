@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import {GETTER_TYPE} from '@/utils/types'
+  import {GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
   import {mapGetters, mapActions} from 'vuex'
   import XFilePath from '@/components/XFilePath'
   import XButton from '@/components/XButton'
@@ -28,8 +28,8 @@
     },
     methods: {
       ...mapActions('Files', [
-        'loadHostsFile',
-        'saveHostsFile'
+        ACTION_TYPE.Files.loadHostsFile,
+        ACTION_TYPE.Files.saveHostsFile
       ]),
       save () {
         const content = this.$refs.editor.getValue()

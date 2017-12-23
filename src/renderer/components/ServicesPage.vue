@@ -14,8 +14,8 @@
 </template>
 
 <script>
-  import {APACHE_STATE_TYPE, GETTER_TYPE} from '@/utils/types'
-  import { mapGetters } from 'vuex'
+  import {APACHE_STATE_TYPE, GETTER_TYPE, MUTATION_TYPE, ACTION_TYPE} from '@/utils/types'
+  import { mapGetters, mapMutations, mapActions } from 'vuex'
   import {Runner} from '../utils/runners'
   import XButton from '@/components/XButton'
   import Log from './ServicesPage/Log'
@@ -29,11 +29,17 @@
       }
     },
     created () {
-      this.$store.dispatch('State/updateApacheState')
+      this.updateApacheState()
     },
     methods: {
+      ...mapMutations('State', [
+        MUTATION_TYPE.State.pushApacheLog
+      ]),
+      ...mapActions('State', [
+        ACTION_TYPE.State.updateApacheState
+      ]),
       updateApache () {
-        return this.$store.dispatch('State/updateApacheState').then(() => {
+        return this.updateApacheState().then(() => {
           this.isApacheInProcess = false
         })
       },
@@ -42,7 +48,7 @@
         const runner = new Runner(this.xamppBase('apache\\bin\\httpd.exe'), [])
 
         runner.onLog(log => {
-          this.$store.commit('State/PUSH_APACHE_LOG', log)
+          this.pushApacheLog(log)
         })
 
         runner.onExit((code) => {
@@ -60,7 +66,7 @@
         const runner = new Runner(this.xamppBase('apache\\bin\\pv'), ['-f', '-k', 'httpd.exe', '-q'])
 
         runner.onLog(log => {
-          this.$store.commit('State/PUSH_APACHE_LOG', log)
+          this.pushApacheLog(log)
         })
 
         runner.onExit((code) => {
@@ -79,8 +85,8 @@
         GETTER_TYPE.Settings.xamppBase
       ]),
       ...mapGetters('State', [
-        'apacheState',
-        'apacheLog'
+        GETTER_TYPE.State.apacheState,
+        GETTER_TYPE.State.apacheLog
       ])
     }
   }

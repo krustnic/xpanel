@@ -10,13 +10,14 @@
 <script>
   import NavigationMenu from '@/components/NavigrationMenu'
   import {mapActions} from 'vuex'
+  import {ACTION_TYPE} from '@/utils/types'
 
   export default {
     components: {NavigationMenu},
     name: 'xpanel',
     methods: {
       ...mapActions('State', [
-        'updateApacheState'
+        ACTION_TYPE.State.updateApacheState
       ])
     },
     created () {

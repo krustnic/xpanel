@@ -26,9 +26,15 @@ export const MUTATION_TYPE = {
     setViewHistory: 'setViewHistory',
     setHostsFileContent: 'setHostsFileContent'
   },
+
   Settings: {
     setXamppRoot: 'setXamppRoot',
     setHostsPath: 'setHostsPath'
+  },
+
+  State: {
+    setApacheState: 'setApacheState',
+    pushApacheLog: 'pushApacheLog'
   }
 }
 
@@ -41,11 +47,17 @@ export const GETTER_TYPE = {
     views: 'views',
     hostsFileContent: 'hostsFileContent'
   },
+
   Settings: {
     xamppBase: 'xamppBase',
     hostsPath: 'hostsPath',
     xamppRoot: 'xamppRoot',
     xamppVirtualHostsFilePath: 'xamppVirtualHostsFilePath'
+  },
+
+  State: {
+    apacheState: 'apacheState',
+    apacheLog: 'apacheLog'
   }
 }
 
@@ -55,5 +67,11 @@ export const ACTION_TYPE = {
     saveHttpdFile: 'saveHttpdFile',
     loadHostsFile: 'loadHostsFile',
     saveHostsFile: 'saveHostsFile'
+  },
+
+  Settings: {},
+
+  State: {
+    updateApacheState: 'updateApacheState'
   }
 }
