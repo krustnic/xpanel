@@ -38,7 +38,7 @@
       this.editor.$blockScrolling = Infinity
       this.setValue(this.content)
 
-      // In case full reactivity:
+      // In case of full reactivity:
       // this.editor.getSession().on('change', () => {
       //   this.$emit('on-change', this.editor.getSession().getValue())
       // })
