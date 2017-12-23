@@ -42,14 +42,15 @@
 </script>
 
 <style lang="scss" scoped>
+    $default-color: #353b45;
+
     .x-button {
         color: white;
         text-decoration: none;
         height: 24px;
         text-align: center;
-        border: 1px solid #181a1f;
-        background-color: #353b45;
-        /*background-image: linear-gradient(#3a3f4b, #353b45);*/
+        border: 1px solid $default-color;
+        background-color: $default-color;
         border-radius: 0px;
         box-sizing: border-box;
         padding-left: 6px;
@@ -57,16 +58,28 @@
         font-size: 14px;
         box-shadow: 4px 1px 8px 1px rgba(0, 0, 0, 0.43);
 
+        &:hover {
+            background-color: lighten($default-color, 7%);
+        }
+
         &.success {
             border: 1px solid $active-color;
             background-color: $active-color;
             color: white;
+
+            &:hover {
+                background-color: lighten($active-color, 7%);
+            }
         }
 
         &.danger {
             border: 1px solid $danger-color;
             background-color: $danger-color;
             color: white;
+
+            &:hover {
+                background-color: lighten($danger-color, 7%);
+            }
         }
 
         .rotation {
