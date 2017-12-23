@@ -35,6 +35,7 @@
       this.editor = ace.edit('httpd-ace-editor')
       this.editor.getSession().setMode(`ace/mode/${this.mode}`)
       this.editor.setTheme('ace/theme/tomorrow_night')
+      this.editor.$blockScrolling = Infinity
       this.setValue(this.content)
 
       // In case full reactivity:
