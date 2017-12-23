@@ -63,7 +63,9 @@
         })
 
         apacheProcess.on('exit', (code) => {
-          this.$store.dispatch('State/updateApacheState')
+          this.$store.dispatch('State/updateApacheState').then(() => {
+            this.isApacheInProcess = false
+          })
         })
 
         setTimeout(() => {
@@ -126,6 +128,8 @@
     }
 
     .services-page {
+        padding: 4px;
+
         .service {
             border: 1px solid $main-border-color;
             padding: 6px;

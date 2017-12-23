@@ -39,6 +39,7 @@
         box-sizing: border-box;
         position: relative;
         margin-bottom: 2px;
+        outline: none;
 
         &:hover {
             background-image: linear-gradient(#3e4451, #3a3f4b);
