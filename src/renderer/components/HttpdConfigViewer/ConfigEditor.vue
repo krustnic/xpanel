@@ -1,7 +1,7 @@
 <template>
     <div class="grid config-editor">
         <breadcrumbs class="navigation" :items="views" @on-select="selectCurrentView"></breadcrumbs>
-        <x-button class="controls" @on-click="addVhost" type="success">
+        <x-button class="controls" @on-click="addVhost" type="success" style="display: none">
             <i class="fa fa-plus" aria-hidden="true"></i> VH
         </x-button>
 
