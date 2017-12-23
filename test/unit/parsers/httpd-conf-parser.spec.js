@@ -2,6 +2,7 @@ import peg from 'pegjs'
 import fs from 'fs'
 import expect from 'expect'
 import {DIRECTIVE_TYPE} from '@/utils/types'
+import path from 'path'
 
 const validConfigurationFiles = [
   'test/unit/parsers/vhosts.conf',
@@ -10,7 +11,7 @@ const validConfigurationFiles = [
   // 'test/unit/parsers/httpd-ssl.conf' // Line '\'
 ]
 
-const httpdConfigGrammar = fs.readFileSync('src/renderer/parsers/httpd-config-grammar.pegjs', 'utf8')
+const httpdConfigGrammar = fs.readFileSync(path.join(__static, 'httpd-config-grammar.pegjs'), 'utf8')
 const parser = peg.generate(httpdConfigGrammar)
 
 const iterateAll = (configArray, callback) => {

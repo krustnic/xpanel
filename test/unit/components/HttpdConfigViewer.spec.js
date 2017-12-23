@@ -1,15 +1,16 @@
 import { shallow } from 'vue-test-utils'
-import ConfigEditor from '@/components/httpd-editor/config-viewer.vue'
+import HttpdConfigViewer from '@/components/HttpdConfigViewer.vue'
 import {DIRECTIVE_TYPE} from '@/utils/types'
 import peg from 'pegjs'
 import fs from 'fs'
+import path from 'path'
 
 const configFileContent = fs.readFileSync('test/unit/parsers/vhosts.conf', 'utf8')
-const httpdConfigGrammar = fs.readFileSync('src/renderer/parsers/httpd-config-grammar.pegjs', 'utf8')
+const httpdConfigGrammar = fs.readFileSync(path.join(__static, 'httpd-config-grammar.pegjs'), 'utf8')
 const parser = peg.generate(httpdConfigGrammar)
 const config = parser.parse(configFileContent)
 
-let wrapper = shallow(ConfigEditor, {
+let wrapper = shallow(HttpdConfigViewer, {
   propsData: {
     config: config
   }
