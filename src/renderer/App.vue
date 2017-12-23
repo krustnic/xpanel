@@ -16,11 +16,11 @@
     name: 'xpanel',
     methods: {
       ...mapActions('State', [
-        'initializeState'
+        'updateApacheState'
       ])
     },
     created () {
-      this.initializeState().then(() => {
+      this.updateApacheState().then(() => {
         // console.log('init state')
       })
     }

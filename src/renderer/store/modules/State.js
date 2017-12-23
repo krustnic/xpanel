@@ -27,10 +27,6 @@ const getters = {
 }
 
 const actions = {
-  initializeState ({ commit, dispatch, rootGetters }) {
-    return dispatch('updateApacheState')
-  },
-
   updateApacheState ({ commit, rootGetters }) {
     const xamppBase = rootGetters['Settings/xamppBase']
 
