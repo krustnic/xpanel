@@ -12,7 +12,8 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+  import {GETTER_TYPE} from '@/utils/types'
+  import {mapGetters, mapActions} from 'vuex'
   import XFilePath from '@/components/XFilePath'
   import XButton from '@/components/XButton'
   import XAce from '@/components/XAce'
@@ -47,7 +48,7 @@
         'hostsFileContent'
       ]),
       ...mapGetters('Settings', [
-        'hostsPath'
+        GETTER_TYPE.Settings.hostsPath
       ])
     }
   }

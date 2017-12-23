@@ -1,3 +1,5 @@
+import {MUTATION_TYPE, GETTER_TYPE} from '@/utils/types'
+
 const state = {
   xamppRoot: 'C:\\xampp',
   hostsPath: 'C:\\Windows\\System32\\drivers\\etc\\hosts',
@@ -5,30 +7,30 @@ const state = {
 }
 
 const mutations = {
-  SET_XAMPP_ROOT (state, path) {
+  [MUTATION_TYPE.Settings.setXamppRoot] (state, path) {
     state.xamppRoot = path
   },
 
-  SET_HOSTS_PATH (state, path) {
+  [MUTATION_TYPE.Settings.setHostsPath] (state, path) {
     state.hostsPath = path
   }
 }
 
 const getters = {
-  xamppBase: state => (path) => {
+  [GETTER_TYPE.Settings.xamppBase]: state => (path) => {
     return state.xamppRoot + '\\' + path
   },
 
-  hostsPath: state => {
+  [GETTER_TYPE.Settings.hostsPath]: state => {
     return state.hostsPath
   },
 
-  xamppRoot: state => {
+  [GETTER_TYPE.Settings.xamppRoot]: state => {
     return state.xamppRoot
   },
 
-  xamppVirtualHostsFilePath: (state, getters) => {
-    return getters.xamppBase(state.virtualHostsRelativePath)
+  [GETTER_TYPE.Settings.xamppVirtualHostsFilePath]: (state, getters) => {
+    return getters[GETTER_TYPE.Settings.xamppBase](state.virtualHostsRelativePath)
   }
 }
 

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import {APACHE_STATE_TYPE} from '@/utils/types'
+  import {APACHE_STATE_TYPE, GETTER_TYPE} from '@/utils/types'
   import { mapGetters } from 'vuex'
   import {Runner} from '../utils/runners'
   import XButton from '@/components/XButton'
@@ -76,7 +76,7 @@
     },
     computed: {
       ...mapGetters('Settings', [
-        'xamppBase'
+        GETTER_TYPE.Settings.xamppBase
       ]),
       ...mapGetters('State', [
         'apacheState',

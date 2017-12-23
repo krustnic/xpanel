@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import {GETTER_TYPE} from '@/utils/types'
   import { mapGetters } from 'vuex'
   import ConfigEditor from './HttpdConfigViewer/ConfigEditor'
   import ContentEditor from './HttpdConfigViewer/ContentEditor'
@@ -38,7 +39,7 @@
         'views'
       ]),
       ...mapGetters('Settings', [
-        'xamppVirtualHostsFilePath'
+        GETTER_TYPE.Settings.xamppVirtualHostsFilePath
       ])
     }
   }

@@ -1,5 +1,5 @@
 import processesUtils from '../../utils/processes'
-import {APACHE_STATE_TYPE} from '../../utils/types'
+import {APACHE_STATE_TYPE, GETTER_TYPE} from '../../utils/types'
 
 const state = {
   apacheState: APACHE_STATE_TYPE.STOPPED,
@@ -28,7 +28,7 @@ const getters = {
 
 const actions = {
   updateApacheState ({ commit, rootGetters }) {
-    const xamppBase = rootGetters['Settings/xamppBase']
+    const xamppBase = rootGetters[`Settings/${GETTER_TYPE.Settings.xamppBase}`]
 
     return new Promise((resolve, reject) => {
       processesUtils.checkIsApacheStarted(xamppBase('apache\\logs\\httpd.pid')).then(isStarted => {

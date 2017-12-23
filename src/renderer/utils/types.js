@@ -16,3 +16,19 @@ export const LOG_MESSAGE_TYPE = {
   INFO: 'INFO',
   ERROR: 'ERROR'
 }
+
+export const MUTATION_TYPE = {
+  Settings: {
+    setXamppRoot: 'setXamppRoot',
+    setHostsPath: 'setHostsPath'
+  }
+}
+
+export const GETTER_TYPE = {
+  Settings: {
+    xamppBase: 'xamppBase',
+    hostsPath: 'hostsPath',
+    xamppRoot: 'xamppRoot',
+    xamppVirtualHostsFilePath: 'xamppVirtualHostsFilePath'
+  }
+}
