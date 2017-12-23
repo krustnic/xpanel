@@ -16,8 +16,7 @@
 <script>
   import {APACHE_STATE_TYPE} from '@/utils/types'
   import { mapGetters } from 'vuex'
-  import {spawn} from 'child_process'
-  // import {ApacheRunner} from '../utils/runners'
+  import {Runner} from '../utils/runners'
   import XButton from '@/components/XButton'
   import Log from './ServicesPage/Log'
   import moment from 'moment'
@@ -35,34 +34,26 @@
     },
     methods: {
       start () {
-        // console.log('start apache', ApacheRunner)
-        // ApacheRunner.start()
         this.isApacheInProcess = true
+        const runner = new Runner(this.xamppBase('apache\\bin\\httpd.exe'), [])
 
-        const apacheProcess = spawn(this.xamppBase('apache\\bin\\httpd.exe'), [], {
-          detached: true
-        })
-        apacheProcess.unref()
-
-        apacheProcess.stdout.on('data', (data) => {
-          console.log('START STDOUT', data.toString())
+        runner.onStdout((data) => {
           this.$store.commit('State/PUSH_APACHE_LOG', {
             type: 'info',
-            message: data.toString(),
+            message: data,
             timestamp: moment().format('DD.MM.YYYY H:m:s')
           })
         })
 
-        apacheProcess.stderr.on('data', (data) => {
-          console.log('START STDERR', data.toString())
+        runner.onStderr((data) => {
           this.$store.commit('State/PUSH_APACHE_LOG', {
             type: 'error',
-            message: data.toString(),
+            message: data,
             timestamp: moment().format('DD.MM.YYYY H:m:s')
           })
         })
 
-        apacheProcess.on('exit', (code) => {
+        runner.onExit((code) => {
           this.$store.dispatch('State/updateApacheState').then(() => {
             this.isApacheInProcess = false
           })
@@ -73,16 +64,14 @@
             this.isApacheInProcess = false
           })
         }, 1500)
+
+        runner.run()
       },
       stop () {
-        // console.log('stop apache')
-        // ApacheRunner.stop()
         this.isApacheInProcess = true
+        const runner = new Runner(this.xamppBase('apache\\bin\\pv'), ['-f', '-k', 'httpd.exe', '-q'])
 
-        const stopApacheProcess = spawn(this.xamppBase('apache\\bin\\pv'), ['-f', '-k', 'httpd.exe', '-q'])
-
-        stopApacheProcess.stdout.on('data', (data) => {
-          console.log('EXIT STDOUT', data.toString())
+        runner.onStdout((data) => {
           this.$store.commit('State/PUSH_APACHE_LOG', {
             type: 'info',
             message: data.toString(),
@@ -90,8 +79,7 @@
           })
         })
 
-        stopApacheProcess.stderr.on('data', (data) => {
-          console.log('EXIT STDERR', data.toString())
+        runner.onStderr((data) => {
           this.$store.commit('State/PUSH_APACHE_LOG', {
             type: 'error',
             message: data.toString(),
@@ -99,8 +87,10 @@
           })
         })
 
-        stopApacheProcess.on('exit', (code) => {
-          this.$store.dispatch('State/updateApacheState')
+        runner.onExit((code) => {
+          this.$store.dispatch('State/updateApacheState').then(() => {
+            this.isApacheInProcess = false
+          })
         })
 
         setTimeout(() => {
@@ -108,6 +98,8 @@
             this.isApacheInProcess = false
           })
         }, 1500)
+
+        runner.run()
       }
     },
     computed: {

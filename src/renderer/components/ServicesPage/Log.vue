@@ -22,7 +22,6 @@
     methods: {
       scrollBottom () {
         const el = this.$refs.log
-        console.log(el)
         el.scrollTop = el.scrollHeight
       }
     },
