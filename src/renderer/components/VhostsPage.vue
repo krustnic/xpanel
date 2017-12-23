@@ -19,9 +19,7 @@
       }
     },
     created () {
-      this.loadHttpdFile(this.xamppVirtualHostsFilePath).then(({content, config}) => {
-        console.log(config)
-      }).catch(error => {
+      this.loadHttpdFile(this.xamppVirtualHostsFilePath).catch(error => {
         console.log(error)
       })
     },
