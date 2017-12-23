@@ -5,12 +5,6 @@ const state = {
   // etc/hosts
   hostsFileContent: '',
 
-  // vhosts file
-  vhostsScopes: [],
-  vhostsCurrentScope: null,
-  vhostsConfig: null,
-  vhostsContent: '',
-
   currentView: null,
   currentFileContent: '',
   views: [],
@@ -92,10 +86,14 @@ const actions = {
     })
   },
 
-  saveHttpdFile ({ commit }, {path, content}) {
+  saveHttpdFile ({ commit, dispatch }, {path, content}) {
     return new Promise((resolve, reject) => {
       HttpdLoader.save(path, content).then(() => {
-        resolve()
+        dispatch('loadHttpdFile', path).then(() => {
+          resolve()
+        }).catch((e) => {
+          reject(e)
+        })
       }).catch((error) => {
         reject(error)
       })
@@ -108,6 +106,7 @@ const actions = {
         commit('SET_HOSTS_FILE_CONTENT', {content})
         resolve({content})
       }).catch((error) => {
+        commit('SET_HOSTS_FILE_CONTENT', {content: ''})
         reject(error)
       })
     })

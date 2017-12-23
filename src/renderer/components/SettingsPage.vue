@@ -4,20 +4,24 @@
             <x-button @click="save" icon="fa-save" type="success">Save</x-button>
         </div>
         <hr>
-        <div>XAMPP path:</div>
-        <x-input v-model="settings.xamppRoot"></x-input>
-        <div>Hosts file path:</div>
-        <x-input v-model="settings.hostsPath"></x-input>
+        <x-form-group label="XAMPP path:">
+            <x-input v-model="settings.xamppRoot"></x-input>
+        </x-form-group>
+
+        <x-form-group label="Hosts file path:">
+            <x-input v-model="settings.hostsPath"></x-input>
+        </x-form-group>
     </div>
 </template>
 
 <script>
   import {mapGetters} from 'vuex'
+  import XFormGroup from '@/components/XFormGroup'
   import XInput from '@/components/XInput'
   import XButton from '@/components/XButton'
 
   export default {
-    components: {XInput, XButton},
+    components: {XFormGroup, XInput, XButton},
     data () {
       return {
         settings: {
