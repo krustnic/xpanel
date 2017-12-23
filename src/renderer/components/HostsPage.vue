@@ -33,6 +33,7 @@
       ]),
       save () {
         const content = this.$refs.editor.getValue()
+
         this.saveHostsFile({
           path: this.hostsPath,
           content: content

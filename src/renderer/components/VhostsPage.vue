@@ -35,7 +35,6 @@
     },
     computed: {
       ...mapGetters('Files', [
-        GETTER_TYPE.Files.getCurrentFileConfig,
         GETTER_TYPE.Files.currentView,
         GETTER_TYPE.Files.currentFileContent,
         GETTER_TYPE.Files.currentFile,
