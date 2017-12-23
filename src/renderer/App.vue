@@ -21,9 +21,7 @@
       ])
     },
     created () {
-      this.updateApacheState().then(() => {
-        // console.log('init state')
-      })
+      this.updateApacheState()
     }
   }
 </script>
