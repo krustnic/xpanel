@@ -1,5 +1,5 @@
 <template>
-    <div id="httpd-ace-editor"></div>
+    <div></div>
 </template>
 
 <script>
@@ -32,7 +32,7 @@
       }
     },
     mounted () {
-      this.editor = ace.edit('httpd-ace-editor')
+      this.editor = ace.edit(this.$el)
       this.editor.getSession().setMode(`ace/mode/${this.mode}`)
       this.editor.setTheme('ace/theme/tomorrow_night')
       this.editor.$blockScrolling = Infinity
@@ -68,7 +68,7 @@
       }
     },
     beforeDestroy () {
-      this.editor.destroy()
+      if (this.editor) this.editor.destroy()
     }
   }
 </script>

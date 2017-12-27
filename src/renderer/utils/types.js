@@ -29,7 +29,8 @@ export const MUTATION_TYPE = {
 
   Settings: {
     setXamppRoot: 'setXamppRoot',
-    setHostsPath: 'setHostsPath'
+    setHostsPath: 'setHostsPath',
+    loadState: 'loadState'
   },
 
   State: {
@@ -69,7 +70,10 @@ export const ACTION_TYPE = {
     saveHostsFile: 'saveHostsFile'
   },
 
-  Settings: {},
+  Settings: {
+    saveState: 'saveState',
+    loadState: 'loadState'
+  },
 
   State: {
     updateApacheState: 'updateApacheState'

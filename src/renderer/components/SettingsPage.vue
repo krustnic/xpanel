@@ -15,8 +15,8 @@
 </template>
 
 <script>
-  import {MUTATION_TYPE, GETTER_TYPE} from '@/utils/types'
-  import {mapGetters, mapMutations} from 'vuex'
+  import {MUTATION_TYPE, GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
+  import {mapGetters, mapMutations, mapActions} from 'vuex'
   import XFormGroup from '@/components/XFormGroup'
   import XInput from '@/components/XInput'
   import XButton from '@/components/XButton'
@@ -46,10 +46,15 @@
         MUTATION_TYPE.Settings.setXamppRoot,
         MUTATION_TYPE.Settings.setHostsPath
       ]),
+      ...mapActions('Settings', [
+        ACTION_TYPE.Settings.saveState
+      ]),
       save () {
+        console.log(JSON.stringify(this.$store.state.Settings))
         // TODO: Validation
         this.setXamppRoot(this.settings.xamppRoot)
         this.setHostsPath(this.settings.hostsPath)
+        this.saveState()
       }
     }
   }
