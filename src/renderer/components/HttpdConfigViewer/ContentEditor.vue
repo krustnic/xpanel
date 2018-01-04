@@ -50,8 +50,17 @@
           content
         }).then(() => {
           this.isSaving = false
+          this.$message({
+            title: 'Saved',
+            icon: 'fa-floppy-o'
+          })
         }).catch(() => {
           this.isSaving = false
+          this.$message({
+            type: 'error',
+            title: 'Error',
+            icon: 'fa-floppy-o'
+          })
         })
       }
     }
