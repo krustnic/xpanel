@@ -55,6 +55,10 @@
         this.setXamppRoot(this.settings.xamppRoot)
         this.setHostsPath(this.settings.hostsPath)
         this.saveState()
+        this.$message({
+          title: 'Saved',
+          icon: 'fa-floppy-o'
+        })
       }
     }
   }

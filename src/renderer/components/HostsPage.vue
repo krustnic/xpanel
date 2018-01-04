@@ -39,8 +39,17 @@
           content: content
         }).then(() => {
           this.loadHostsFile(this.hostsPath)
+          this.$message({
+            title: 'Saved',
+            icon: 'fa-floppy-o'
+          })
         }).catch(e => {
           console.error(e)
+          this.$message({
+            type: 'error',
+            title: 'Error',
+            icon: 'fa-floppy-o'
+          })
         })
       }
     },
