@@ -4,8 +4,19 @@
             <div>Apache: {{ apacheState }}</div>
             <hr>
             <div style="margin-top: 5px;">
-                <x-button v-if="apacheState !== APACHE_STATE_TYPE.STARTED" @click="start" icon="fa-play" type="success" :loading="isApacheInProcess">Start</x-button>
-                <x-button v-if="apacheState !== APACHE_STATE_TYPE.STOPPED" @click="stop" icon="fa-stop" type="danger" :loading="isApacheInProcess">Stop</x-button>
+                <x-button v-if="apacheState !== APACHE_STATE_TYPE.STARTED"
+                          @click="start"
+                          icon="fa-play"
+                          type="success"
+                          :loading="isApacheInProcess"
+                >Start</x-button>
+
+                <x-button v-if="apacheState !== APACHE_STATE_TYPE.STOPPED"
+                          @click="stop"
+                          icon="fa-stop"
+                          type="danger"
+                          :loading="isApacheInProcess"
+                >Stop</x-button>
             </div>
             <hr>
             <log v-if="apacheLog.length !== 0" :log="apacheLog"></log>
