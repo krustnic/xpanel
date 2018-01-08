@@ -63,7 +63,7 @@
         }
 
         &.success {
-            border: 1px solid $active-color;
+            border: 0px solid $active-color;
             background-color: $active-color;
             color: white;
 

@@ -99,6 +99,7 @@
 
         & .content {
             overflow: auto;
+            color: $second-text-color;
         }
     }
 
