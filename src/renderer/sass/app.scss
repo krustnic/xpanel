@@ -35,6 +35,10 @@ hr {
   border-radius: 0px;
 }
 
+::-webkit-scrollbar-corner {
+  background: $body-color;
+}
+
 /* end scroll */
 
 /* Animations */

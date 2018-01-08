@@ -2,6 +2,9 @@
     <div class="grid log-page">
         <div class="controls">
             <x-file-path>{{ currentLogPath }}</x-file-path>
+            <x-button @click="open">
+                <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+            </x-button>
             <x-button @click="reload" type="success">
                 <i class="fa fa-refresh" aria-hidden="true"></i> Reload
             </x-button>
@@ -29,6 +32,8 @@
   import {GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
   import XFilePath from '@/components/XFilePath'
   import XButton from '@/components/XButton'
+  import {remote} from 'electron'
+  const dialog = remote.dialog
 
   export default {
     components: {XFilePath, XButton},
@@ -41,13 +46,30 @@
         GETTER_TYPE.Files.currentLogListReversed
       ]),
       ...mapGetters('Settings', [
-        GETTER_TYPE.Settings.xamppBase
+        GETTER_TYPE.Settings.xamppBase,
+        GETTER_TYPE.Settings.xamppRoot
       ])
     },
     methods: {
       ...mapActions('Files', [
         ACTION_TYPE.Files.loadLogFile
       ]),
+      open () {
+        dialog.showOpenDialog({
+          defaultPath: this.xamppRoot
+        }, (fileNames) => {
+          if (!fileNames) return
+          const filePath = fileNames[0]
+
+          this.loadLogFile({path: filePath}).then(() => {
+            this.$message({
+              type: 'success',
+              icon: 'fa-hdd-o',
+              title: 'Loaded'
+            })
+          })
+        })
+      },
       reload () {
         this.loadLogFile({path: this.currentLogPath}).then(() => {
           this.$message({
@@ -71,7 +93,7 @@
 
         & .controls {
             display: grid;
-            grid-template-columns: 1fr auto;
+            grid-template-columns: 1fr auto auto;
             grid-template-rows: auto 1fr;
         }
 
