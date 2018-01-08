@@ -4,6 +4,7 @@
         <navigation-button to="/vhosts" name="Virtual Hosts"></navigation-button>
         <navigation-button to="/hosts" name="Hosts"></navigation-button>
         <navigation-button to="/settings" name="Settings"></navigation-button>
+        <navigation-button to="/log" name="Log"></navigation-button>
     </div>
 </template>
 
@@ -25,6 +26,5 @@
         border-right: 1px solid #4c4c4c;
         z-index: 100;
         background-color: $body-color;
-
     }
 </style>

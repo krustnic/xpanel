@@ -1,16 +1,22 @@
 import Vue from 'vue'
 import {MUTATION_TYPE, GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
-import {HttpdLoader, HostsLoader} from '../../utils/file-loaders'
+import {HttpdLoader, HostsLoader, LogLoader} from '../../utils/file-loaders'
 
 const state = {
   // etc/hosts
   hostsFileContent: '',
 
+  // VirtualHosts
   currentView: null,
   currentFileContent: '',
   views: [],
   currentFile: null,
-  openedFiles: {}
+  openedFiles: {},
+
+  // Logs
+  currentLogPath: '',
+  currentLogContent: '',
+  currentLogList: []
 }
 
 const mutations = {
@@ -49,6 +55,18 @@ const mutations = {
 
   [MUTATION_TYPE.Files.setHostsFileContent] (state, { content }) {
     state.hostsFileContent = content
+  },
+
+  [MUTATION_TYPE.Files.setCurrentLogPath] (state, {path}) {
+    state.currentLogPath = path
+  },
+
+  [MUTATION_TYPE.Files.setCurrentLogContent] (state, {content}) {
+    state.currentLogContent = content
+  },
+
+  [MUTATION_TYPE.Files.setCurrentLogList] (state, {list}) {
+    state.currentLogList = list
   }
 }
 
@@ -56,21 +74,34 @@ const getters = {
   [GETTER_TYPE.Files.getCurrentFileConfig]: state => {
     return state.openedFiles[state.currentFile]
   },
+
   [GETTER_TYPE.Files.currentView]: state => {
     if (!state.currentView) return {}
     return state.currentView
   },
+
   [GETTER_TYPE.Files.currentFileContent]: state => {
     return state.currentFileContent
   },
+
   [GETTER_TYPE.Files.currentFile]: state => {
     return state.currentFile
   },
+
   [GETTER_TYPE.Files.views]: state => {
     return state.views
   },
+
   [GETTER_TYPE.Files.hostsFileContent]: state => {
     return state.hostsFileContent
+  },
+
+  [GETTER_TYPE.Files.currentLogPath]: state => {
+    return state.currentLogPath
+  },
+
+  [GETTER_TYPE.Files.currentLogListReversed]: state => {
+    return state.currentLogList.slice().reverse()
   }
 }
 
@@ -119,6 +150,19 @@ const actions = {
         resolve()
       }).catch((error) => {
         reject(error)
+      })
+    })
+  },
+
+  [ACTION_TYPE.Files.loadLogFile] ({ commit }, {path}) {
+    return new Promise((resolve, reject) => {
+      LogLoader.load(path).then(({content, list}) => {
+        commit(MUTATION_TYPE.Files.setCurrentLogPath, {path})
+        commit(MUTATION_TYPE.Files.setCurrentLogContent, {content})
+        commit(MUTATION_TYPE.Files.setCurrentLogList, {list})
+        resolve({path, content, list})
+      }).catch(e => {
+        reject(e)
       })
     })
   }

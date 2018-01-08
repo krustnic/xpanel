@@ -19,12 +19,18 @@ export const LOG_MESSAGE_TYPE = {
 
 export const MUTATION_TYPE = {
   Files: {
+    // VirtualHosts
     setCurrentHttpdConfig: 'setCurrentHttpdConfig',
     setCurrentHttpdContent: 'setCurrentHttpdContent',
     setCurrentView: 'setCurrentView',
     pushView: 'pushView',
     setViewHistory: 'setViewHistory',
-    setHostsFileContent: 'setHostsFileContent'
+    // Hosts
+    setHostsFileContent: 'setHostsFileContent',
+    // Log
+    setCurrentLogPath: 'setCurrentLogPath',
+    setCurrentLogContent: 'setCurrentLogContent',
+    setCurrentLogList: 'setCurrentLogList'
   },
 
   Settings: {
@@ -46,7 +52,9 @@ export const GETTER_TYPE = {
     currentFileContent: 'currentFileContent',
     currentFile: 'currentFile',
     views: 'views',
-    hostsFileContent: 'hostsFileContent'
+    hostsFileContent: 'hostsFileContent',
+    currentLogPath: 'currentLogPath',
+    currentLogListReversed: 'currentLogListReversed'
   },
 
   Settings: {
@@ -67,7 +75,9 @@ export const ACTION_TYPE = {
     loadHttpdFile: 'loadHttpdFile',
     saveHttpdFile: 'saveHttpdFile',
     loadHostsFile: 'loadHostsFile',
-    saveHostsFile: 'saveHostsFile'
+    saveHostsFile: 'saveHostsFile',
+    // Log
+    loadLogFile: 'loadLogFile'
   },
 
   Settings: {

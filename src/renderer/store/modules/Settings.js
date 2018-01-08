@@ -1,6 +1,6 @@
 import {MUTATION_TYPE, GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
 import fs from 'fs'
-import path from 'path'
+import _path from 'path'
 
 const state = {
   xamppRoot: 'C:\\xampp',
@@ -25,8 +25,8 @@ const mutations = {
 }
 
 const getters = {
-  [GETTER_TYPE.Settings.xamppBase]: state => (path) => {
-    return state.xamppRoot + '\\' + path
+  [GETTER_TYPE.Settings.xamppBase]: state => (...path) => {
+    return _path.join(state.xamppRoot, ...path)
   },
 
   [GETTER_TYPE.Settings.hostsPath]: state => {
@@ -45,7 +45,7 @@ const getters = {
 const actions = {
   [ACTION_TYPE.Settings.saveState] ({ commit, state }) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(path.join(__static, 'state.json'), JSON.stringify(state), (err) => {
+      fs.writeFile(_path.join(__static, 'state.json'), JSON.stringify(state), (err) => {
         if (err) return reject(err)
         resolve()
       })
@@ -54,7 +54,7 @@ const actions = {
 
   [ACTION_TYPE.Settings.loadState] ({ commit, state }) {
     return new Promise((resolve, reject) => {
-      fs.readFile(path.join(__static, 'state.json'), 'utf8', (err, content) => {
+      fs.readFile(_path.join(__static, 'state.json'), 'utf8', (err, content) => {
         if (err) return reject(err)
 
         try {

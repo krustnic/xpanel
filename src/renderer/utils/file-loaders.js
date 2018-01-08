@@ -85,3 +85,35 @@ export const HostsLoader = {
     })
   }
 }
+
+export const LogLoader = {
+  load (path, maxSize = 4096) {
+    return new Promise((resolve, reject) => {
+      const fd = fs.openSync(path, 'r')
+      this.getFileSize(path).then(fileSize => {
+        const size = Math.min(maxSize, fileSize)
+        const buffer = Buffer.alloc(size)
+        const startPosition = Math.max(fileSize - maxSize, 0)
+        fs.read(fd, buffer, 0, size, startPosition, (err) => {
+          if (err) return reject(err)
+          const content = buffer.toString('utf-8')
+          const list = content.split('\r\n')
+          // Remove first item (because it can be broken)
+          list.splice(0, 1)
+          resolve({content, list})
+        })
+      }).catch(err => {
+        reject(err)
+      })
+    })
+  },
+
+  getFileSize (path) {
+    return new Promise((resolve, reject) => {
+      fs.stat(path, (err, stat) => {
+        if (err) return reject(err)
+        resolve(stat.size)
+      })
+    })
+  }
+}
