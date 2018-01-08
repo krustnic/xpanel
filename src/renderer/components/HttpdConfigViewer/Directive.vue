@@ -1,16 +1,22 @@
 <template>
     <div @click="onClick" class="directive" :class="typesClasses">
         <div class="name">{{ name }} {{ postfix }}</div>
-        <x-input :value="value" disabled></x-input>
+        <div class="controls">
+            <x-input :value="value" disabled></x-input>
+            <x-button v-if="isLogFile" type="success" @click="onOpenLog">
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </x-button>
+        </div>
     </div>
 </template>
 
 <script>
   import {DIRECTIVE_TYPE} from '@/utils/types'
   import XInput from '@/components/XInput'
+  import XButton from '@/components/XButton'
 
   export default {
-    components: {XInput},
+    components: {XInput, XButton},
     props: {
       directive: {
         type: Object,
@@ -47,11 +53,17 @@
           'directive-scoped': this.type === DIRECTIVE_TYPE.SCOPED,
           'directive-scope-parameter': this.type === DIRECTIVE_TYPE.FAKE_SCOPE_PARAMETER
         }
+      },
+      isLogFile () {
+        return ['errorlog', 'customlog', 'accesslog'].indexOf(this.name.toLowerCase()) !== -1
       }
     },
     methods: {
       onClick () {
         this.$emit('on-click', this.directive)
+      },
+      onOpenLog () {
+        this.$emit('on-open-log', this.directive)
       }
     }
   }
@@ -63,6 +75,14 @@
         border: 1px solid $main-border-color;
         padding: 5px;
         margin-bottom: 5px;
+
+        & .controls {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr;
+
+            margin-top: 5px;
+        }
 
         &:hover {
             background-color: lighten($main-bg-color, 7%);

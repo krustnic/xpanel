@@ -7,12 +7,18 @@
             </x-button>
         </div>
 
-        <div class="content">
+        <div>
             <hr>
-            <div>
+        </div>
+
+        <div class="content">
+            <div v-if="currentLogListReversed.length !== 0">
                 <div v-for="(line, index) in currentLogListReversed" :key="index" class="log-line">
                     {{line}}
                 </div>
+            </div>
+            <div v-else class="empty">
+                The file is empty
             </div>
         </div>
     </div>
@@ -44,7 +50,7 @@
       ]),
       reload () {
         console.log('reload')
-        this.loadLogFile({path: this.xamppBase('apache', 'logs/local.lk.etu.ru-access.log')}).then(() => {
+        this.loadLogFile({path: this.currentLogPath}).then(() => {
           console.log('log file loaded')
         })
       }
@@ -56,7 +62,7 @@
     .grid {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
 
         padding: 4px;
 
@@ -65,11 +71,20 @@
             grid-template-columns: 1fr auto;
             grid-template-rows: auto 1fr;
         }
+
+        & .content {
+            overflow: auto;
+        }
     }
 
     .log-page {
         & .log-line {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        & .empty {
+            text-align: center;
+            margin-top: 10px;
         }
     }
 </style>

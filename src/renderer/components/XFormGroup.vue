@@ -19,12 +19,16 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .grid {
 
     }
 
     .x-form-group {
         margin-top: 5px;
+
+        & .label {
+            margin-bottom: 5px;
+        }
     }
 </style>

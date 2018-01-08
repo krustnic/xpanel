@@ -36,8 +36,6 @@
 
 <style lang="scss" scoped>
     .x-input {
-        margin-top: 5px;
-
         .input {
             width: 100%;
             padding: 5px;

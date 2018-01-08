@@ -17,6 +17,7 @@
                                 :type="type"
                                 :postfix="postfix"
                                 @on-click="selectView"
+                                @on-open-log="openLog"
                 ></directive>
             </div>
         </div>
@@ -24,8 +25,8 @@
 </template>
 
 <script>
-  import {mapMutations} from 'vuex'
-  import {DIRECTIVE_TYPE, MUTATION_TYPE} from '@/utils/types'
+  import {mapMutations, mapActions, mapGetters} from 'vuex'
+  import {DIRECTIVE_TYPE, MUTATION_TYPE, ACTION_TYPE, GETTER_TYPE} from '@/utils/types'
   import Directive from '@/components/HttpdConfigViewer/Directive'
 
   export default {
@@ -42,6 +43,9 @@
       return {DIRECTIVE_TYPE}
     },
     computed: {
+      ...mapGetters('Settings', [
+        GETTER_TYPE.Settings.xamppBase
+      ]),
       scope () {
         return this.config.type && this.config.type !== DIRECTIVE_TYPE.ROOT ? this.config : null
       },
@@ -63,6 +67,9 @@
     methods: {
       ...mapMutations('Files', [
         MUTATION_TYPE.Files.pushView
+      ]),
+      ...mapActions('Files', [
+        ACTION_TYPE.Files.loadLogFile
       ]),
       formatDirective (directive) {
         const format = {
@@ -98,6 +105,20 @@
         return directive.parameters.map(param => {
           return param.value
         }).join(', ')
+      },
+      openLog (directive) {
+        let relativeLogPath = directive.parameters[0].value
+        relativeLogPath = relativeLogPath.replace(/"/g, '')
+        relativeLogPath = relativeLogPath.replace(/\r/g, '')
+        relativeLogPath = relativeLogPath.replace(/\n/g, '')
+        this.loadLogFile({path: this.xamppBase('apache', relativeLogPath)}).then(() => {
+          this.$router.push('log')
+        }).catch(e => {
+          this.$message({
+            type: 'error',
+            title: 'Can\'t open file'
+          })
+        })
       }
     }
   }

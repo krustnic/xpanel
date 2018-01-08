@@ -2,6 +2,7 @@ import peg from 'pegjs'
 import fs from 'fs'
 import path from 'path'
 import {spawn} from 'child_process'
+import windows1251 from 'windows-1251'
 
 const httpdParser = peg.generate(fs.readFileSync(path.join(__static, 'httpd-config-grammar.pegjs'), 'utf8'))
 const HOSTS_TEMP_FILE = 'hosts-temp-file.tmp'
@@ -96,7 +97,8 @@ export const LogLoader = {
         const startPosition = Math.max(fileSize - maxSize, 0)
         fs.read(fd, buffer, 0, size, startPosition, (err) => {
           if (err) return reject(err)
-          const content = buffer.toString('utf-8')
+          // Windows cyrillic support
+          const content = windows1251.decode(buffer.toString('binary'))
           const list = content.split('\r\n')
           // Remove first item (because it can be broken)
           list.splice(0, 1)

@@ -34,8 +34,8 @@
         return {}
       },
       methods: {
-        onClick () {
-          this.$emit('click')
+        onClick (e) {
+          this.$emit('click', e)
         }
       }
     }
@@ -47,16 +47,16 @@
     .x-button {
         color: white;
         text-decoration: none;
-        height: 24px;
+        min-height: 24px;
         text-align: center;
-        border: 1px solid $default-color;
+        border: 0px solid $default-color;
         background-color: $default-color;
         border-radius: 0px;
         box-sizing: border-box;
         padding-left: 6px;
         padding-right: 6px;
         font-size: 14px;
-        box-shadow: 4px 1px 8px 1px rgba(0, 0, 0, 0.43);
+        /*box-shadow: 4px 1px 8px 1px rgba(0, 0, 0, 0.43);*/
 
         &:hover {
             background-color: lighten($default-color, 7%);
