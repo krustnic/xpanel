@@ -49,9 +49,12 @@
         ACTION_TYPE.Files.loadLogFile
       ]),
       reload () {
-        console.log('reload')
         this.loadLogFile({path: this.currentLogPath}).then(() => {
-          console.log('log file loaded')
+          this.$message({
+            type: 'success',
+            icon: 'fa-hdd-o',
+            title: 'Loaded'
+          })
         })
       }
     }
