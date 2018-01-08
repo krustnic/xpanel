@@ -4,7 +4,6 @@
         <navigation-button to="/vhosts" name="Virtual Hosts"></navigation-button>
         <navigation-button to="/hosts" name="Hosts"></navigation-button>
         <navigation-button to="/settings" name="Settings"></navigation-button>
-        <navigation-button to="/log" name="Log"></navigation-button>
     </div>
 </template>
 
