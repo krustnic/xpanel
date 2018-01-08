@@ -31,7 +31,7 @@
     },
     methods: {
       destroyElement () {
-        this.$destroy(true)
+        this.$destroy()
         this.$el.parentNode.removeChild(this.$el)
       },
       close () {
