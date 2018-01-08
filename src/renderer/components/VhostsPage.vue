@@ -12,6 +12,7 @@
   import ContentEditor from './HttpdConfigViewer/ContentEditor'
 
   export default {
+    name: 'vhosts-page',
     components: {ConfigEditor, ContentEditor},
     data () {
       return {

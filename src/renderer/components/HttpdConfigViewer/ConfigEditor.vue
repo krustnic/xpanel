@@ -1,8 +1,11 @@
 <template>
     <div class="grid config-editor">
         <breadcrumbs class="navigation" :items="views" @on-select="selectCurrentView"></breadcrumbs>
-        <x-button class="controls" @on-click="addVhost" type="success" style="display: none">
+        <x-button class="controls" @click="addVhost" type="success" style="display: none">
             <i class="fa fa-plus" aria-hidden="true"></i> VH
+        </x-button>
+        <x-button @click="reload">
+            <i class="fa fa-refresh" aria-hidden="true"></i>
         </x-button>
 
         <div class="divider">
@@ -14,8 +17,8 @@
 </template>
 
 <script>
-  import {mapMutations} from 'vuex'
-  import {MUTATION_TYPE} from '@/utils/types'
+  import {mapMutations, mapGetters, mapActions} from 'vuex'
+  import {MUTATION_TYPE, GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
   import HttpdConfigViewer from '@/components/HttpdConfigViewer'
   import Breadcrumbs from '@/components/Breadcrumbs'
   import XButton from '@/components/XButton'
@@ -39,7 +42,15 @@
     data () {
       return {}
     },
+    computed: {
+      ...mapGetters('Settings', [
+        GETTER_TYPE.Settings.xamppVirtualHostsFilePath
+      ])
+    },
     methods: {
+      ...mapActions('Files', [
+        ACTION_TYPE.Files.loadHttpdFile
+      ]),
       ...mapMutations('Files', [
         MUTATION_TYPE.Files.setCurrentView
       ]),
@@ -48,6 +59,19 @@
       },
       addVhost () {
         console.log('add vhost')
+      },
+      reload () {
+        this.loadHttpdFile(this.xamppVirtualHostsFilePath).then(() => {
+          this.$message({
+            type: 'success',
+            title: 'Loaded'
+          })
+        }).catch(e => {
+          this.$message({
+            type: 'error',
+            title: 'Can\'t load'
+          })
+        })
       },
       onRaw (view) {
         this.$emit('on-raw', view)
@@ -59,7 +83,7 @@
 <style lang="scss" scoped>
     .grid {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr auto auto;
         grid-template-rows: auto auto 1fr;
         grid-template-areas:
             "navigation controls"

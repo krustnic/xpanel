@@ -1,7 +1,12 @@
 <template>
     <div class="grid content-editor">
         <x-file-path>{{ currentFile }}</x-file-path>
-        <x-button @click="saveFile" class="controls" type="success" icon="fa-floppy-o" :loading="isSaving">Save</x-button>
+        <x-button @click="saveFile"
+                  class="controls"
+                  type="success"
+                  icon="fa-floppy-o"
+                  :loading="isSaving"
+        >Save</x-button>
 
         <div class="divider">
             <hr>

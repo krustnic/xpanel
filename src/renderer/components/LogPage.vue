@@ -36,6 +36,7 @@
   const dialog = remote.dialog
 
   export default {
+    name: 'log-page',
     components: {XFilePath, XButton},
     data () {
       return {}

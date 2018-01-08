@@ -2,7 +2,9 @@
   <div id="app">
     <div class="container">
       <navigation-menu></navigation-menu>
-      <router-view class="content"></router-view>
+      <keep-alive :include="cachedComponents">
+        <router-view class="content"></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -15,6 +17,14 @@
   export default {
     components: {NavigationMenu},
     name: 'xpanel',
+    data () {
+      return {
+        cachedComponents: [
+          'vhosts-page',
+          'log-page'
+        ]
+      }
+    },
     methods: {
       ...mapActions('State', [
         ACTION_TYPE.State.updateApacheState
