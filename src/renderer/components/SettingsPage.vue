@@ -11,6 +11,14 @@
         <x-form-group label="Hosts file path:">
             <x-input v-model="settings.hostsPath"></x-input>
         </x-form-group>
+
+        <!--<hr>-->
+
+        <!--<x-form-group label="">-->
+            <!--<label>-->
+                <!--<input type="checkbox"> Enable XPanel extra-httpd.conf-->
+            <!--</label>-->
+        <!--</x-form-group>-->
     </div>
 </template>
 
