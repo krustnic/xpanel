@@ -27,7 +27,7 @@
     .x-form-group {
         margin-top: 5px;
 
-        & .label {
+        & > .label {
             margin-bottom: 5px;
         }
     }

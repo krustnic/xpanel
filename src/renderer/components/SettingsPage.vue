@@ -12,13 +12,9 @@
             <x-input v-model="settings.hostsPath"></x-input>
         </x-form-group>
 
-        <!--<hr>-->
+        <hr>
 
-        <!--<x-form-group label="">-->
-            <!--<label>-->
-                <!--<input type="checkbox"> Enable XPanel extra-httpd.conf-->
-            <!--</label>-->
-        <!--</x-form-group>-->
+        <php-versions :folders="settings.folders"></php-versions>
     </div>
 </template>
 
@@ -28,14 +24,25 @@
   import XFormGroup from '@/components/XFormGroup'
   import XInput from '@/components/XInput'
   import XButton from '@/components/XButton'
+  import PhpVersions from './SettingsPage/PhpVersions'
 
   export default {
-    components: {XFormGroup, XInput, XButton},
+    components: {XFormGroup, XInput, XButton, PhpVersions},
     data () {
       return {
         settings: {
           xamppRoot: '',
-          hostsPath: ''
+          hostsPath: '',
+          folders: [
+            {
+              path: '123',
+              label: '5.4'
+            },
+            {
+              path: '321',
+              label: '5.5'
+            }
+          ]
         }
       }
     },
