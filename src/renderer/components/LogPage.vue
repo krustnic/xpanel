@@ -106,7 +106,7 @@
 
     .log-page {
         & .log-line {
-            margin-bottom: 10px;
+            margin-bottom: 0px;
         }
 
         & .empty {
