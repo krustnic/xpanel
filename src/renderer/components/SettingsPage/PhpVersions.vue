@@ -1,15 +1,9 @@
 <template>
     <div class="php-versions">
-        <x-form-group label="">
-            <label>
-                <input type="checkbox"><span>Enable FastCGI (allow to use multiple php versions)</span>
-            </label>
-        </x-form-group>
-
         <x-form-group>
             <x-form-group v-for="(folderItem, index) in folders" :key="index">
                 <div class="php-folder-item">
-                    <x-file-path class="label">123</x-file-path>
+                    <x-file-path class="label">{{ folderItem.label }}</x-file-path>
                     <x-path-input @input="updatePath(folderItem, $event)" :value="folderItem.path"></x-path-input>
                     <x-button @click="removeFolder(index)" class="remove" type="danger">
                         <i class="fa fa-times" aria-hidden="true"></i>
@@ -31,6 +25,7 @@
   import XButton from '@/components/XButton'
   import XPathInput from '@/components/XPathInput'
   import XFilePath from '@/components/XFilePath'
+  import PhpChecker from '@/utils/PhpChecker'
 
   export default {
     components: {XFormGroup, XButton, XPathInput, XFilePath},
@@ -49,15 +44,24 @@
       addFolder () {
         this.folders.push({
           path: '',
-          label: ''
+          label: 'version'
         })
       },
       removeFolder (index) {
         this.folders.splice(index, 1)
       },
       updatePath (folderItem, value) {
-        folderItem.path = value
         console.log('change value', value)
+
+        PhpChecker.validate(value).then(phpVersion => {
+          folderItem.path = value
+          folderItem.label = phpVersion
+        }).catch(e => {
+          this.$message({
+            type: 'error',
+            title: e.toString()
+          })
+        })
       }
     }
   }

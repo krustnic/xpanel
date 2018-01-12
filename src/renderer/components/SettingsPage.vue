@@ -14,7 +14,15 @@
 
         <hr>
 
-        <php-versions :folders="settings.folders"></php-versions>
+        <x-form-group label="">
+            <label>
+                <input type="checkbox" v-model="settings.isFastCGI"><span>Enable FastCGI (allow to use multiple php versions)</span>
+            </label>
+        </x-form-group>
+
+        <x-disable-content :disabled="!settings.isFastCGI">
+            <php-versions :folders="settings.folders"></php-versions>
+        </x-disable-content>
     </div>
 </template>
 
@@ -24,25 +32,18 @@
   import XFormGroup from '@/components/XFormGroup'
   import XInput from '@/components/XInput'
   import XButton from '@/components/XButton'
+  import XDisableContent from '@/components/XDisableContent'
   import PhpVersions from './SettingsPage/PhpVersions'
 
   export default {
-    components: {XFormGroup, XInput, XButton, PhpVersions},
+    components: {XFormGroup, XInput, XButton, XDisableContent, PhpVersions},
     data () {
       return {
         settings: {
           xamppRoot: '',
           hostsPath: '',
-          folders: [
-            {
-              path: '123',
-              label: '5.4'
-            },
-            {
-              path: '321',
-              label: '5.5'
-            }
-          ]
+          folders: [],
+          isFastCGI: false
         }
       }
     },
