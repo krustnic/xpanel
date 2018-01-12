@@ -21,7 +21,7 @@
         </x-form-group>
 
         <x-disable-content :disabled="!settings.isFastCGI">
-            <php-versions :folders="settings.folders"></php-versions>
+            <php-versions :folders="settings.phpFolders"></php-versions>
         </x-disable-content>
     </div>
 </template>
@@ -42,7 +42,7 @@
         settings: {
           xamppRoot: '',
           hostsPath: '',
-          folders: [],
+          phpFolders: [],
           isFastCGI: false
         }
       }
@@ -50,17 +50,23 @@
     created () {
       this.settings.xamppRoot = this.xamppRoot
       this.settings.hostsPath = this.hostsPath
+      this.settings.phpFolders = this.phpFolders.slice()
+      this.settings.isFastCGI = this.isFastCGI
     },
     computed: {
       ...mapGetters('Settings', [
         GETTER_TYPE.Settings.xamppRoot,
-        GETTER_TYPE.Settings.hostsPath
+        GETTER_TYPE.Settings.hostsPath,
+        GETTER_TYPE.Settings.phpFolders,
+        GETTER_TYPE.Settings.isFastCGI
       ])
     },
     methods: {
       ...mapMutations('Settings', [
         MUTATION_TYPE.Settings.setXamppRoot,
-        MUTATION_TYPE.Settings.setHostsPath
+        MUTATION_TYPE.Settings.setHostsPath,
+        MUTATION_TYPE.Settings.setPhpFolders,
+        MUTATION_TYPE.Settings.setFastCGIFlag
       ]),
       ...mapActions('Settings', [
         ACTION_TYPE.Settings.saveState
@@ -70,6 +76,8 @@
         // TODO: Validation
         this.setXamppRoot(this.settings.xamppRoot)
         this.setHostsPath(this.settings.hostsPath)
+        this.setPhpFolders(this.settings.phpFolders)
+        this.setFastCGIFlag(this.settings.isFastCGI)
         this.saveState()
         this.$message({
           title: 'Saved',

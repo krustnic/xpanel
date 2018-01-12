@@ -36,6 +36,8 @@ export const MUTATION_TYPE = {
   Settings: {
     setXamppRoot: 'setXamppRoot',
     setHostsPath: 'setHostsPath',
+    setPhpFolders: 'setPhpFolders',
+    setFastCGIFlag: 'setFastCGIFlag',
     loadState: 'loadState'
   },
 
@@ -61,6 +63,8 @@ export const GETTER_TYPE = {
     xamppBase: 'xamppBase',
     hostsPath: 'hostsPath',
     xamppRoot: 'xamppRoot',
+    phpFolders: 'phpFolders',
+    isFastCGI: 'isFastCGI',
     xamppVirtualHostsFilePath: 'xamppVirtualHostsFilePath'
   },
 

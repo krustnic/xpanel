@@ -5,7 +5,9 @@ import _path from 'path'
 const state = {
   xamppRoot: 'C:\\xampp',
   hostsPath: 'C:\\Windows\\System32\\drivers\\etc\\hosts',
-  virtualHostsRelativePath: 'apache\\conf\\extra\\httpd-vhosts.conf'
+  virtualHostsRelativePath: 'apache\\conf\\extra\\httpd-vhosts.conf',
+  phpFolders: [],
+  isFastCGI: false
 }
 
 const mutations = {
@@ -15,6 +17,14 @@ const mutations = {
 
   [MUTATION_TYPE.Settings.setHostsPath] (state, path) {
     state.hostsPath = path
+  },
+
+  [MUTATION_TYPE.Settings.setPhpFolders] (state, folders) {
+    state.phpFolders = folders
+  },
+
+  [MUTATION_TYPE.Settings.setFastCGIFlag] (state, isFastCGI) {
+    state.isFastCGI = isFastCGI
   },
 
   [MUTATION_TYPE.Settings.loadState] (state, newState) {
@@ -35,6 +45,14 @@ const getters = {
 
   [GETTER_TYPE.Settings.xamppRoot]: state => {
     return state.xamppRoot
+  },
+
+  [GETTER_TYPE.Settings.phpFolders]: state => {
+    return state.phpFolders
+  },
+
+  [GETTER_TYPE.Settings.isFastCGI]: state => {
+    return state.isFastCGI
   },
 
   [GETTER_TYPE.Settings.xamppVirtualHostsFilePath]: (state, getters) => {
