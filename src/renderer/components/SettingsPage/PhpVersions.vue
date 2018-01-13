@@ -59,7 +59,8 @@
         }).catch(e => {
           this.$message({
             type: 'error',
-            title: e.toString()
+            title: e.toString(),
+            timeout: 2000
           })
         })
       }

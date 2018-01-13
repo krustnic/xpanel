@@ -18,7 +18,8 @@
         visible: false,
         type: 'success',
         title: '',
-        icon: 'fa-exclamation-circle' // 'fa-floppy-o'
+        icon: 'fa-exclamation-circle', // 'fa-floppy-o'
+        timeout: 600
       }
     },
     computed: {
@@ -40,7 +41,7 @@
       startTimer () {
         setTimeout(() => {
           this.close()
-        }, 600)
+        }, this.timeout)
       }
     },
     mounted () {
@@ -65,11 +66,12 @@
 
         & .box {
             text-align: center;
-            width: 100px;
+            min-width: 100px;
             height: 100px;
             border-radius: 2px;
             background-color: #3c4049;
             border: 1px solid #4c4c4c;
+            padding: 0 4px 0 4px;
 
             &.success {
 

@@ -72,7 +72,6 @@
         ACTION_TYPE.Settings.saveState
       ]),
       save () {
-        console.log(JSON.stringify(this.$store.state.Settings))
         // TODO: Validation
         this.setXamppRoot(this.settings.xamppRoot)
         this.setHostsPath(this.settings.hostsPath)
