@@ -13,13 +13,16 @@ Vue.config.productionTip = false
 Vue.use(Message)
 
 function initializeApp () {
-  /* eslint-disable no-new */
-  new Vue({
-    components: { App },
-    router,
-    store,
-    template: '<App/>'
-  }).$mount('#app')
+  // Load and parse virtual host file
+  store.dispatch(`Files/${ACTION_TYPE.Files.loadHttpdFile}`).then(() => {
+    /* eslint-disable no-new */
+    new Vue({
+      components: {App},
+      router,
+      store,
+      template: '<App/>'
+    }).$mount('#app')
+  })
 }
 
 store.dispatch(`Settings/${ACTION_TYPE.Settings.loadState}`).then(() => {

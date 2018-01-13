@@ -106,7 +106,9 @@ const getters = {
 }
 
 const actions = {
-  [ACTION_TYPE.Files.loadHttpdFile] ({ commit }, path) {
+  [ACTION_TYPE.Files.loadHttpdFile] ({ commit, rootGetters }) {
+    const path = rootGetters[`Settings/${GETTER_TYPE.Settings.xamppVirtualHostsFilePath}`]
+
     return new Promise((resolve, reject) => {
       HttpdLoader.load(path).then(({content, config}) => {
         commit(MUTATION_TYPE.Files.setCurrentHttpdConfig, { path, config })

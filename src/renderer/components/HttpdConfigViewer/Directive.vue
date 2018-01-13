@@ -4,7 +4,7 @@
         <div class="controls">
             <x-input :value="value" disabled></x-input>
             <x-button v-if="isLogFile" type="success" @click="onOpenLog">
-                <i class="fa fa-list" aria-hidden="true"></i>
+                <i class="fa fa-search" aria-hidden="true"></i>
             </x-button>
         </div>
     </div>
