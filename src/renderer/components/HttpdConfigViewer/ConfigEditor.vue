@@ -1,12 +1,14 @@
 <template>
     <div class="grid config-editor">
         <breadcrumbs class="navigation" :items="views" @on-select="selectCurrentView"></breadcrumbs>
-        <x-button class="controls" @click="addVhost" type="success" style="display: none">
-            <i class="fa fa-plus" aria-hidden="true"></i> VH
-        </x-button>
-        <x-button @click="reload">
-            <i class="fa fa-refresh" aria-hidden="true"></i>
-        </x-button>
+        <div class="controls">
+            <x-button @click="addVhost" type="success">
+                <i class="fa fa-plus" aria-hidden="true"></i> VH
+            </x-button>
+            <x-button @click="reload">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+            </x-button>
+        </div>
 
         <div class="divider">
             <hr>
