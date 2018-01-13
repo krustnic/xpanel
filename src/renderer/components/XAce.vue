@@ -24,6 +24,10 @@
       mode: {
         type: String,
         default: 'powershell'
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
@@ -37,6 +41,7 @@
       this.editor.setTheme('ace/theme/tomorrow_night')
       this.editor.$blockScrolling = Infinity
       this.setValue(this.content)
+      this.setDisabled(this.disabled)
 
       // In case of full reactivity:
       // this.editor.getSession().on('change', () => {
@@ -49,6 +54,9 @@
       },
       setValue (value) {
         this.editor.setValue(value, -1)
+      },
+      setDisabled (isDisabled) {
+        this.editor.setReadOnly(isDisabled)
       }
     },
     watch: {
@@ -65,6 +73,9 @@
           this.selection.end.column - 1
         ))
         this.editor.focus()
+      },
+      disabled () {
+        this.setDisabled(this.disabled)
       }
     },
     beforeDestroy () {

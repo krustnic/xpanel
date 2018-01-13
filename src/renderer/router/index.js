@@ -6,6 +6,7 @@ import VhostsPage from '@/components/VhostsPage'
 import HostsPage from '@/components/HostsPage'
 import SettingsPage from '@/components/SettingsPage'
 import LogPage from '@/components/LogPage'
+import ConstructorPage from '@/components/ConstructorPage'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
       path: '/log',
       name: 'log',
       component: LogPage
+    },
+    {
+      path: '/constructor',
+      name: 'constructor',
+      component: ConstructorPage
     },
     {
       path: '*',

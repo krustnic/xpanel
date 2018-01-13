@@ -60,7 +60,7 @@
         this.setCurrentView({ view })
       },
       addVhost () {
-        console.log('add vhost')
+        this.$router.push('constructor')
       },
       reload () {
         this.loadHttpdFile(this.xamppVirtualHostsFilePath).then(() => {

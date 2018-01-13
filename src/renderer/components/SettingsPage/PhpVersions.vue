@@ -51,8 +51,6 @@
         this.folders.splice(index, 1)
       },
       updatePath (folderItem, value) {
-        console.log('change value', value)
-
         PhpChecker.validate(value).then(phpVersion => {
           folderItem.path = value
           folderItem.label = phpVersion

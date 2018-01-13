@@ -12,7 +12,12 @@
             <hr>
         </div>
 
-        <x-ace ref="editor" class="editor" mode="apache_conf" :content="currentFileContent" :selection="selection"></x-ace>
+        <x-ace ref="editor"
+               class="editor"
+               mode="apache_conf"
+               :content="currentFileContent"
+               :selection="selection"
+        ></x-ace>
     </div>
 </template>
 
