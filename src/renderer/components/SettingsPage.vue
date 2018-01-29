@@ -15,14 +15,22 @@
         <hr>
 
         <x-form-group label="">
-            <label>
-                <input type="checkbox" v-model="settings.isFastCGI"><span>Enable FastCGI (allow to use multiple php versions)</span>
-            </label>
+            <x-checkbox v-model="settings.isFastCGI">
+                <span>Enable FastCGI (allow to use multiple php versions)</span>
+            </x-checkbox>
         </x-form-group>
 
         <x-disable-content :disabled="!settings.isFastCGI">
             <php-versions :folders="settings.phpFolders"></php-versions>
         </x-disable-content>
+
+        <hr>
+
+        <div class="additional">
+            <x-button @click="installFCGI">Install FastCGI</x-button>
+        </div>
+
+        <fast-cgi-modal :show="isShowFCGIModal" @on-cancel="isShowFCGIModal = false"></fast-cgi-modal>
     </div>
 </template>
 
@@ -33,10 +41,12 @@
   import XInput from '@/components/XInput'
   import XButton from '@/components/XButton'
   import XDisableContent from '@/components/XDisableContent'
+  import XCheckbox from '@/components/XCheckbox'
   import PhpVersions from './SettingsPage/PhpVersions'
+  import FastCgiModal from './SettingsPage/FastCgiModal'
 
   export default {
-    components: {XFormGroup, XInput, XButton, XDisableContent, PhpVersions},
+    components: {XFormGroup, XInput, XButton, XDisableContent, PhpVersions, FastCgiModal, XCheckbox},
     data () {
       return {
         settings: {
@@ -44,7 +54,8 @@
           hostsPath: '',
           phpFolders: [],
           isFastCGI: false
-        }
+        },
+        isShowFCGIModal: false
       }
     },
     created () {
@@ -82,6 +93,9 @@
           title: 'Saved',
           icon: 'fa-floppy-o'
         })
+      },
+      installFCGI () {
+        this.isShowFCGIModal = true
       }
     }
   }
@@ -94,5 +108,9 @@
 
     .settings-page {
         padding: 4px;
+    }
+
+    .additional {
+        text-align: right;
     }
 </style>
