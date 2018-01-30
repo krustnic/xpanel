@@ -57,7 +57,7 @@
         position: fixed;
         width: 100%;
         height: 100%;
-        z-index: 300;
+        z-index: 50;
         background-color: transparentize($main-bg-color, .5);
         top: 0;
         left: 0;
@@ -76,7 +76,7 @@
 
     .header {
         padding: 4px;
-        background-color: $active-color;
+        background-color: $ui-main-color;
         color: white;
         margin-bottom: 8px;
     }

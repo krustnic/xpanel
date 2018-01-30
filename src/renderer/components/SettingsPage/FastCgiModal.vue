@@ -17,6 +17,9 @@
 <script>
   import XModal from '@/components/XModal'
   import XCheckbox from '@/components/XCheckbox'
+  import {mapGetters} from 'vuex'
+  import {GETTER_TYPE} from '@/utils/types'
+  import FastCGI from '@/utils/FastCGI'
 
   export default {
     components: {XModal, XCheckbox},
@@ -35,9 +38,33 @@
         }
       }
     },
+    computed: {
+      ...mapGetters('Settings', [
+        GETTER_TYPE.Settings.xamppRoot
+      ])
+    },
     methods: {
       install () {
+        this.runJobs().then(() => {
+          this.$message({
+            type: 'success',
+            title: 'Complite'
+          })
+        }).catch(e => {
+          this.$message({
+            type: 'error',
+            title: 'Error'
+          })
+        })
+      },
+      async runJobs () {
         console.log('install')
+        const fastCGI = new FastCGI(this.xamppRoot)
+        if (this.jobs.backup) {
+          if (!fastCGI.isBackupExist()) {
+            await fastCGI.createBackup()
+          }
+        }
       },
       cancel () {
         this.$emit('on-cancel')
