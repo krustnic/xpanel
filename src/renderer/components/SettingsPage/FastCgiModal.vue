@@ -50,6 +50,7 @@
             type: 'success',
             title: 'Complite'
           })
+          this.cancel()
         }).catch(e => {
           this.$message({
             type: 'error',
@@ -57,15 +58,24 @@
           })
         })
       },
+
       async runJobs () {
-        console.log('install')
         const fastCGI = new FastCGI(this.xamppRoot)
         if (this.jobs.backup) {
           if (!fastCGI.isBackupExist()) {
             await fastCGI.createBackup()
           }
         }
+
+        if (this.jobs.update) {
+          await fastCGI.updateXamppConfig()
+        }
+
+        if (this.jobs.copy) {
+          await fastCGI.copyFastCGIModule()
+        }
       },
+
       cancel () {
         this.$emit('on-cancel')
       }

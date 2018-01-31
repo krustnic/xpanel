@@ -57,7 +57,7 @@
         position: fixed;
         width: 100%;
         height: 100%;
-        z-index: 50;
+        z-index: 100;
         background-color: transparentize($main-bg-color, .5);
         top: 0;
         left: 0;
