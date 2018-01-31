@@ -14,10 +14,14 @@
 
   export default {
     components: {XAce},
-    data () {
-      return {
-        content: '123'
+    props: {
+      content: {
+        type: String,
+        default: ''
       }
+    },
+    data () {
+      return {}
     }
   }
 </script>

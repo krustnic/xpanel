@@ -1,7 +1,7 @@
 <template>
     <div class="grid constructor-page">
-        <virtual-host-constructor></virtual-host-constructor>
-        <virtual-host-preview></virtual-host-preview>
+        <virtual-host-constructor @on-generate="onGenerate"></virtual-host-constructor>
+        <virtual-host-preview :content="content"></virtual-host-preview>
     </div>
 </template>
 
@@ -12,7 +12,14 @@
   export default {
     components: {VirtualHostConstructor, VirtualHostPreview},
     data () {
-      return {}
+      return {
+        content: ''
+      }
+    },
+    methods: {
+      onGenerate (content) {
+        this.content = content
+      }
     }
   }
 </script>
