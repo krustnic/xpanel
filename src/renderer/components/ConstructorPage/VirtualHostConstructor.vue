@@ -4,7 +4,7 @@
             <x-input v-model="settings.port"></x-input>
         </x-form-group>
 
-        <x-form-group label="ServerName (e.g. local.example.com)">
+        <x-form-group label="ServerName">
             <x-input v-model="settings.serverName"></x-input>
         </x-form-group>
 
@@ -12,11 +12,11 @@
             <x-path-input v-model="settings.directory"></x-path-input>
         </x-form-group>
 
-        <x-form-group label="AccessLog">
+        <x-form-group label="AccessLog directory">
             <x-path-input v-model="settings.accessLog"></x-path-input>
         </x-form-group>
 
-        <x-form-group label="ErrorLog">
+        <x-form-group label="ErrorLog directory">
             <x-path-input v-model="settings.errorLog"></x-path-input>
         </x-form-group>
 
@@ -34,9 +34,11 @@
   import XPathInput from '@/components/XPathInput'
   import XButton from '@/components/XButton'
   import XSelect from '@/components/XSelect'
-  import {template} from 'lodash'
+  import dot from 'dot'
   import path from 'path'
   import fs from 'fs'
+
+  dot.templateSettings.strip = false
 
   export default {
     components: {XFormGroup, XInput, XPathInput, XButton, XSelect},
@@ -45,7 +47,7 @@
         settings: {
           port: '80',
           directory: '',
-          serverName: '',
+          serverName: 'local.example.com',
           accessLog: '',
           errorLog: '',
           customLog: '',
@@ -69,7 +71,7 @@
       }
     },
     created () {
-      this.compiledTemplate = template(fs.readFileSync(path.join(__static, 'apache\\vhost-template.conf')))
+      this.compiledTemplate = dot.template(fs.readFileSync(path.join(__static, 'apache\\vhost-template.conf')))
       this.generate()
     },
     methods: {
@@ -82,7 +84,7 @@
           errorLog: this.settings.errorLog,
           customLog: this.settings.customLog,
           phpPath: this.settings.phpPath
-        })
+        }).replace(/^\s*\n/gm, '') // Remove blank lines
         this.$emit('on-generate', content)
       }
     },
