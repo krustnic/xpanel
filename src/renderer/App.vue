@@ -21,7 +21,8 @@
       return {
         cachedComponents: [
           'vhosts-page',
-          'log-page'
+          'log-page',
+          'constructor-page'
         ]
       }
     },

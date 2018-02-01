@@ -1,6 +1,6 @@
 <template>
-    <select class="select">
-        <option v-for="(item, index) in options" :key="index" :value="item[value]">{{ item[label] }}</option>
+    <select v-model="localValue" @change="change" class="select">
+        <option v-for="(item, index) in options" :key="index" :value="item[valueField]">{{ item[labelField] }}</option>
     </select>
 </template>
 
@@ -13,17 +13,36 @@
           return []
         }
       },
-      label: {
+      labelField: {
         type: String,
         default: 'label'
       },
-      value: {
+      valueField: {
         type: String,
         default: 'value'
+      },
+      value: {
+        type: String,
+        default: ''
       }
     },
     data () {
-      return {}
+      return {
+        localValue: ''
+      }
+    },
+    created () {
+      this.localValue = this.value
+    },
+    watch: {
+      value () {
+        this.localValue = this.value
+      }
+    },
+    methods: {
+      change () {
+        this.$emit('input', this.localValue)
+      }
     }
   }
 </script>

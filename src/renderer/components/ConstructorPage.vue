@@ -10,6 +10,7 @@
   import VirtualHostPreview from '@/components/ConstructorPage/VirtualHostPreview'
 
   export default {
+    name: 'constructor-page',
     components: {VirtualHostConstructor, VirtualHostPreview},
     data () {
       return {

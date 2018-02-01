@@ -4,7 +4,7 @@
             <x-input v-model="settings.port"></x-input>
         </x-form-group>
 
-        <x-form-group label="ServerName">
+        <x-form-group label="ServerName (e.g. local.example.com)">
             <x-input v-model="settings.serverName"></x-input>
         </x-form-group>
 
@@ -21,12 +21,8 @@
         </x-form-group>
 
         <x-form-group label="PHP version (FastCGI)">
-            <x-select :options="phpFolders" label="label" value="path"></x-select>
+            <x-select v-model="settings.phpPath" :options="phpOptions" label-field="label" value-field="path"></x-select>
         </x-form-group>
-
-        <hr>
-
-        <x-button type="success">Copy {{settings.phpPath}}</x-button>
     </div>
 </template>
 
@@ -61,7 +57,16 @@
     computed: {
       ...mapGetters('Settings', [
         GETTER_TYPE.Settings.phpFolders
-      ])
+      ]),
+      phpOptions () {
+        const arr = this.phpFolders.slice()
+        arr.unshift({
+          label: ' ',
+          path: ''
+        })
+
+        return arr
+      }
     },
     created () {
       this.compiledTemplate = template(fs.readFileSync(path.join(__static, 'apache\\vhost-template.conf')))
