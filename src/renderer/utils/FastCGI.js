@@ -50,7 +50,7 @@ export default class FastCGI {
         if (err) return reject(err)
         const compiled = template(content)
         const generatedContent = compiled({
-          xamppRoot: this.xamppRoot
+          xamppRoot: this.xamppRoot.replace(/\\/g, '/')
         })
 
         fs.writeFile(this.getXamppFilePath(), generatedContent, (err) => {

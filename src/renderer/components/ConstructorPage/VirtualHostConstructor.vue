@@ -81,7 +81,7 @@
           accessLog: this.settings.accessLog,
           errorLog: this.settings.errorLog,
           customLog: this.settings.customLog,
-          phpPath: this.settings.phpPath
+          phpPath: this.settings.phpPath.replace(/\\/g, '/')
         }).replace(/^\s*\n/gm, '') // Remove blank lines
         this.$emit('on-generate', content)
       }

@@ -52,6 +52,7 @@
           })
           this.cancel()
         }).catch(e => {
+          console.log(e)
           this.$message({
             type: 'error',
             title: 'Error'
