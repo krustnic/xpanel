@@ -3,7 +3,7 @@
         <breadcrumbs class="navigation" :items="views" @on-select="selectCurrentView"></breadcrumbs>
         <div class="controls">
             <x-button @click="addVhost" type="success">
-                <i class="fa fa-plus" aria-hidden="true"></i> VH
+                <i class="fa fa-magic" aria-hidden="true"></i> VH
             </x-button>
             <x-button @click="reload">
                 <i class="fa fa-refresh" aria-hidden="true"></i>

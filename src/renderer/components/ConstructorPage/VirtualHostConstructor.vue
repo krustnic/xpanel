@@ -34,11 +34,9 @@
   import XPathInput from '@/components/XPathInput'
   import XButton from '@/components/XButton'
   import XSelect from '@/components/XSelect'
-  import dot from 'dot'
+  import {template} from 'lodash'
   import path from 'path'
   import fs from 'fs'
-
-  dot.templateSettings.strip = false
 
   export default {
     components: {XFormGroup, XInput, XPathInput, XButton, XSelect},
@@ -71,7 +69,7 @@
       }
     },
     created () {
-      this.compiledTemplate = dot.template(fs.readFileSync(path.join(__static, 'apache\\vhost-template.conf')))
+      this.compiledTemplate = template(fs.readFileSync(path.join(__static, 'apache\\vhost-template.conf')))
       this.generate()
     },
     methods: {
