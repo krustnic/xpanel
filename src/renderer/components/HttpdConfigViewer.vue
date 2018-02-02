@@ -10,12 +10,13 @@
                                 @on-click="selectView"
                 ></directive>
             </div>
-            <div v-for="({directive, name, value, type, postfix}, index) in formattedDirectives" :key="index">
+            <div v-for="({directive, name, value, type, postfix, badge}, index) in formattedDirectives" :key="index">
                 <directive :directive="directive"
                                 :name="name"
                                 :value="value"
                                 :type="type"
                                 :postfix="postfix"
+                                :badge="badge"
                                 @on-click="selectView"
                                 @on-open-log="openLog"
                 ></directive>
@@ -44,7 +45,8 @@
     },
     computed: {
       ...mapGetters('Settings', [
-        GETTER_TYPE.Settings.xamppBase
+        GETTER_TYPE.Settings.xamppBase,
+        GETTER_TYPE.Settings.getPhpVersionByPath
       ]),
       scope () {
         return this.config.type && this.config.type !== DIRECTIVE_TYPE.ROOT ? this.config : null
@@ -76,7 +78,8 @@
           directive,
           name: directive.name,
           value: this.getDirectivePropertiesString(directive),
-          type: directive.type
+          type: directive.type,
+          badge: this.getBadgeText(directive)
         }
         if (directive.type === DIRECTIVE_TYPE.SCOPED) {
           if (directive.name.toLowerCase() === 'virtualhost') {
@@ -87,6 +90,19 @@
           }
         }
         return format
+      },
+      getBadgeText (directive) {
+        if (directive.name.toLowerCase() !== 'virtualhost') return ''
+        for (let i in directive.body) {
+          if (directive.body[i].name === 'FcgidInitialEnv') {
+            if (directive.body[i].parameters.length === 2) {
+              let phpPath = directive.body[i].parameters[1].value
+              phpPath = this.removeExtraSymbols(phpPath)
+              return this.getPhpVersionByPath(phpPath)
+            }
+          }
+        }
+        return ''
       },
       selectView (view) {
         this.$emit('on-raw', view)
@@ -108,9 +124,7 @@
       },
       openLog (directive) {
         let relativeLogPath = directive.parameters[0].value
-        relativeLogPath = relativeLogPath.replace(/"/g, '')
-        relativeLogPath = relativeLogPath.replace(/\r/g, '')
-        relativeLogPath = relativeLogPath.replace(/\n/g, '')
+        relativeLogPath = this.removeExtraSymbols(relativeLogPath)
         this.loadLogFile({path: this.xamppBase('apache', relativeLogPath)}).then(() => {
           this.$router.push('log')
         }).catch(e => {
@@ -119,6 +133,12 @@
             title: 'Can\'t open file'
           })
         })
+      },
+      removeExtraSymbols (s) {
+        s = s.replace(/"/g, '')
+        s = s.replace(/\r/g, '')
+        s = s.replace(/\n/g, '')
+        return s
       }
     }
   }

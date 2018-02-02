@@ -64,6 +64,7 @@ export const GETTER_TYPE = {
     hostsPath: 'hostsPath',
     xamppRoot: 'xamppRoot',
     phpFolders: 'phpFolders',
+    getPhpVersionByPath: 'getPhpVersionByPath',
     isFastCGI: 'isFastCGI',
     xamppVirtualHostsFilePath: 'xamppVirtualHostsFilePath'
   },

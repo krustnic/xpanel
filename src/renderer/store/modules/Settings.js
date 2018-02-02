@@ -51,6 +51,16 @@ const getters = {
     return state.phpFolders
   },
 
+  [GETTER_TYPE.Settings.getPhpVersionByPath]: state => (phpPath) => {
+    for (let i in state.phpFolders) {
+      console.log(state.phpFolders[i].path, phpPath)
+      if (state.phpFolders[i].path === phpPath) {
+        return state.phpFolders[i].label
+      }
+    }
+    return null
+  },
+
   [GETTER_TYPE.Settings.isFastCGI]: state => {
     return state.isFastCGI
   },

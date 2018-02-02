@@ -33,7 +33,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        background-color: #353b45;
+        background-color: $nav-button-color;
         background-image: linear-gradient(#3a3f4b, #353b45);
         border-radius: 0px;
         box-sizing: border-box;

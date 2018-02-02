@@ -1,6 +1,9 @@
 <template>
     <div @click="onClick" class="directive" :class="typesClasses">
-        <div class="name">{{ name }} {{ postfix }}</div>
+        <div class="head">
+            <div class="name">{{ name }} {{ postfix }}</div>
+            <div v-if="badge" class="badge">{{ badge }}</div>
+        </div>
         <div class="controls">
             <x-input :value="value" disabled></x-input>
             <x-button v-if="isLogFile" type="success" @click="onOpenLog">
@@ -42,6 +45,10 @@
       value: {
         type: String,
         default: ''
+      },
+      badge: {
+        type: String,
+        default: ''
       }
     },
     data () {
@@ -75,6 +82,19 @@
         border: 1px solid $main-border-color;
         padding: 5px;
         margin-bottom: 5px;
+
+        .head {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: 1fr auto;
+
+            .badge {
+                border: 1px solid $main-border-color;
+                padding: 0 4px 0 4px;
+                background-color: $nav-button-color;
+                color: white;
+            }
+        }
 
         & .controls {
             display: grid;
