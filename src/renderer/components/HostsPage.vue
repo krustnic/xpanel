@@ -24,7 +24,9 @@
       return {}
     },
     created () {
-      this.loadHostsFile(this.hostsPath)
+      this.loadHostsFile({
+        path: this.hostsPath
+      })
     },
     methods: {
       ...mapActions('Files', [
@@ -38,7 +40,9 @@
           path: this.hostsPath,
           content: content
         }).then(() => {
-          this.loadHostsFile(this.hostsPath)
+          this.loadHostsFile({
+            path: this.hostsPath
+          })
           this.$message({
             title: 'Saved',
             icon: 'fa-floppy-o'

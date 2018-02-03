@@ -134,7 +134,7 @@ const actions = {
     })
   },
 
-  [ACTION_TYPE.Files.loadHostsFile] ({ commit }, path) {
+  [ACTION_TYPE.Files.loadHostsFile] ({ commit }, {path}) {
     return new Promise((resolve, reject) => {
       HostsLoader.load(path).then(({content}) => {
         commit(MUTATION_TYPE.Files.setHostsFileContent, {content})
