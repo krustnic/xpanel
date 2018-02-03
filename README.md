@@ -2,6 +2,10 @@
 
 > XAMPP control panel alternative
 
+<p align='center'>
+  <img src=".github/screenshot.png?raw=true">
+</p>
+
 #### Features
 - Start/Stop apache
 - Edit virtual hosts file
