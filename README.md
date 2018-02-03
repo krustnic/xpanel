@@ -1,6 +1,13 @@
-# xpanel
+# XPanel
 
 > XAMPP control panel alternative
+
+#### Features
+- Start/Stop apache
+- Edit virtual hosts file
+- Edit /etc/hosts file
+- Automatic setup of FastCGI (for multiple PHP versions at single XAMPP instance)
+- View logs
 
 #### Build Setup
 
