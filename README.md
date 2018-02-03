@@ -13,6 +13,10 @@
 - Automatic setup of FastCGI (for multiple PHP versions at single XAMPP instance)
 - View logs
 
+#### Installation
+
+Download ".exe" file from (release page)[https://github.com/krustnic/xpanel/releases] and install it
+
 #### Build Setup
 
 ``` bash
