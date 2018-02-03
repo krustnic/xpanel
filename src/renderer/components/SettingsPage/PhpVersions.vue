@@ -88,6 +88,8 @@
 
         & .label {
             margin-right: 4px;
+            min-width: 40px;
+            text-align: center;
         }
     }
 </style>
