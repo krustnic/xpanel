@@ -27,7 +27,4 @@ function initializeApp () {
 
 store.dispatch(`Settings/${ACTION_TYPE.Settings.loadState}`).then(() => {
   initializeApp()
-}).catch(err => {
-  console.error('Cannot load State file: ', err)
-  initializeApp()
 })

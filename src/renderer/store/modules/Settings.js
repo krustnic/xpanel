@@ -82,14 +82,18 @@ const actions = {
   [ACTION_TYPE.Settings.loadState] ({ commit, state }) {
     return new Promise((resolve, reject) => {
       fs.readFile(_path.join(__static, 'state.json'), 'utf8', (err, content) => {
-        if (err) return reject(err)
+        if (err) {
+          // Use default state
+          return resolve()
+        }
 
         try {
           const newState = JSON.parse(content)
           commit(MUTATION_TYPE.Settings.loadState, newState)
           resolve()
         } catch (e) {
-          reject(e)
+          // Use default state
+          resolve()
         }
       })
     })
