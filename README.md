@@ -15,7 +15,7 @@
 
 #### Installation
 
-Download ".exe" file from (release page)[https://github.com/krustnic/xpanel/releases] and install it
+Download ".exe" file from [release page](https://github.com/krustnic/xpanel/releases) and install it
 
 #### Build Setup
 
