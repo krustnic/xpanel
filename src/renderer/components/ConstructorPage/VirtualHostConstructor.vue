@@ -9,15 +9,15 @@
         </x-form-group>
 
         <x-form-group label="Directory">
-            <x-path-input v-model="settings.directory"></x-path-input>
+            <x-input-path v-model="settings.directory"></x-input-path>
         </x-form-group>
 
         <x-form-group label="AccessLog directory">
-            <x-path-input v-model="settings.accessLog"></x-path-input>
+            <x-input-path v-model="settings.accessLog"></x-input-path>
         </x-form-group>
 
         <x-form-group label="ErrorLog directory">
-            <x-path-input v-model="settings.errorLog"></x-path-input>
+            <x-input-path v-model="settings.errorLog"></x-input-path>
         </x-form-group>
 
         <x-form-group label="PHP version (FastCGI)">
@@ -31,7 +31,7 @@
   import {GETTER_TYPE} from '@/utils/types'
   import XFormGroup from '@/components/XFormGroup'
   import XInput from '@/components/XInput'
-  import XPathInput from '@/components/XPathInput'
+  import XInputPath from '@/components/XInputPath'
   import XButton from '@/components/XButton'
   import XSelect from '@/components/XSelect'
   import {template} from 'lodash'
@@ -39,7 +39,7 @@
   import fs from 'fs'
 
   export default {
-    components: {XFormGroup, XInput, XPathInput, XButton, XSelect},
+    components: {XFormGroup, XInput, XInputPath, XButton, XSelect},
     data () {
       return {
         settings: {

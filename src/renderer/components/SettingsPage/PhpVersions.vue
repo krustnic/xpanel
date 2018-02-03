@@ -4,7 +4,7 @@
             <x-form-group v-for="(folderItem, index) in folders" :key="index">
                 <div class="php-folder-item">
                     <x-file-path class="label">{{ folderItem.label }}</x-file-path>
-                    <x-path-input @input="updatePath(folderItem, $event)" :value="folderItem.path"></x-path-input>
+                    <x-input-path @input="updatePath(folderItem, $event)" :value="folderItem.path"></x-input-path>
                     <x-button @click="removeFolder(index)" class="remove" type="danger">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </x-button>
@@ -23,12 +23,12 @@
 <script>
   import XFormGroup from '@/components/XFormGroup'
   import XButton from '@/components/XButton'
-  import XPathInput from '@/components/XPathInput'
+  import XInputPath from '@/components/XInputPath'
   import XFilePath from '@/components/XFilePath'
   import PhpChecker from '@/utils/PhpChecker'
 
   export default {
-    components: {XFormGroup, XButton, XPathInput, XFilePath},
+    components: {XFormGroup, XButton, XInputPath, XFilePath},
     props: {
       folders: {
         type: Array,
