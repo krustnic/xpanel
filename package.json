@@ -1,6 +1,6 @@
 {
-  "name": "xpanel",
-  "version": "0.0.0",
+  "name": "XPanel",
+  "version": "1.0.0",
   "author": "avmityakov <avmityakov@gmail.com>",
   "description": "XAMPP control panel alternative",
   "license": null,
@@ -24,8 +24,8 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "xpanel",
-    "appId": "org.simulatedgreg.electron-vue",
+    "productName": "XPanel",
+    "appId": "org.krustnic.xpanel",
     "directories": {
       "output": "build"
     },
