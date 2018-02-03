@@ -21,7 +21,7 @@
         </x-form-group>
 
         <x-disable-content :disabled="!settings.isFastCGI">
-            <php-versions :folders="settings.phpFolders"></php-versions>
+            <php-versions v-model="settings.phpFolders"></php-versions>
         </x-disable-content>
 
         <hr>

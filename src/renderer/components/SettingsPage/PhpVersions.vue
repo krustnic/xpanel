@@ -30,7 +30,7 @@
   export default {
     components: {XFormGroup, XButton, XInputPath, XFilePath},
     props: {
-      folders: {
+      value: {
         type: Array,
         default () {
           return []
@@ -38,7 +38,12 @@
       }
     },
     data () {
-      return {}
+      return {
+        folders: []
+      }
+    },
+    created () {
+      this.folders = this.value.slice()
     },
     methods: {
       addFolder () {
@@ -46,14 +51,17 @@
           path: '',
           label: 'version'
         })
+        this.$emit('input', this.folders)
       },
       removeFolder (index) {
         this.folders.splice(index, 1)
+        this.$emit('input', this.folders)
       },
       updatePath (folderItem, value) {
         PhpChecker.validate(value).then(phpVersion => {
           folderItem.path = value
           folderItem.label = phpVersion
+          this.$emit('input', this.folders)
         }).catch(e => {
           this.$message({
             type: 'error',
