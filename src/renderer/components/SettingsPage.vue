@@ -5,7 +5,7 @@
         </div>
         <hr>
         <x-form-group label="XAMPP path:">
-            <x-input v-model="settings.xamppRoot"></x-input>
+            <x-input-path v-model="settings.xamppRoot"></x-input-path>
         </x-form-group>
 
         <x-form-group label="Hosts file path:">
@@ -39,6 +39,7 @@
   import {mapGetters, mapMutations, mapActions} from 'vuex'
   import XFormGroup from '@/components/XFormGroup'
   import XInput from '@/components/XInput'
+  import XInputPath from '@/components/XInputPath'
   import XButton from '@/components/XButton'
   import XDisableContent from '@/components/XDisableContent'
   import XCheckbox from '@/components/XCheckbox'
@@ -46,7 +47,7 @@
   import FastCgiModal from './SettingsPage/FastCgiModal'
 
   export default {
-    components: {XFormGroup, XInput, XButton, XDisableContent, PhpVersions, FastCgiModal, XCheckbox},
+    components: {XFormGroup, XInput, XInputPath, XButton, XDisableContent, PhpVersions, FastCgiModal, XCheckbox},
     data () {
       return {
         settings: {
