@@ -1,6 +1,6 @@
 # XPanel
 
-> XAMPP control panel alternative
+> XAMPP control panel alternative build with [electron-vue](https://github.com/SimulatedGREG/electron-vue)
 
 <p align='center'>
   <img src=".github/screenshot.png?raw=true">
