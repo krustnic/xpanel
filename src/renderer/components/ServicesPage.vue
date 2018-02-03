@@ -27,7 +27,7 @@
 <script>
   import {APACHE_STATE_TYPE, GETTER_TYPE, MUTATION_TYPE, ACTION_TYPE} from '@/utils/types'
   import { mapGetters, mapMutations, mapActions } from 'vuex'
-  import {Runner} from '../utils/runners'
+  import {Runner} from '../utils/Runners'
   import XButton from '@/components/XButton'
   import Log from './ServicesPage/Log'
 

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import {MUTATION_TYPE, GETTER_TYPE, ACTION_TYPE} from '@/utils/types'
-import {HttpdLoader, HostsLoader, LogLoader} from '../../utils/file-loaders'
+import {HttpdLoader, HostsLoader, LogLoader} from '../../utils/FileLoaders'
 
 const state = {
   // etc/hosts

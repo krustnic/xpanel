@@ -1,4 +1,4 @@
-import processesUtils from '../../utils/processes'
+import processesUtils from '../../utils/Processes'
 import {APACHE_STATE_TYPE, GETTER_TYPE, MUTATION_TYPE, ACTION_TYPE} from '../../utils/types'
 
 const state = {

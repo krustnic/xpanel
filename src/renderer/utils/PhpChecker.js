@@ -1,6 +1,6 @@
 import fs from 'fs'
 import _path from 'path'
-import {Runner} from '@/utils/runners'
+import {Runner} from '@/utils/Runners'
 
 export default {
   validate (path) {
