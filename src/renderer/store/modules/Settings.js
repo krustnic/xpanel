@@ -53,7 +53,8 @@ const getters = {
 
   [GETTER_TYPE.Settings.getPhpVersionByPath]: state => (phpPath) => {
     for (let i in state.phpFolders) {
-      if (state.phpFolders[i].path === phpPath) {
+      let path = state.phpFolders[i].path.replace(/\\/g, '/')
+      if (path === phpPath) {
         return state.phpFolders[i].label
       }
     }
