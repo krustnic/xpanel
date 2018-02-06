@@ -29,6 +29,7 @@
     "directories": {
       "output": "build"
     },
+    "asar": false,
     "files": [
       "dist/electron/**/*"
     ],
