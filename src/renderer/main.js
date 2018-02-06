@@ -14,7 +14,7 @@ Vue.use(Message)
 
 function initializeApp () {
   // Load and parse virtual host file
-  store.dispatch(`Files/${ACTION_TYPE.Files.loadHttpdFile}`).then(() => {
+  store.dispatch(`Files/${ACTION_TYPE.Files.loadHttpdFile}`).finally(() => {
     /* eslint-disable no-new */
     new Vue({
       components: {App},
